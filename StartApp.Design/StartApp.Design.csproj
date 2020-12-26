@@ -1,0 +1,445 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B9119997-F40A-495A-8F42-E9964366B4F4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StartApp.Design</RootNamespace>
+    <AssemblyName>StartApp.Design</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44313</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.8</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="docs\argon.css" />
+    <Content Include="docs\documentation.html" />
+    <Content Include="e2e\protractor.conf.js" />
+    <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\categories\categories.component.css" />
+    <Content Include="src\app\categories\categories.component.html" />
+    <Content Include="src\app\details\details.component.css" />
+    <Content Include="src\app\details\details.component.html" />
+    <Content Include="src\app\docs\docs.component.css" />
+    <Content Include="src\app\docs\docs.component.html" />
+    <Content Include="src\app\home\home.component.html" />
+    <Content Include="src\app\landing\landing.component.html" />
+    <Content Include="src\app\login\login.component.css" />
+    <Content Include="src\app\login\login.component.html" />
+    <Content Include="src\app\profile\profile.component.html" />
+    <Content Include="src\app\properties\properties.component.css" />
+    <Content Include="src\app\properties\properties.component.html" />
+    <Content Include="src\app\sections\alerts-section\alerts-section.component.css" />
+    <Content Include="src\app\sections\alerts-section\alerts-section.component.html" />
+    <Content Include="src\app\sections\angular-section\angular-section.component.css" />
+    <Content Include="src\app\sections\angular-section\angular-section.component.html" />
+    <Content Include="src\app\sections\buttons-section\buttons-section.component.css" />
+    <Content Include="src\app\sections\buttons-section\buttons-section.component.html" />
+    <Content Include="src\app\sections\crs-section\crs-section.component.css" />
+    <Content Include="src\app\sections\crs-section\crs-section.component.html" />
+    <Content Include="src\app\sections\inputs-section\inputs-section.component.css" />
+    <Content Include="src\app\sections\inputs-section\inputs-section.component.html" />
+    <Content Include="src\app\sections\modal\modal.component.html" />
+    <Content Include="src\app\sections\navigation-section\navigation-section.component.css" />
+    <Content Include="src\app\sections\navigation-section\navigation-section.component.html" />
+    <Content Include="src\app\sections\nucleo-section\nucleo-section.component.css" />
+    <Content Include="src\app\sections\nucleo-section\nucleo-section.component.html" />
+    <Content Include="src\app\sections\sections.component.css" />
+    <Content Include="src\app\sections\sections.component.html" />
+    <Content Include="src\app\sections\tabs-section\tabs-section.component.css" />
+    <Content Include="src\app\sections\tabs-section\tabs-section.component.html" />
+    <Content Include="src\app\sections\typography-section\typography-section.component.css" />
+    <Content Include="src\app\sections\typography-section\typography-section.component.html" />
+    <Content Include="src\app\sections\versions-section\versions-section.component.css" />
+    <Content Include="src\app\sections\versions-section\versions-section.component.html" />
+    <Content Include="src\app\shared\footer\footer.component.html" />
+    <Content Include="src\app\shared\navbar\navbar.component.html" />
+    <Content Include="src\app\signup\signup.component.html" />
+    <Content Include="src\app\suggestions\suggestions.component.css" />
+    <Content Include="src\app\suggestions\suggestions.component.html" />
+    <Content Include="src\assets\img\brand\argon-white.png" />
+    <Content Include="src\assets\img\brand\blue.png" />
+    <Content Include="src\assets\img\brand\creativetim-white-slim.png" />
+    <Content Include="src\assets\img\brand\favicon.png" />
+    <Content Include="src\assets\img\brand\favicon0.png" />
+    <Content Include="src\assets\img\brand\white.png" />
+    <Content Include="src\assets\img\icons\common\github.svg" />
+    <Content Include="src\assets\img\icons\common\google.svg" />
+    <Content Include="src\assets\img\ill\ill-2.svg" />
+    <Content Include="src\assets\img\theme\img-1-1200x1000.jpg" />
+    <Content Include="src\assets\img\theme\img-2-1200x1000.jpg" />
+    <Content Include="src\assets\img\theme\landing.jpg" />
+    <Content Include="src\assets\img\theme\profile.jpg" />
+    <Content Include="src\assets\img\theme\promo-1.png" />
+    <Content Include="src\assets\img\theme\team-1-800x800.jpg" />
+    <Content Include="src\assets\img\theme\team-2-800x800.jpg" />
+    <Content Include="src\assets\img\theme\team-3-800x800.jpg" />
+    <Content Include="src\assets\img\theme\team-4-800x800.jpg" />
+    <Content Include="src\assets\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="src\assets\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="src\assets\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="src\assets\vendor\nucleo\css\nucleo-svg.css" />
+    <Content Include="src\assets\vendor\nucleo\css\nucleo.css" />
+    <Content Include="src\assets\vendor\nucleo\fonts\nucleo-icons.svg" />
+    <Content Include="src\favicon.ico" />
+    <Content Include="src\index.html" />
+    <Content Include="src\karma.conf.js" />
+    <Content Include="src\styles.css" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".github\workflows\main.yml" />
+    <Content Include="angular.json" />
+    <Content Include="CHANGELOG.md" />
+    <Content Include="e2e\tsconfig.e2e.json" />
+    <Content Include="ISSUE_TEMPLATE.md" />
+    <Content Include="LICENSE.md" />
+    <Content Include="obj\Debug\build.force" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\StartApp.Design.csprojAssemblyReference.cache" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <None Include="packages.config" />
+    <Content Include="README.md" />
+    <Content Include="src\app\app.component.scss" />
+    <Content Include="src\app\home\home.component.scss" />
+    <Content Include="src\app\landing\landing.component.scss" />
+    <Content Include="src\app\profile\profile.component.scss" />
+    <Content Include="src\app\sections\modal\modal.component.scss" />
+    <Content Include="src\app\shared\footer\footer.component.scss" />
+    <Content Include="src\app\shared\navbar\navbar.component.scss" />
+    <Content Include="src\app\signup\signup.component.scss" />
+    <Content Include="src\assets\scss\angular\_alerts.scss" />
+    <Content Include="src\assets\scss\angular\_datepicker.scss" />
+    <Content Include="src\assets\scss\angular\_dropdowns.scss" />
+    <Content Include="src\assets\scss\angular\_input-group.scss" />
+    <Content Include="src\assets\scss\angular\_navbar.scss" />
+    <Content Include="src\assets\scss\angular\_tabs.scss" />
+    <Content Include="src\assets\scss\argon.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="src\assets\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="src\assets\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="src\assets\scss\bootstrap\_alert.scss" />
+    <Content Include="src\assets\scss\bootstrap\_badge.scss" />
+    <Content Include="src\assets\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="src\assets\scss\bootstrap\_button-group.scss" />
+    <Content Include="src\assets\scss\bootstrap\_buttons.scss" />
+    <Content Include="src\assets\scss\bootstrap\_card.scss" />
+    <Content Include="src\assets\scss\bootstrap\_carousel.scss" />
+    <Content Include="src\assets\scss\bootstrap\_close.scss" />
+    <Content Include="src\assets\scss\bootstrap\_code.scss" />
+    <Content Include="src\assets\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="src\assets\scss\bootstrap\_dropdown.scss" />
+    <Content Include="src\assets\scss\bootstrap\_forms.scss" />
+    <Content Include="src\assets\scss\bootstrap\_functions.scss" />
+    <Content Include="src\assets\scss\bootstrap\_grid.scss" />
+    <Content Include="src\assets\scss\bootstrap\_images.scss" />
+    <Content Include="src\assets\scss\bootstrap\_input-group.scss" />
+    <Content Include="src\assets\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="src\assets\scss\bootstrap\_list-group.scss" />
+    <Content Include="src\assets\scss\bootstrap\_media.scss" />
+    <Content Include="src\assets\scss\bootstrap\_mixins.scss" />
+    <Content Include="src\assets\scss\bootstrap\_modal.scss" />
+    <Content Include="src\assets\scss\bootstrap\_nav.scss" />
+    <Content Include="src\assets\scss\bootstrap\_navbar.scss" />
+    <Content Include="src\assets\scss\bootstrap\_pagination.scss" />
+    <Content Include="src\assets\scss\bootstrap\_popover.scss" />
+    <Content Include="src\assets\scss\bootstrap\_print.scss" />
+    <Content Include="src\assets\scss\bootstrap\_progress.scss" />
+    <Content Include="src\assets\scss\bootstrap\_reboot.scss" />
+    <Content Include="src\assets\scss\bootstrap\_root.scss" />
+    <Content Include="src\assets\scss\bootstrap\_tables.scss" />
+    <Content Include="src\assets\scss\bootstrap\_tooltip.scss" />
+    <Content Include="src\assets\scss\bootstrap\_transitions.scss" />
+    <Content Include="src\assets\scss\bootstrap\_type.scss" />
+    <Content Include="src\assets\scss\bootstrap\_utilities.scss" />
+    <Content Include="src\assets\scss\bootstrap\_variables.scss" />
+    <Content Include="src\assets\scss\custom\mixins\_alert.scss" />
+    <Content Include="src\assets\scss\custom\mixins\_background-variant.scss" />
+    <Content Include="src\assets\scss\custom\mixins\_badge.scss" />
+    <Content Include="src\assets\scss\custom\mixins\_buttons.scss" />
+    <Content Include="src\assets\scss\custom\mixins\_forms.scss" />
+    <Content Include="src\assets\scss\custom\mixins\_icon.scss" />
+    <Content Include="src\assets\scss\custom\mixins\_modals.scss" />
+    <Content Include="src\assets\scss\custom\mixins\_popover.scss" />
+    <Content Include="src\assets\scss\custom\utilities\_backgrounds.scss" />
+    <Content Include="src\assets\scss\custom\utilities\_floating.scss" />
+    <Content Include="src\assets\scss\custom\utilities\_helper.scss" />
+    <Content Include="src\assets\scss\custom\utilities\_position.scss" />
+    <Content Include="src\assets\scss\custom\utilities\_shadows.scss" />
+    <Content Include="src\assets\scss\custom\utilities\_sizing.scss" />
+    <Content Include="src\assets\scss\custom\utilities\_spacing.scss" />
+    <Content Include="src\assets\scss\custom\utilities\_text.scss" />
+    <Content Include="src\assets\scss\custom\utilities\_transform.scss" />
+    <Content Include="src\assets\scss\custom\vendor\_bootstrap-datepicker.scss" />
+    <Content Include="src\assets\scss\custom\vendor\_headroom.scss" />
+    <Content Include="src\assets\scss\custom\vendor\_nouislider.scss" />
+    <Content Include="src\assets\scss\custom\_accordion.scss" />
+    <Content Include="src\assets\scss\custom\_alerts.scss" />
+    <Content Include="src\assets\scss\custom\_avatars.scss" />
+    <Content Include="src\assets\scss\custom\_badge.scss" />
+    <Content Include="src\assets\scss\custom\_buttons.scss" />
+    <Content Include="src\assets\scss\custom\_card.scss" />
+    <Content Include="src\assets\scss\custom\_carousel.scss" />
+    <Content Include="src\assets\scss\custom\_close.scss" />
+    <Content Include="src\assets\scss\custom\_custom-forms.scss" />
+    <Content Include="src\assets\scss\custom\_dropdown.scss" />
+    <Content Include="src\assets\scss\custom\_footer.scss" />
+    <Content Include="src\assets\scss\custom\_forms.scss" />
+    <Content Include="src\assets\scss\custom\_functions.scss" />
+    <Content Include="src\assets\scss\custom\_global.scss" />
+    <Content Include="src\assets\scss\custom\_grid.scss" />
+    <Content Include="src\assets\scss\custom\_icons.scss" />
+    <Content Include="src\assets\scss\custom\_input-group.scss" />
+    <Content Include="src\assets\scss\custom\_list-group.scss" />
+    <Content Include="src\assets\scss\custom\_mixins.scss" />
+    <Content Include="src\assets\scss\custom\_modal.scss" />
+    <Content Include="src\assets\scss\custom\_nav.scss" />
+    <Content Include="src\assets\scss\custom\_navbar.scss" />
+    <Content Include="src\assets\scss\custom\_pagination.scss" />
+    <Content Include="src\assets\scss\custom\_popover.scss" />
+    <Content Include="src\assets\scss\custom\_progress.scss" />
+    <Content Include="src\assets\scss\custom\_reboot.scss" />
+    <Content Include="src\assets\scss\custom\_section.scss" />
+    <Content Include="src\assets\scss\custom\_separator.scss" />
+    <Content Include="src\assets\scss\custom\_type.scss" />
+    <Content Include="src\assets\scss\custom\_utilities.scss" />
+    <Content Include="src\assets\scss\custom\_variables.scss" />
+    <Content Include="src\assets\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="src\assets\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="src\assets\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="src\assets\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="src\assets\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="src\assets\vendor\nucleo\fonts\nucleo-icons.eot" />
+    <Content Include="src\assets\vendor\nucleo\fonts\nucleo-icons.ttf" />
+    <Content Include="src\assets\vendor\nucleo\fonts\nucleo-icons.woff" />
+    <Content Include="src\assets\vendor\nucleo\fonts\nucleo-icons.woff2" />
+    <Content Include="src\browserslist" />
+    <Content Include="src\tsconfig.app.json" />
+    <Content Include="src\tsconfig.spec.json" />
+    <Content Include="src\tslint.json" />
+    <Content Include="tsconfig.json" />
+    <Content Include="tslint.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="e2e\src\app.e2e-spec.ts" />
+    <TypeScriptCompile Include="e2e\src\app.po.ts" />
+    <TypeScriptCompile Include="src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\app.routing.ts" />
+    <TypeScriptCompile Include="src\app\categories\categories.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\categories\categories.component.ts" />
+    <TypeScriptCompile Include="src\app\details\details.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\details\details.component.ts" />
+    <TypeScriptCompile Include="src\app\docs\docs.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\docs\docs.component.ts" />
+    <TypeScriptCompile Include="src\app\home\home.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\home\home.component.ts" />
+    <TypeScriptCompile Include="src\app\home\home.module.ts" />
+    <TypeScriptCompile Include="src\app\landing\landing.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\landing\landing.component.ts" />
+    <TypeScriptCompile Include="src\app\login\login.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\login\login.component.ts" />
+    <TypeScriptCompile Include="src\app\profile\profile.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\profile\profile.component.ts" />
+    <TypeScriptCompile Include="src\app\properties\properties.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\properties\properties.component.ts" />
+    <TypeScriptCompile Include="src\app\sections\alerts-section\alerts-section.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\sections\alerts-section\alerts-section.component.ts" />
+    <TypeScriptCompile Include="src\app\sections\angular-section\angular-section.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\sections\angular-section\angular-section.component.ts" />
+    <TypeScriptCompile Include="src\app\sections\buttons-section\buttons-section.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\sections\buttons-section\buttons-section.component.ts" />
+    <TypeScriptCompile Include="src\app\sections\crs-section\crs-section.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\sections\crs-section\crs-section.component.ts" />
+    <TypeScriptCompile Include="src\app\sections\inputs-section\inputs-section.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\sections\inputs-section\inputs-section.component.ts" />
+    <TypeScriptCompile Include="src\app\sections\modal\modal.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\sections\modal\modal.component.ts" />
+    <TypeScriptCompile Include="src\app\sections\navigation-section\navigation-section.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\sections\navigation-section\navigation-section.component.ts" />
+    <TypeScriptCompile Include="src\app\sections\nucleo-section\nucleo-section.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\sections\nucleo-section\nucleo-section.component.ts" />
+    <TypeScriptCompile Include="src\app\sections\sections.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\sections\sections.component.ts" />
+    <TypeScriptCompile Include="src\app\sections\sections.module.ts" />
+    <TypeScriptCompile Include="src\app\sections\tabs-section\tabs-section.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\sections\tabs-section\tabs-section.component.ts" />
+    <TypeScriptCompile Include="src\app\sections\typography-section\typography-section.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\sections\typography-section\typography-section.component.ts" />
+    <TypeScriptCompile Include="src\app\sections\versions-section\versions-section.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\sections\versions-section\versions-section.component.ts" />
+    <TypeScriptCompile Include="src\app\service\items.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\service\items.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\footer\footer.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\footer\footer.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\navbar\navbar.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\navbar\navbar.component.ts" />
+    <TypeScriptCompile Include="src\app\signup\signup.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\signup\signup.component.ts" />
+    <TypeScriptCompile Include="src\app\suggestions\suggestions.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\suggestions\suggestions.component.ts" />
+    <TypeScriptCompile Include="src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="src\environments\environment.ts" />
+    <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\polyfills.ts" />
+    <TypeScriptCompile Include="src\test.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59239</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44313/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

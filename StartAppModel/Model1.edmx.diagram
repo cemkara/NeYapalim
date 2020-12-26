@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dd24d98150e54ce4a036fd7d6f5c0054" Name="Diagram1">
+        <EntityTypeShape EntityType="StartAppModel.AddedByUserProducts" Width="1.5" PointX="5.25" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.Admins" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.AllProducts" Width="1.5" PointX="6" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.Categories" Width="1.5" PointX="3" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.Cities" Width="1.5" PointX="4.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.Comments" Width="1.5" PointX="8.25" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.ContactForms" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.Countries" Width="1.5" PointX="2.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.DistinctTest" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.Districts" Width="1.5" PointX="6.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.Languages" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.LanguageTexts" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.MainCategories" Width="1.5" PointX="9" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.PlaceCategories" Width="1.5" PointX="14.25" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.PlaceMostPreferredProducts" Width="1.5" PointX="5.25" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.PlaceProducts" Width="1.5" PointX="3" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.PlaceProperties" Width="1.5" PointX="14.25" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.Places" Width="1.5" PointX="9" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.PlaceTypes" Width="1.5" PointX="6.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.Properties" Width="1.5" PointX="9" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.UserDistricts" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.UserFavoritePlaces" Width="1.5" PointX="5.25" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.UserFavoriteProducts" Width="1.5" PointX="8.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.UserFavoriteProperties" Width="1.5" PointX="8.25" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.UserPlaceRequests" Width="1.5" PointX="5.25" PointY="39.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.UserPoints" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.UserPointTypes" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.UserRecommendedPlaces" Width="1.5" PointX="11.25" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.Users" Width="1.5" PointX="3" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.UserSelectedCategories" Width="1.5" PointX="5.25" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.UserSelectedMainCategories" Width="1.5" PointX="11.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.UserSelectedProperties" Width="1.5" PointX="11.25" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.UserTypes" Width="1.5" PointX="0.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StartAppModel.UserVisitedPlaces" Width="1.5" PointX="11.25" PointY="15" IsExpanded="true" />
+        <AssociationConnector Association="StartAppModel.FK_AddedByUserProducts_PlaceProducts" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_AddedByUserProducts_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_PlaceProducts_AllProducts" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserFavoriteProducts_AllProducts" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_Categories_MainCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_PlaceCategories_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserSelectedCategories_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_Cities_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_Districts_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_Comments_Places" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_Comments_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_Comments_UserVisitedPlaces" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_Places_Districts" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserDistricts_Districts" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_LanguageTexts_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserSelectedMainCategories_MainCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_PlaceCategories_Places" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_PlaceMostPreferredProducts_PlaceProducts" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_PlaceProducts_Places" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_PlaceProperties_Places" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_PlaceProperties_Properties" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_Places_PlaceTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserFavoritePlaces_Places" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserRecommendedPlaces_Places" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserVisitedPlaces_Places" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserFavoriteProperties_Properties" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserSelectedProperties_Properties" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserDistricts_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserFavoritePlaces_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserFavoriteProducts_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserFavoriteProperties_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserPlaceRequests_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserPoints_UserPointTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserPoints_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserRecommendedPlaces_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_Users_UserTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserSelectedCategories_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserSelectedMainCategories_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserSelectedProperties_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="StartAppModel.FK_UserVisitedPlaces_Users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="StartAppModel.CategoryProperties" Width="1.5" PointX="11.25" PointY="32.25" />
+        <AssociationConnector Association="StartAppModel.FK_CategoryProperties_Categories" />
+        <AssociationConnector Association="StartAppModel.FK_CategoryProperties_Properties" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

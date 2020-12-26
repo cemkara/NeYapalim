@@ -1,0 +1,29 @@
+.logo img{
+    height: 70px;
+}
+
+.mt-50{
+    margin-top: 50px;
+}
+
+.mb-50{
+    margin-bottom: 50px;
+}
+
+.mt-100{
+    margin-top: 100px;
+}
+
+.home-container{
+    margin-top: 50px;
+    margin-bottom: 200px;
+}
+
+.ng-autocomplete {
+    width:100%;
+    max-width: 600px;
+    display: table;
+    margin: 0 auto;
+    z-index: 999999;
+  }
+  

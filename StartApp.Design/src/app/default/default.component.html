@@ -1,0 +1,66 @@
+<main>
+    <div class="position-relative">
+      <!-- Hero for FREE version -->
+      <section class="section section-lg section-hero section-shaped">
+        <!-- Background circles -->
+        <div class="shape shape-style-1 shape-primary">
+          <span class="span-150"></span>
+          <span class="span-50"></span>
+          <span class="span-50"></span>
+          <span class="span-75"></span>
+          <span class="span-100"></span>
+          <span class="span-75"></span>
+          <span class="span-50"></span>
+          <span class="span-100"></span>
+          <span class="span-50"></span>
+          <span class="span-100"></span>
+        </div>
+        <div class="logo text-center">
+            <img src="./assets/img/brand/argon-white.png">
+        </div>
+        <div class="container shape-container d-flex align-items-center home-container">
+          <div class="col px-0">
+                <p class="lead text-white text-center mb-50">Bugün canın ne yapmak istiyor?</p>
+                <div class="ng-autocomplete">
+                  <ng-autocomplete 
+                    [data]="data"
+                    [searchKeyword]="keyword"
+                    (selected)='selectEvent($event)'
+                    (inputChanged)='onChangeSearch($event)'
+                    (inputFocused)='onFocused($event)'
+                    [itemTemplate]="itemTemplate"
+                    placeHolder="{{localdata.get('districtName') ? localdata.get('districtName') : 'Konum Belirlenemedi'}}"
+                    [notFoundTemplate]="notFoundTemplate">                                 
+                  </ng-autocomplete>
+                   
+                  <ng-template #itemTemplate let-item>
+                  <a [innerHTML]="item.name"></a>
+                  </ng-template>
+                   
+                  <ng-template #notFoundTemplate let-notFound>
+                  <div [innerHTML]="notFound"></div>
+                  </ng-template>
+                  </div> 
+                <div class="row align-items-center justify-content-center text-center mt-50">
+                    <div class="col-4" *ngFor="let cat of mainCategories;index as i">
+                      <a href="#/categories/?mainCategoryId={{cat.Id}}">
+                        <img src="https://dummyimage.com/100x100/f0f0f0/000000&text=y" class="rounded" alt="...">
+                        <span class="text-white">{{cat.Name}}</span>
+                      </a>
+                      </div>
+                </div>
+                <div class="row align-items-center justify-content-center text-center mt-50">
+                  <div class="col-3">
+                    <a href="">
+                      <img src="https://dummyimage.com/50x50/f0f0f0/000000&text=?" class="rounded" alt="...">
+                      <span class="text-white">Nasıl Çalışır?</span>
+                    </a>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </section>
+    </div>
+    <!-- <app-sections></app-sections> -->
+  </main>
+  

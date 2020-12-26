@@ -1,0 +1,35 @@
+<main>
+    <div class="position-relative">
+      <!-- Hero for FREE version -->
+      <section class="section section-lg section-hero section-shaped">
+        <!-- Background circles -->
+        <div class="shape shape-style-1 shape-primary">
+          <span class="span-150"></span>
+          <span class="span-50"></span>
+          <span class="span-50"></span>
+          <span class="span-75"></span>
+          <span class="span-100"></span>
+          <span class="span-75"></span>
+          <span class="span-50"></span>
+          <span class="span-100"></span>
+          <span class="span-50"></span>
+          <span class="span-100"></span>
+        </div>
+        <div class="container shape-container d-flex align-items-center py-lg">
+          <div class="col px-0">
+            <p class="lead text-white text-center"><i class="ni ni-pin-3"></i> Beşiktaş</p> 
+            <p class="lead text-white text-center">Size en uygun kategoriler hangisi?</p>
+            <div class="row align-items-center justify-content-center text-center" style="margin-bottom: 10px;"> 
+                <div class="col-3" style="margin-bottom: 20px;" *ngFor="let cat of categories;index as i">
+                    <img (click)="changeSelected(i)" src="https://dummyimage.com/50x50/{{cat.color}}/000000&text=c" class="rounded" alt="...">
+                    <span class="text-white">{{cat.Name}}</span>  
+                </div>
+            </div>
+            <a href="#/properties?selectedCategories={{this.selectedCategories.toString()}}" class="btn btn-1 btn-neutral" type="button">Devam</a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- <app-sections></app-sections> -->
+  </main>
+  

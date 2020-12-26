@@ -1,0 +1,2640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StartAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AddedByUserProducts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlaceProductsId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastLogin" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AllProducts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MainCategoryId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IconUrl" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OrderNo" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CategoryProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="PropertiesId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserVisitedPlaceId" Type="int" Nullable="false" />
+          <Property Name="PlaceId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Point" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactForms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="MessageTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DistinctTest">
+          <Key>
+            <PropertyRef Name="LOC_ID" />
+          </Key>
+          <Property Name="LOC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOC_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="LAT" Type="float" />
+          <Property Name="LONG" Type="float" />
+        </EntityType>
+        <EntityType Name="Districts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="IconUrl" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LanguageTexts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LanguageId" Type="int" Nullable="false" />
+          <Property Name="TextCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MainCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IconUrl" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OrderNo" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlaceCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="PlaceId" Type="int" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlaceMostPreferredProducts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlaceProductId" Type="int" Nullable="false" />
+          <Property Name="OrderNo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlaceProducts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlaceId" Type="int" Nullable="false" />
+          <Property Name="AllProductId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlaceProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyId" Type="int" Nullable="false" />
+          <Property Name="PlaceId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Places">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DistrictId" Type="int" Nullable="false" />
+          <Property Name="AveragePrice" Type="int" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlaceTypeID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="Distance" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShortDescription" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlaceTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Properties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IconUrl" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="OrderNo" Type="int" Nullable="false" />
+          <Property Name="UserFavorite" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserDistricts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="DistrictId" Type="int" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserFavoritePlaces">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="PlaceId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserFavoriteProducts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AllProductId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserFavoriteProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="PropertiesId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserPlaceRequests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserPoints">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserPointTypeId" Type="int" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserPointTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Point" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRecommendedPlaces">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserSelectedPropertyId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="PlaceId" Type="int" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserTypeId" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserSelectedCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserSelectedMainCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="MainCategoryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserSelectedProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="PropertiesId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserVisitedPlaces">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="PlaceId" Type="int" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AddedByUserProducts_PlaceProducts">
+          <End Role="PlaceProducts" Type="Self.PlaceProducts" Multiplicity="1" />
+          <End Role="AddedByUserProducts" Type="Self.AddedByUserProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlaceProducts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AddedByUserProducts">
+              <PropertyRef Name="PlaceProductsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AddedByUserProducts_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="AddedByUserProducts" Type="Self.AddedByUserProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AddedByUserProducts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Categories_MainCategories">
+          <End Role="MainCategories" Type="Self.MainCategories" Multiplicity="1" />
+          <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categories">
+              <PropertyRef Name="MainCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryProperties_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="CategoryProperties" Type="Self.CategoryProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CategoryProperties">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryProperties_Properties">
+          <End Role="Properties" Type="Self.Properties" Multiplicity="1" />
+          <End Role="CategoryProperties" Type="Self.CategoryProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CategoryProperties">
+              <PropertyRef Name="PropertiesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cities_Countries">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_UserVisitedPlaces">
+          <End Role="UserVisitedPlaces" Type="Self.UserVisitedPlaces" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserVisitedPlaces">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="UserVisitedPlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Districts_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Districts" Type="Self.Districts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Districts">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LanguageTexts_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="LanguageTexts" Type="Self.LanguageTexts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LanguageTexts">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaceCategories_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="PlaceCategories" Type="Self.PlaceCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaceCategories">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaceCategories_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="PlaceCategories" Type="Self.PlaceCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaceCategories">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaceMostPreferredProducts_PlaceProducts">
+          <End Role="PlaceProducts" Type="Self.PlaceProducts" Multiplicity="1" />
+          <End Role="PlaceMostPreferredProducts" Type="Self.PlaceMostPreferredProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlaceProducts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaceMostPreferredProducts">
+              <PropertyRef Name="PlaceProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaceProducts_AllProducts">
+          <End Role="AllProducts" Type="Self.AllProducts" Multiplicity="1" />
+          <End Role="PlaceProducts" Type="Self.PlaceProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AllProducts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaceProducts">
+              <PropertyRef Name="AllProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaceProducts_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="PlaceProducts" Type="Self.PlaceProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaceProducts">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaceProperties_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="PlaceProperties" Type="Self.PlaceProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaceProperties">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaceProperties_Properties">
+          <End Role="Properties" Type="Self.Properties" Multiplicity="1" />
+          <End Role="PlaceProperties" Type="Self.PlaceProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaceProperties">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Places_Districts">
+          <End Role="Districts" Type="Self.Districts" Multiplicity="1" />
+          <End Role="Places" Type="Self.Places" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Places">
+              <PropertyRef Name="DistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Places_PlaceTypes">
+          <End Role="PlaceTypes" Type="Self.PlaceTypes" Multiplicity="1" />
+          <End Role="Places" Type="Self.Places" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlaceTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Places">
+              <PropertyRef Name="PlaceTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDistricts_Districts">
+          <End Role="Districts" Type="Self.Districts" Multiplicity="1" />
+          <End Role="UserDistricts" Type="Self.UserDistricts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserDistricts">
+              <PropertyRef Name="DistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDistricts_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserDistricts" Type="Self.UserDistricts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserDistricts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFavoritePlaces_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="UserFavoritePlaces" Type="Self.UserFavoritePlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFavoritePlaces">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFavoritePlaces_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserFavoritePlaces" Type="Self.UserFavoritePlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFavoritePlaces">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFavoriteProducts_AllProducts">
+          <End Role="AllProducts" Type="Self.AllProducts" Multiplicity="1" />
+          <End Role="UserFavoriteProducts" Type="Self.UserFavoriteProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AllProducts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFavoriteProducts">
+              <PropertyRef Name="AllProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFavoriteProducts_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserFavoriteProducts" Type="Self.UserFavoriteProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFavoriteProducts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFavoriteProperties_Properties">
+          <End Role="Properties" Type="Self.Properties" Multiplicity="1" />
+          <End Role="UserFavoriteProperties" Type="Self.UserFavoriteProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFavoriteProperties">
+              <PropertyRef Name="PropertiesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFavoriteProperties_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserFavoriteProperties" Type="Self.UserFavoriteProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFavoriteProperties">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPlaceRequests_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserPlaceRequests" Type="Self.UserPlaceRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPlaceRequests">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPoints_UserPointTypes">
+          <End Role="UserPointTypes" Type="Self.UserPointTypes" Multiplicity="1" />
+          <End Role="UserPoints" Type="Self.UserPoints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserPointTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPoints">
+              <PropertyRef Name="UserPointTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPoints_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserPoints" Type="Self.UserPoints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPoints">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRecommendedPlaces_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="UserRecommendedPlaces" Type="Self.UserRecommendedPlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRecommendedPlaces">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRecommendedPlaces_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserRecommendedPlaces" Type="Self.UserRecommendedPlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRecommendedPlaces">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserTypes">
+          <End Role="UserTypes" Type="Self.UserTypes" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSelectedCategories_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="UserSelectedCategories" Type="Self.UserSelectedCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserSelectedCategories">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSelectedCategories_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserSelectedCategories" Type="Self.UserSelectedCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserSelectedCategories">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSelectedMainCategories_MainCategories">
+          <End Role="MainCategories" Type="Self.MainCategories" Multiplicity="1" />
+          <End Role="UserSelectedMainCategories" Type="Self.UserSelectedMainCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserSelectedMainCategories">
+              <PropertyRef Name="MainCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSelectedMainCategories_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserSelectedMainCategories" Type="Self.UserSelectedMainCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserSelectedMainCategories">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSelectedProperties_Properties">
+          <End Role="Properties" Type="Self.Properties" Multiplicity="1" />
+          <End Role="UserSelectedProperties" Type="Self.UserSelectedProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserSelectedProperties">
+              <PropertyRef Name="PropertiesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSelectedProperties_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserSelectedProperties" Type="Self.UserSelectedProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserSelectedProperties">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserVisitedPlaces_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="UserVisitedPlaces" Type="Self.UserVisitedPlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserVisitedPlaces">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserVisitedPlaces_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserVisitedPlaces" Type="Self.UserVisitedPlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserVisitedPlaces">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StartAppModelStoreContainer">
+          <EntitySet Name="AddedByUserProducts" EntityType="Self.AddedByUserProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AllProducts" EntityType="Self.AllProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryProperties" EntityType="Self.CategoryProperties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactForms" EntityType="Self.ContactForms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DistinctTest" EntityType="Self.DistinctTest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Districts" EntityType="Self.Districts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LanguageTexts" EntityType="Self.LanguageTexts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MainCategories" EntityType="Self.MainCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlaceCategories" EntityType="Self.PlaceCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlaceMostPreferredProducts" EntityType="Self.PlaceMostPreferredProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlaceProducts" EntityType="Self.PlaceProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlaceProperties" EntityType="Self.PlaceProperties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Places" EntityType="Self.Places" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlaceTypes" EntityType="Self.PlaceTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Properties" EntityType="Self.Properties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserDistricts" EntityType="Self.UserDistricts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserFavoritePlaces" EntityType="Self.UserFavoritePlaces" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserFavoriteProducts" EntityType="Self.UserFavoriteProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserFavoriteProperties" EntityType="Self.UserFavoriteProperties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPlaceRequests" EntityType="Self.UserPlaceRequests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPoints" EntityType="Self.UserPoints" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPointTypes" EntityType="Self.UserPointTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRecommendedPlaces" EntityType="Self.UserRecommendedPlaces" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserSelectedCategories" EntityType="Self.UserSelectedCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserSelectedMainCategories" EntityType="Self.UserSelectedMainCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserSelectedProperties" EntityType="Self.UserSelectedProperties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserVisitedPlaces" EntityType="Self.UserVisitedPlaces" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AddedByUserProducts_PlaceProducts" Association="Self.FK_AddedByUserProducts_PlaceProducts">
+            <End Role="PlaceProducts" EntitySet="PlaceProducts" />
+            <End Role="AddedByUserProducts" EntitySet="AddedByUserProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AddedByUserProducts_Users" Association="Self.FK_AddedByUserProducts_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="AddedByUserProducts" EntitySet="AddedByUserProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categories_MainCategories" Association="Self.FK_Categories_MainCategories">
+            <End Role="MainCategories" EntitySet="MainCategories" />
+            <End Role="Categories" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryProperties_Categories" Association="Self.FK_CategoryProperties_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="CategoryProperties" EntitySet="CategoryProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryProperties_Properties" Association="Self.FK_CategoryProperties_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="CategoryProperties" EntitySet="CategoryProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cities_Countries" Association="Self.FK_Cities_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Places" Association="Self.FK_Comments_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Users" Association="Self.FK_Comments_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_UserVisitedPlaces" Association="Self.FK_Comments_UserVisitedPlaces">
+            <End Role="UserVisitedPlaces" EntitySet="UserVisitedPlaces" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Districts_Cities" Association="Self.FK_Districts_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Districts" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LanguageTexts_Languages" Association="Self.FK_LanguageTexts_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="LanguageTexts" EntitySet="LanguageTexts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaceCategories_Categories" Association="Self.FK_PlaceCategories_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="PlaceCategories" EntitySet="PlaceCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaceCategories_Places" Association="Self.FK_PlaceCategories_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="PlaceCategories" EntitySet="PlaceCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaceMostPreferredProducts_PlaceProducts" Association="Self.FK_PlaceMostPreferredProducts_PlaceProducts">
+            <End Role="PlaceProducts" EntitySet="PlaceProducts" />
+            <End Role="PlaceMostPreferredProducts" EntitySet="PlaceMostPreferredProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaceProducts_AllProducts" Association="Self.FK_PlaceProducts_AllProducts">
+            <End Role="AllProducts" EntitySet="AllProducts" />
+            <End Role="PlaceProducts" EntitySet="PlaceProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaceProducts_Places" Association="Self.FK_PlaceProducts_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="PlaceProducts" EntitySet="PlaceProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaceProperties_Places" Association="Self.FK_PlaceProperties_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="PlaceProperties" EntitySet="PlaceProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaceProperties_Properties" Association="Self.FK_PlaceProperties_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="PlaceProperties" EntitySet="PlaceProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Places_Districts" Association="Self.FK_Places_Districts">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="Places" EntitySet="Places" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Places_PlaceTypes" Association="Self.FK_Places_PlaceTypes">
+            <End Role="PlaceTypes" EntitySet="PlaceTypes" />
+            <End Role="Places" EntitySet="Places" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDistricts_Districts" Association="Self.FK_UserDistricts_Districts">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="UserDistricts" EntitySet="UserDistricts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDistricts_Users" Association="Self.FK_UserDistricts_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserDistricts" EntitySet="UserDistricts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFavoritePlaces_Places" Association="Self.FK_UserFavoritePlaces_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="UserFavoritePlaces" EntitySet="UserFavoritePlaces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFavoritePlaces_Users" Association="Self.FK_UserFavoritePlaces_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserFavoritePlaces" EntitySet="UserFavoritePlaces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFavoriteProducts_AllProducts" Association="Self.FK_UserFavoriteProducts_AllProducts">
+            <End Role="AllProducts" EntitySet="AllProducts" />
+            <End Role="UserFavoriteProducts" EntitySet="UserFavoriteProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFavoriteProducts_Users" Association="Self.FK_UserFavoriteProducts_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserFavoriteProducts" EntitySet="UserFavoriteProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFavoriteProperties_Properties" Association="Self.FK_UserFavoriteProperties_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="UserFavoriteProperties" EntitySet="UserFavoriteProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFavoriteProperties_Users" Association="Self.FK_UserFavoriteProperties_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserFavoriteProperties" EntitySet="UserFavoriteProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPlaceRequests_Users" Association="Self.FK_UserPlaceRequests_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserPlaceRequests" EntitySet="UserPlaceRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPoints_UserPointTypes" Association="Self.FK_UserPoints_UserPointTypes">
+            <End Role="UserPointTypes" EntitySet="UserPointTypes" />
+            <End Role="UserPoints" EntitySet="UserPoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPoints_Users" Association="Self.FK_UserPoints_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserPoints" EntitySet="UserPoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRecommendedPlaces_Places" Association="Self.FK_UserRecommendedPlaces_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="UserRecommendedPlaces" EntitySet="UserRecommendedPlaces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRecommendedPlaces_Users" Association="Self.FK_UserRecommendedPlaces_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserRecommendedPlaces" EntitySet="UserRecommendedPlaces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserTypes" Association="Self.FK_Users_UserTypes">
+            <End Role="UserTypes" EntitySet="UserTypes" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSelectedCategories_Categories" Association="Self.FK_UserSelectedCategories_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="UserSelectedCategories" EntitySet="UserSelectedCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSelectedCategories_Users" Association="Self.FK_UserSelectedCategories_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserSelectedCategories" EntitySet="UserSelectedCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSelectedMainCategories_MainCategories" Association="Self.FK_UserSelectedMainCategories_MainCategories">
+            <End Role="MainCategories" EntitySet="MainCategories" />
+            <End Role="UserSelectedMainCategories" EntitySet="UserSelectedMainCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSelectedMainCategories_Users" Association="Self.FK_UserSelectedMainCategories_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserSelectedMainCategories" EntitySet="UserSelectedMainCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSelectedProperties_Properties" Association="Self.FK_UserSelectedProperties_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="UserSelectedProperties" EntitySet="UserSelectedProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSelectedProperties_Users" Association="Self.FK_UserSelectedProperties_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserSelectedProperties" EntitySet="UserSelectedProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserVisitedPlaces_Places" Association="Self.FK_UserVisitedPlaces_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="UserVisitedPlaces" EntitySet="UserVisitedPlaces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserVisitedPlaces_Users" Association="Self.FK_UserVisitedPlaces_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserVisitedPlaces" EntitySet="UserVisitedPlaces" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StartAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AddedByUserProducts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlaceProductsId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="PlaceProducts" Relationship="Self.FK_AddedByUserProducts_PlaceProducts" FromRole="AddedByUserProducts" ToRole="PlaceProducts" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_AddedByUserProducts_Users" FromRole="AddedByUserProducts" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastLogin" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="AllProducts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PlaceProducts" Relationship="Self.FK_PlaceProducts_AllProducts" FromRole="AllProducts" ToRole="PlaceProducts" />
+          <NavigationProperty Name="UserFavoriteProducts" Relationship="Self.FK_UserFavoriteProducts_AllProducts" FromRole="AllProducts" ToRole="UserFavoriteProducts" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MainCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IconUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrderNo" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MainCategories" Relationship="Self.FK_Categories_MainCategories" FromRole="Categories" ToRole="MainCategories" />
+          <NavigationProperty Name="PlaceCategories" Relationship="Self.FK_PlaceCategories_Categories" FromRole="Categories" ToRole="PlaceCategories" />
+          <NavigationProperty Name="UserSelectedCategories" Relationship="Self.FK_UserSelectedCategories_Categories" FromRole="Categories" ToRole="UserSelectedCategories" />
+          <NavigationProperty Name="CategoryProperties" Relationship="StartAppModel.FK_CategoryProperties_Categories" FromRole="Categories" ToRole="CategoryProperties" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Countries" Relationship="Self.FK_Cities_Countries" FromRole="Cities" ToRole="Countries" />
+          <NavigationProperty Name="Districts" Relationship="Self.FK_Districts_Cities" FromRole="Cities" ToRole="Districts" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserVisitedPlaceId" Type="Int32" Nullable="false" />
+          <Property Name="PlaceId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Point" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Places" Relationship="Self.FK_Comments_Places" FromRole="Comments" ToRole="Places" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Comments_Users" FromRole="Comments" ToRole="Users" />
+          <NavigationProperty Name="UserVisitedPlaces" Relationship="Self.FK_Comments_UserVisitedPlaces" FromRole="Comments" ToRole="UserVisitedPlaces" />
+        </EntityType>
+        <EntityType Name="ContactForms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MessageTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_Cities_Countries" FromRole="Countries" ToRole="Cities" />
+        </EntityType>
+        <EntityType Name="DistinctTest">
+          <Key>
+            <PropertyRef Name="LOC_ID" />
+          </Key>
+          <Property Name="LOC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOC_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LAT" Type="Double" />
+          <Property Name="LONG" Type="Double" />
+        </EntityType>
+        <EntityType Name="Districts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="Longitude" Type="Double" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_Districts_Cities" FromRole="Districts" ToRole="Cities" />
+          <NavigationProperty Name="Places" Relationship="Self.FK_Places_Districts" FromRole="Districts" ToRole="Places" />
+          <NavigationProperty Name="UserDistricts" Relationship="Self.FK_UserDistricts_Districts" FromRole="Districts" ToRole="UserDistricts" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IconUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="LanguageTexts" Relationship="Self.FK_LanguageTexts_Languages" FromRole="Languages" ToRole="LanguageTexts" />
+        </EntityType>
+        <EntityType Name="LanguageTexts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageId" Type="Int32" Nullable="false" />
+          <Property Name="TextCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Languages" Relationship="Self.FK_LanguageTexts_Languages" FromRole="LanguageTexts" ToRole="Languages" />
+        </EntityType>
+        <EntityType Name="MainCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IconUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrderNo" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK_Categories_MainCategories" FromRole="MainCategories" ToRole="Categories" />
+          <NavigationProperty Name="UserSelectedMainCategories" Relationship="Self.FK_UserSelectedMainCategories_MainCategories" FromRole="MainCategories" ToRole="UserSelectedMainCategories" />
+        </EntityType>
+        <EntityType Name="PlaceCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="PlaceId" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK_PlaceCategories_Categories" FromRole="PlaceCategories" ToRole="Categories" />
+          <NavigationProperty Name="Places" Relationship="Self.FK_PlaceCategories_Places" FromRole="PlaceCategories" ToRole="Places" />
+        </EntityType>
+        <EntityType Name="PlaceMostPreferredProducts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlaceProductId" Type="Int32" Nullable="false" />
+          <Property Name="OrderNo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PlaceProducts" Relationship="Self.FK_PlaceMostPreferredProducts_PlaceProducts" FromRole="PlaceMostPreferredProducts" ToRole="PlaceProducts" />
+        </EntityType>
+        <EntityType Name="PlaceProducts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlaceId" Type="Int32" Nullable="false" />
+          <Property Name="AllProductId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AddedByUserProducts" Relationship="Self.FK_AddedByUserProducts_PlaceProducts" FromRole="PlaceProducts" ToRole="AddedByUserProducts" />
+          <NavigationProperty Name="AllProducts" Relationship="Self.FK_PlaceProducts_AllProducts" FromRole="PlaceProducts" ToRole="AllProducts" />
+          <NavigationProperty Name="PlaceMostPreferredProducts" Relationship="Self.FK_PlaceMostPreferredProducts_PlaceProducts" FromRole="PlaceProducts" ToRole="PlaceMostPreferredProducts" />
+          <NavigationProperty Name="Places" Relationship="Self.FK_PlaceProducts_Places" FromRole="PlaceProducts" ToRole="Places" />
+        </EntityType>
+        <EntityType Name="PlaceProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyId" Type="Int32" Nullable="false" />
+          <Property Name="PlaceId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Places" Relationship="Self.FK_PlaceProperties_Places" FromRole="PlaceProperties" ToRole="Places" />
+          <NavigationProperty Name="Properties" Relationship="Self.FK_PlaceProperties_Properties" FromRole="PlaceProperties" ToRole="Properties" />
+        </EntityType>
+        <EntityType Name="Places">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DistrictId" Type="Int32" Nullable="false" />
+          <Property Name="AveragePrice" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlaceTypeID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="Longitude" Type="Double" />
+          <Property Name="Distance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_Places" FromRole="Places" ToRole="Comments" />
+          <NavigationProperty Name="Districts" Relationship="Self.FK_Places_Districts" FromRole="Places" ToRole="Districts" />
+          <NavigationProperty Name="PlaceCategories" Relationship="Self.FK_PlaceCategories_Places" FromRole="Places" ToRole="PlaceCategories" />
+          <NavigationProperty Name="PlaceProducts" Relationship="Self.FK_PlaceProducts_Places" FromRole="Places" ToRole="PlaceProducts" />
+          <NavigationProperty Name="PlaceProperties" Relationship="Self.FK_PlaceProperties_Places" FromRole="Places" ToRole="PlaceProperties" />
+          <NavigationProperty Name="PlaceTypes" Relationship="Self.FK_Places_PlaceTypes" FromRole="Places" ToRole="PlaceTypes" />
+          <NavigationProperty Name="UserFavoritePlaces" Relationship="Self.FK_UserFavoritePlaces_Places" FromRole="Places" ToRole="UserFavoritePlaces" />
+          <NavigationProperty Name="UserRecommendedPlaces" Relationship="Self.FK_UserRecommendedPlaces_Places" FromRole="Places" ToRole="UserRecommendedPlaces" />
+          <NavigationProperty Name="UserVisitedPlaces" Relationship="Self.FK_UserVisitedPlaces_Places" FromRole="Places" ToRole="UserVisitedPlaces" />
+          <Property Name="ShortDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PlaceTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Places" Relationship="Self.FK_Places_PlaceTypes" FromRole="PlaceTypes" ToRole="Places" />
+        </EntityType>
+        <EntityType Name="Properties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IconUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="OrderNo" Type="Int32" Nullable="false" />
+          <Property Name="UserFavorite" Type="Boolean" />
+          <NavigationProperty Name="PlaceProperties" Relationship="Self.FK_PlaceProperties_Properties" FromRole="Properties" ToRole="PlaceProperties" />
+          <NavigationProperty Name="UserFavoriteProperties" Relationship="Self.FK_UserFavoriteProperties_Properties" FromRole="Properties" ToRole="UserFavoriteProperties" />
+          <NavigationProperty Name="UserSelectedProperties" Relationship="Self.FK_UserSelectedProperties_Properties" FromRole="Properties" ToRole="UserSelectedProperties" />
+          <NavigationProperty Name="CategoryProperties" Relationship="StartAppModel.FK_CategoryProperties_Properties" FromRole="Properties" ToRole="CategoryProperties" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserDistricts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="DistrictId" Type="Int32" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Districts" Relationship="Self.FK_UserDistricts_Districts" FromRole="UserDistricts" ToRole="Districts" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_UserDistricts_Users" FromRole="UserDistricts" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserFavoritePlaces">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="PlaceId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Places" Relationship="Self.FK_UserFavoritePlaces_Places" FromRole="UserFavoritePlaces" ToRole="Places" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_UserFavoritePlaces_Users" FromRole="UserFavoritePlaces" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserFavoriteProducts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AllProductId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="AllProducts" Relationship="Self.FK_UserFavoriteProducts_AllProducts" FromRole="UserFavoriteProducts" ToRole="AllProducts" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_UserFavoriteProducts_Users" FromRole="UserFavoriteProducts" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserFavoriteProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="PropertiesId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Properties" Relationship="Self.FK_UserFavoriteProperties_Properties" FromRole="UserFavoriteProperties" ToRole="Properties" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_UserFavoriteProperties_Users" FromRole="UserFavoriteProperties" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserPlaceRequests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_UserPlaceRequests_Users" FromRole="UserPlaceRequests" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserPoints">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserPointTypeId" Type="Int32" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="UserPointTypes" Relationship="Self.FK_UserPoints_UserPointTypes" FromRole="UserPoints" ToRole="UserPointTypes" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_UserPoints_Users" FromRole="UserPoints" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserPointTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Point" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserPoints" Relationship="Self.FK_UserPoints_UserPointTypes" FromRole="UserPointTypes" ToRole="UserPoints" />
+        </EntityType>
+        <EntityType Name="UserRecommendedPlaces">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserSelectedPropertyId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="PlaceId" Type="Int32" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Places" Relationship="Self.FK_UserRecommendedPlaces_Places" FromRole="UserRecommendedPlaces" ToRole="Places" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_UserRecommendedPlaces_Users" FromRole="UserRecommendedPlaces" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="AddedByUserProducts" Relationship="Self.FK_AddedByUserProducts_Users" FromRole="Users" ToRole="AddedByUserProducts" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_Users" FromRole="Users" ToRole="Comments" />
+          <NavigationProperty Name="UserDistricts" Relationship="Self.FK_UserDistricts_Users" FromRole="Users" ToRole="UserDistricts" />
+          <NavigationProperty Name="UserFavoritePlaces" Relationship="Self.FK_UserFavoritePlaces_Users" FromRole="Users" ToRole="UserFavoritePlaces" />
+          <NavigationProperty Name="UserFavoriteProducts" Relationship="Self.FK_UserFavoriteProducts_Users" FromRole="Users" ToRole="UserFavoriteProducts" />
+          <NavigationProperty Name="UserFavoriteProperties" Relationship="Self.FK_UserFavoriteProperties_Users" FromRole="Users" ToRole="UserFavoriteProperties" />
+          <NavigationProperty Name="UserPlaceRequests" Relationship="Self.FK_UserPlaceRequests_Users" FromRole="Users" ToRole="UserPlaceRequests" />
+          <NavigationProperty Name="UserPoints" Relationship="Self.FK_UserPoints_Users" FromRole="Users" ToRole="UserPoints" />
+          <NavigationProperty Name="UserRecommendedPlaces" Relationship="Self.FK_UserRecommendedPlaces_Users" FromRole="Users" ToRole="UserRecommendedPlaces" />
+          <NavigationProperty Name="UserTypes" Relationship="Self.FK_Users_UserTypes" FromRole="Users" ToRole="UserTypes" />
+          <NavigationProperty Name="UserSelectedCategories" Relationship="Self.FK_UserSelectedCategories_Users" FromRole="Users" ToRole="UserSelectedCategories" />
+          <NavigationProperty Name="UserSelectedMainCategories" Relationship="Self.FK_UserSelectedMainCategories_Users" FromRole="Users" ToRole="UserSelectedMainCategories" />
+          <NavigationProperty Name="UserSelectedProperties" Relationship="Self.FK_UserSelectedProperties_Users" FromRole="Users" ToRole="UserSelectedProperties" />
+          <NavigationProperty Name="UserVisitedPlaces" Relationship="Self.FK_UserVisitedPlaces_Users" FromRole="Users" ToRole="UserVisitedPlaces" />
+        </EntityType>
+        <EntityType Name="UserSelectedCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK_UserSelectedCategories_Categories" FromRole="UserSelectedCategories" ToRole="Categories" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_UserSelectedCategories_Users" FromRole="UserSelectedCategories" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserSelectedMainCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="MainCategoryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MainCategories" Relationship="Self.FK_UserSelectedMainCategories_MainCategories" FromRole="UserSelectedMainCategories" ToRole="MainCategories" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_UserSelectedMainCategories_Users" FromRole="UserSelectedMainCategories" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserSelectedProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="PropertiesId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Properties" Relationship="Self.FK_UserSelectedProperties_Properties" FromRole="UserSelectedProperties" ToRole="Properties" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_UserSelectedProperties_Users" FromRole="UserSelectedProperties" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_UserTypes" FromRole="UserTypes" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserVisitedPlaces">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="PlaceId" Type="Int32" Nullable="false" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_UserVisitedPlaces" FromRole="UserVisitedPlaces" ToRole="Comments" />
+          <NavigationProperty Name="Places" Relationship="Self.FK_UserVisitedPlaces_Places" FromRole="UserVisitedPlaces" ToRole="Places" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_UserVisitedPlaces_Users" FromRole="UserVisitedPlaces" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_AddedByUserProducts_PlaceProducts">
+          <End Role="PlaceProducts" Type="Self.PlaceProducts" Multiplicity="1" />
+          <End Role="AddedByUserProducts" Type="Self.AddedByUserProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlaceProducts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AddedByUserProducts">
+              <PropertyRef Name="PlaceProductsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AddedByUserProducts_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="AddedByUserProducts" Type="Self.AddedByUserProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AddedByUserProducts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaceProducts_AllProducts">
+          <End Role="AllProducts" Type="Self.AllProducts" Multiplicity="1" />
+          <End Role="PlaceProducts" Type="Self.PlaceProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AllProducts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaceProducts">
+              <PropertyRef Name="AllProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFavoriteProducts_AllProducts">
+          <End Role="AllProducts" Type="Self.AllProducts" Multiplicity="1" />
+          <End Role="UserFavoriteProducts" Type="Self.UserFavoriteProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AllProducts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFavoriteProducts">
+              <PropertyRef Name="AllProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Categories_MainCategories">
+          <End Role="MainCategories" Type="Self.MainCategories" Multiplicity="1" />
+          <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categories">
+              <PropertyRef Name="MainCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaceCategories_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="PlaceCategories" Type="Self.PlaceCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaceCategories">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSelectedCategories_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="UserSelectedCategories" Type="Self.UserSelectedCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserSelectedCategories">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cities_Countries">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Districts_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Districts" Type="Self.Districts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Districts">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_UserVisitedPlaces">
+          <End Role="UserVisitedPlaces" Type="Self.UserVisitedPlaces" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserVisitedPlaces">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="UserVisitedPlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Places_Districts">
+          <End Role="Districts" Type="Self.Districts" Multiplicity="1" />
+          <End Role="Places" Type="Self.Places" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Places">
+              <PropertyRef Name="DistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDistricts_Districts">
+          <End Role="Districts" Type="Self.Districts" Multiplicity="1" />
+          <End Role="UserDistricts" Type="Self.UserDistricts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserDistricts">
+              <PropertyRef Name="DistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LanguageTexts_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="LanguageTexts" Type="Self.LanguageTexts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LanguageTexts">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSelectedMainCategories_MainCategories">
+          <End Role="MainCategories" Type="Self.MainCategories" Multiplicity="1" />
+          <End Role="UserSelectedMainCategories" Type="Self.UserSelectedMainCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserSelectedMainCategories">
+              <PropertyRef Name="MainCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaceCategories_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="PlaceCategories" Type="Self.PlaceCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaceCategories">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaceMostPreferredProducts_PlaceProducts">
+          <End Role="PlaceProducts" Type="Self.PlaceProducts" Multiplicity="1" />
+          <End Role="PlaceMostPreferredProducts" Type="Self.PlaceMostPreferredProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlaceProducts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaceMostPreferredProducts">
+              <PropertyRef Name="PlaceProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaceProducts_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="PlaceProducts" Type="Self.PlaceProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaceProducts">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaceProperties_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="PlaceProperties" Type="Self.PlaceProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaceProperties">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaceProperties_Properties">
+          <End Role="Properties" Type="Self.Properties" Multiplicity="1" />
+          <End Role="PlaceProperties" Type="Self.PlaceProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaceProperties">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Places_PlaceTypes">
+          <End Role="PlaceTypes" Type="Self.PlaceTypes" Multiplicity="1" />
+          <End Role="Places" Type="Self.Places" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlaceTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Places">
+              <PropertyRef Name="PlaceTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFavoritePlaces_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="UserFavoritePlaces" Type="Self.UserFavoritePlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFavoritePlaces">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRecommendedPlaces_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="UserRecommendedPlaces" Type="Self.UserRecommendedPlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRecommendedPlaces">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserVisitedPlaces_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="UserVisitedPlaces" Type="Self.UserVisitedPlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserVisitedPlaces">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFavoriteProperties_Properties">
+          <End Role="Properties" Type="Self.Properties" Multiplicity="1" />
+          <End Role="UserFavoriteProperties" Type="Self.UserFavoriteProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFavoriteProperties">
+              <PropertyRef Name="PropertiesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSelectedProperties_Properties">
+          <End Role="Properties" Type="Self.Properties" Multiplicity="1" />
+          <End Role="UserSelectedProperties" Type="Self.UserSelectedProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserSelectedProperties">
+              <PropertyRef Name="PropertiesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDistricts_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserDistricts" Type="Self.UserDistricts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserDistricts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFavoritePlaces_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserFavoritePlaces" Type="Self.UserFavoritePlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFavoritePlaces">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFavoriteProducts_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserFavoriteProducts" Type="Self.UserFavoriteProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFavoriteProducts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFavoriteProperties_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserFavoriteProperties" Type="Self.UserFavoriteProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserFavoriteProperties">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPlaceRequests_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserPlaceRequests" Type="Self.UserPlaceRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPlaceRequests">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPoints_UserPointTypes">
+          <End Role="UserPointTypes" Type="Self.UserPointTypes" Multiplicity="1" />
+          <End Role="UserPoints" Type="Self.UserPoints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserPointTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPoints">
+              <PropertyRef Name="UserPointTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPoints_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserPoints" Type="Self.UserPoints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPoints">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRecommendedPlaces_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserRecommendedPlaces" Type="Self.UserRecommendedPlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRecommendedPlaces">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserTypes">
+          <End Role="UserTypes" Type="Self.UserTypes" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSelectedCategories_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserSelectedCategories" Type="Self.UserSelectedCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserSelectedCategories">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSelectedMainCategories_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserSelectedMainCategories" Type="Self.UserSelectedMainCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserSelectedMainCategories">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSelectedProperties_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserSelectedProperties" Type="Self.UserSelectedProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserSelectedProperties">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserVisitedPlaces_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserVisitedPlaces" Type="Self.UserVisitedPlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserVisitedPlaces">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StartAppEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AddedByUserProducts" EntityType="Self.AddedByUserProducts" />
+          <EntitySet Name="Admins" EntityType="Self.Admins" />
+          <EntitySet Name="AllProducts" EntityType="Self.AllProducts" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" />
+          <EntitySet Name="ContactForms" EntityType="Self.ContactForms" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" />
+          <EntitySet Name="DistinctTest" EntityType="Self.DistinctTest" />
+          <EntitySet Name="Districts" EntityType="Self.Districts" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" />
+          <EntitySet Name="LanguageTexts" EntityType="Self.LanguageTexts" />
+          <EntitySet Name="MainCategories" EntityType="Self.MainCategories" />
+          <EntitySet Name="PlaceCategories" EntityType="Self.PlaceCategories" />
+          <EntitySet Name="PlaceMostPreferredProducts" EntityType="Self.PlaceMostPreferredProducts" />
+          <EntitySet Name="PlaceProducts" EntityType="Self.PlaceProducts" />
+          <EntitySet Name="PlaceProperties" EntityType="Self.PlaceProperties" />
+          <EntitySet Name="Places" EntityType="Self.Places" />
+          <EntitySet Name="PlaceTypes" EntityType="Self.PlaceTypes" />
+          <EntitySet Name="Properties" EntityType="Self.Properties" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="UserDistricts" EntityType="Self.UserDistricts" />
+          <EntitySet Name="UserFavoritePlaces" EntityType="Self.UserFavoritePlaces" />
+          <EntitySet Name="UserFavoriteProducts" EntityType="Self.UserFavoriteProducts" />
+          <EntitySet Name="UserFavoriteProperties" EntityType="Self.UserFavoriteProperties" />
+          <EntitySet Name="UserPlaceRequests" EntityType="Self.UserPlaceRequests" />
+          <EntitySet Name="UserPoints" EntityType="Self.UserPoints" />
+          <EntitySet Name="UserPointTypes" EntityType="Self.UserPointTypes" />
+          <EntitySet Name="UserRecommendedPlaces" EntityType="Self.UserRecommendedPlaces" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="UserSelectedCategories" EntityType="Self.UserSelectedCategories" />
+          <EntitySet Name="UserSelectedMainCategories" EntityType="Self.UserSelectedMainCategories" />
+          <EntitySet Name="UserSelectedProperties" EntityType="Self.UserSelectedProperties" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserTypes" />
+          <EntitySet Name="UserVisitedPlaces" EntityType="Self.UserVisitedPlaces" />
+          <AssociationSet Name="FK_AddedByUserProducts_PlaceProducts" Association="Self.FK_AddedByUserProducts_PlaceProducts">
+            <End Role="PlaceProducts" EntitySet="PlaceProducts" />
+            <End Role="AddedByUserProducts" EntitySet="AddedByUserProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AddedByUserProducts_Users" Association="Self.FK_AddedByUserProducts_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="AddedByUserProducts" EntitySet="AddedByUserProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaceProducts_AllProducts" Association="Self.FK_PlaceProducts_AllProducts">
+            <End Role="AllProducts" EntitySet="AllProducts" />
+            <End Role="PlaceProducts" EntitySet="PlaceProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFavoriteProducts_AllProducts" Association="Self.FK_UserFavoriteProducts_AllProducts">
+            <End Role="AllProducts" EntitySet="AllProducts" />
+            <End Role="UserFavoriteProducts" EntitySet="UserFavoriteProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categories_MainCategories" Association="Self.FK_Categories_MainCategories">
+            <End Role="MainCategories" EntitySet="MainCategories" />
+            <End Role="Categories" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaceCategories_Categories" Association="Self.FK_PlaceCategories_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="PlaceCategories" EntitySet="PlaceCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSelectedCategories_Categories" Association="Self.FK_UserSelectedCategories_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="UserSelectedCategories" EntitySet="UserSelectedCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cities_Countries" Association="Self.FK_Cities_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Districts_Cities" Association="Self.FK_Districts_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Districts" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Places" Association="Self.FK_Comments_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Users" Association="Self.FK_Comments_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_UserVisitedPlaces" Association="Self.FK_Comments_UserVisitedPlaces">
+            <End Role="UserVisitedPlaces" EntitySet="UserVisitedPlaces" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Places_Districts" Association="Self.FK_Places_Districts">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="Places" EntitySet="Places" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDistricts_Districts" Association="Self.FK_UserDistricts_Districts">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="UserDistricts" EntitySet="UserDistricts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LanguageTexts_Languages" Association="Self.FK_LanguageTexts_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="LanguageTexts" EntitySet="LanguageTexts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSelectedMainCategories_MainCategories" Association="Self.FK_UserSelectedMainCategories_MainCategories">
+            <End Role="MainCategories" EntitySet="MainCategories" />
+            <End Role="UserSelectedMainCategories" EntitySet="UserSelectedMainCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaceCategories_Places" Association="Self.FK_PlaceCategories_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="PlaceCategories" EntitySet="PlaceCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaceMostPreferredProducts_PlaceProducts" Association="Self.FK_PlaceMostPreferredProducts_PlaceProducts">
+            <End Role="PlaceProducts" EntitySet="PlaceProducts" />
+            <End Role="PlaceMostPreferredProducts" EntitySet="PlaceMostPreferredProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaceProducts_Places" Association="Self.FK_PlaceProducts_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="PlaceProducts" EntitySet="PlaceProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaceProperties_Places" Association="Self.FK_PlaceProperties_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="PlaceProperties" EntitySet="PlaceProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaceProperties_Properties" Association="Self.FK_PlaceProperties_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="PlaceProperties" EntitySet="PlaceProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Places_PlaceTypes" Association="Self.FK_Places_PlaceTypes">
+            <End Role="PlaceTypes" EntitySet="PlaceTypes" />
+            <End Role="Places" EntitySet="Places" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFavoritePlaces_Places" Association="Self.FK_UserFavoritePlaces_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="UserFavoritePlaces" EntitySet="UserFavoritePlaces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRecommendedPlaces_Places" Association="Self.FK_UserRecommendedPlaces_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="UserRecommendedPlaces" EntitySet="UserRecommendedPlaces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserVisitedPlaces_Places" Association="Self.FK_UserVisitedPlaces_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="UserVisitedPlaces" EntitySet="UserVisitedPlaces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFavoriteProperties_Properties" Association="Self.FK_UserFavoriteProperties_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="UserFavoriteProperties" EntitySet="UserFavoriteProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSelectedProperties_Properties" Association="Self.FK_UserSelectedProperties_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="UserSelectedProperties" EntitySet="UserSelectedProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDistricts_Users" Association="Self.FK_UserDistricts_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserDistricts" EntitySet="UserDistricts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFavoritePlaces_Users" Association="Self.FK_UserFavoritePlaces_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserFavoritePlaces" EntitySet="UserFavoritePlaces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFavoriteProducts_Users" Association="Self.FK_UserFavoriteProducts_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserFavoriteProducts" EntitySet="UserFavoriteProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFavoriteProperties_Users" Association="Self.FK_UserFavoriteProperties_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserFavoriteProperties" EntitySet="UserFavoriteProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPlaceRequests_Users" Association="Self.FK_UserPlaceRequests_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserPlaceRequests" EntitySet="UserPlaceRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPoints_UserPointTypes" Association="Self.FK_UserPoints_UserPointTypes">
+            <End Role="UserPointTypes" EntitySet="UserPointTypes" />
+            <End Role="UserPoints" EntitySet="UserPoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPoints_Users" Association="Self.FK_UserPoints_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserPoints" EntitySet="UserPoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRecommendedPlaces_Users" Association="Self.FK_UserRecommendedPlaces_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserRecommendedPlaces" EntitySet="UserRecommendedPlaces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserTypes" Association="Self.FK_Users_UserTypes">
+            <End Role="UserTypes" EntitySet="UserTypes" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSelectedCategories_Users" Association="Self.FK_UserSelectedCategories_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserSelectedCategories" EntitySet="UserSelectedCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSelectedMainCategories_Users" Association="Self.FK_UserSelectedMainCategories_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserSelectedMainCategories" EntitySet="UserSelectedMainCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSelectedProperties_Users" Association="Self.FK_UserSelectedProperties_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserSelectedProperties" EntitySet="UserSelectedProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserVisitedPlaces_Users" Association="Self.FK_UserVisitedPlaces_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserVisitedPlaces" EntitySet="UserVisitedPlaces" />
+          </AssociationSet>
+          <EntitySet Name="CategoryProperties" EntityType="StartAppModel.CategoryProperties" />
+          <AssociationSet Name="FK_CategoryProperties_Categories" Association="StartAppModel.FK_CategoryProperties_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="CategoryProperties" EntitySet="CategoryProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryProperties_Properties" Association="StartAppModel.FK_CategoryProperties_Properties">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="CategoryProperties" EntitySet="CategoryProperties" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CategoryProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="PropertiesId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categories" Relationship="StartAppModel.FK_CategoryProperties_Categories" FromRole="CategoryProperties" ToRole="Categories" />
+          <NavigationProperty Name="Properties" Relationship="StartAppModel.FK_CategoryProperties_Properties" FromRole="CategoryProperties" ToRole="Properties" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CategoryProperties_Categories">
+          <End Type="StartAppModel.Categories" Role="Categories" Multiplicity="1" />
+          <End Type="StartAppModel.CategoryProperties" Role="CategoryProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CategoryProperties">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryProperties_Properties">
+          <End Type="StartAppModel.Properties" Role="Properties" Multiplicity="1" />
+          <End Type="StartAppModel.CategoryProperties" Role="CategoryProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CategoryProperties">
+              <PropertyRef Name="PropertiesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StartAppModelStoreContainer" CdmEntityContainer="StartAppEntities">
+          <EntitySetMapping Name="AddedByUserProducts">
+            <EntityTypeMapping TypeName="StartAppModel.AddedByUserProducts">
+              <MappingFragment StoreEntitySet="AddedByUserProducts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PlaceProductsId" ColumnName="PlaceProductsId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="StartAppModel.Admins">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllProducts">
+            <EntityTypeMapping TypeName="StartAppModel.AllProducts">
+              <MappingFragment StoreEntitySet="AllProducts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="StartAppModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MainCategoryId" ColumnName="MainCategoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IconUrl" ColumnName="IconUrl" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="StartAppModel.Cities">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="StartAppModel.Comments">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserVisitedPlaceId" ColumnName="UserVisitedPlaceId" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Point" ColumnName="Point" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactForms">
+            <EntityTypeMapping TypeName="StartAppModel.ContactForms">
+              <MappingFragment StoreEntitySet="ContactForms">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="StartAppModel.Countries">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DistinctTest">
+            <EntityTypeMapping TypeName="StartAppModel.DistinctTest">
+              <MappingFragment StoreEntitySet="DistinctTest">
+                <ScalarProperty Name="LOC_ID" ColumnName="LOC_ID" />
+                <ScalarProperty Name="LOC_NAME" ColumnName="LOC_NAME" />
+                <ScalarProperty Name="LAT" ColumnName="LAT" />
+                <ScalarProperty Name="LONG" ColumnName="LONG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Districts">
+            <EntityTypeMapping TypeName="StartAppModel.Districts">
+              <MappingFragment StoreEntitySet="Districts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="StartAppModel.Languages">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="IconUrl" ColumnName="IconUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LanguageTexts">
+            <EntityTypeMapping TypeName="StartAppModel.LanguageTexts">
+              <MappingFragment StoreEntitySet="LanguageTexts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="TextCode" ColumnName="TextCode" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MainCategories">
+            <EntityTypeMapping TypeName="StartAppModel.MainCategories">
+              <MappingFragment StoreEntitySet="MainCategories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IconUrl" ColumnName="IconUrl" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlaceCategories">
+            <EntityTypeMapping TypeName="StartAppModel.PlaceCategories">
+              <MappingFragment StoreEntitySet="PlaceCategories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlaceMostPreferredProducts">
+            <EntityTypeMapping TypeName="StartAppModel.PlaceMostPreferredProducts">
+              <MappingFragment StoreEntitySet="PlaceMostPreferredProducts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PlaceProductId" ColumnName="PlaceProductId" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlaceProducts">
+            <EntityTypeMapping TypeName="StartAppModel.PlaceProducts">
+              <MappingFragment StoreEntitySet="PlaceProducts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="AllProductId" ColumnName="AllProductId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlaceProperties">
+            <EntityTypeMapping TypeName="StartAppModel.PlaceProperties">
+              <MappingFragment StoreEntitySet="PlaceProperties">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Places">
+            <EntityTypeMapping TypeName="StartAppModel.Places">
+              <MappingFragment StoreEntitySet="Places">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="AveragePrice" ColumnName="AveragePrice" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PlaceTypeID" ColumnName="PlaceTypeID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlaceTypes">
+            <EntityTypeMapping TypeName="StartAppModel.PlaceTypes">
+              <MappingFragment StoreEntitySet="PlaceTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Properties">
+            <EntityTypeMapping TypeName="StartAppModel.Properties">
+              <MappingFragment StoreEntitySet="Properties">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IconUrl" ColumnName="IconUrl" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="UserFavorite" ColumnName="UserFavorite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="StartAppModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserDistricts">
+            <EntityTypeMapping TypeName="StartAppModel.UserDistricts">
+              <MappingFragment StoreEntitySet="UserDistricts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserFavoritePlaces">
+            <EntityTypeMapping TypeName="StartAppModel.UserFavoritePlaces">
+              <MappingFragment StoreEntitySet="UserFavoritePlaces">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserFavoriteProducts">
+            <EntityTypeMapping TypeName="StartAppModel.UserFavoriteProducts">
+              <MappingFragment StoreEntitySet="UserFavoriteProducts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AllProductId" ColumnName="AllProductId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserFavoriteProperties">
+            <EntityTypeMapping TypeName="StartAppModel.UserFavoriteProperties">
+              <MappingFragment StoreEntitySet="UserFavoriteProperties">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PropertiesId" ColumnName="PropertiesId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPlaceRequests">
+            <EntityTypeMapping TypeName="StartAppModel.UserPlaceRequests">
+              <MappingFragment StoreEntitySet="UserPlaceRequests">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPoints">
+            <EntityTypeMapping TypeName="StartAppModel.UserPoints">
+              <MappingFragment StoreEntitySet="UserPoints">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserPointTypeId" ColumnName="UserPointTypeId" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPointTypes">
+            <EntityTypeMapping TypeName="StartAppModel.UserPointTypes">
+              <MappingFragment StoreEntitySet="UserPointTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Point" ColumnName="Point" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRecommendedPlaces">
+            <EntityTypeMapping TypeName="StartAppModel.UserRecommendedPlaces">
+              <MappingFragment StoreEntitySet="UserRecommendedPlaces">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserSelectedPropertyId" ColumnName="UserSelectedPropertyId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="StartAppModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSelectedCategories">
+            <EntityTypeMapping TypeName="StartAppModel.UserSelectedCategories">
+              <MappingFragment StoreEntitySet="UserSelectedCategories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSelectedMainCategories">
+            <EntityTypeMapping TypeName="StartAppModel.UserSelectedMainCategories">
+              <MappingFragment StoreEntitySet="UserSelectedMainCategories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="MainCategoryId" ColumnName="MainCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSelectedProperties">
+            <EntityTypeMapping TypeName="StartAppModel.UserSelectedProperties">
+              <MappingFragment StoreEntitySet="UserSelectedProperties">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PropertiesId" ColumnName="PropertiesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="StartAppModel.UserTypes">
+              <MappingFragment StoreEntitySet="UserTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserVisitedPlaces">
+            <EntityTypeMapping TypeName="StartAppModel.UserVisitedPlaces">
+              <MappingFragment StoreEntitySet="UserVisitedPlaces">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryProperties">
+            <EntityTypeMapping TypeName="StartAppModel.CategoryProperties">
+              <MappingFragment StoreEntitySet="CategoryProperties">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="PropertiesId" ColumnName="PropertiesId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

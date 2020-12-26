@@ -1,0 +1,16 @@
+.google-btn{
+    text-transform: none;
+}
+
+.login-button{
+    text-transform: none;
+}
+
+.logo img{
+    height: 70px;
+    margin-bottom: 30px;
+}
+
+.error-textbox{
+    border: 1px solid red;
+}
