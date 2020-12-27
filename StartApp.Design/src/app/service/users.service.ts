@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { LocaldataService } from './localdata.service';
 
 @Injectable({
@@ -7,7 +10,7 @@ import { LocaldataService } from './localdata.service';
 })
 export class UsersService {
 
-  constructor(private localData: LocaldataService, private router: Router) { }
+  constructor(private localData: LocaldataService, private router: Router, private http: HttpClient) { }
   activeUser;
 
   getActiveUser()
@@ -21,5 +24,17 @@ export class UsersService {
         this.router.navigate(['/default']);
       }
       return false;
+  }
+
+  userLoginControl()
+  {
+    if(this.localData.get("user") == null){
+      this.router.navigate(['/login']);
+    }
+    return false;
+  }
+
+  getComments(id) :Observable<any> {
+    return this.http.get(environment.apiUrl + 'Users/GetComments/' + id);
   }
 }

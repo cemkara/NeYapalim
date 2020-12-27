@@ -23,7 +23,6 @@ focus1;
 
 @Input()
 mainCategories: Observable<any>;
-
 keyword = 'name';
 data;
 

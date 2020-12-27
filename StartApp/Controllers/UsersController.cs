@@ -119,12 +119,13 @@ namespace StartApp.Controllers
         }
 
         /// <summary>
-        /// List of user favorite products 
+        /// List of user favorite comments 
         /// </summary>
         public IQueryable<Comments> GetComments(int id)
         {
             return db.Comments.Where(x => x.UserId == id && x.IsActive);
         }
+
 
         //actions
         [ResponseType(typeof(UserFavoritePlaces))]

@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 export class MainCategoryService {
   
  constructor(private http: HttpClient) { }
- getMainCategories(): Observable<any> {
+ getMainCategories() :Observable<any> {
      return this.http.get(environment.apiUrl + 'MainCategories/GetMainCategories');
  }
 }

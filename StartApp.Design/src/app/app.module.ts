@@ -34,6 +34,9 @@ import {
 } from 'angularx-social-login';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PlaceDetailsComponent } from './place-details/place-details.component';
+import { CommentListComponent } from './comment-list/comment-list.component';
+import { TestComponent } from './test/test.component';
+import { UserCommentsComponent } from './user-comments/user-comments.component';
 
 
 @NgModule({
@@ -56,6 +59,9 @@ import { PlaceDetailsComponent } from './place-details/place-details.component';
     PlaceProductsComponent,
     UserProfileComponent,
     PlaceDetailsComponent,
+    CommentListComponent,
+    TestComponent,
+    UserCommentsComponent,
   ],
   imports: [
     BrowserModule,

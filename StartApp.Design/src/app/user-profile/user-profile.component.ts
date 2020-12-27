@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
+import { UsersService } from '../service/users.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  activeUser;
+  lastComments:Observable<any>;
+
+  constructor(private userService:UsersService) { 
+    userService.userLoginControl(); 
+    this.activeUser = userService.getActiveUser();
+  }
 
   ngOnInit(): void {
   }

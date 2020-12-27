@@ -27,14 +27,14 @@ export class HomeComponent implements OnInit {
     constructor(private mainCategoryService: MainCategoryService, private locationService: LocationService, private localdata: LocaldataService) {
 
         this.locationService.findMe();
-        mainCategoryService.getMainCategories().subscribe(
-            res => {
-                this.mainCategories = res;
-            },
-            err => {
-                console.error(err);
-            }
-        );
+        // mainCategoryService.getMainCategories().subscribe(
+        //     res => {
+        //         this.mainCategories = res;
+        //     },
+        //     err => {
+        //         console.error(err);
+        //     }
+        // );
     }
 
     ngOnInit() {

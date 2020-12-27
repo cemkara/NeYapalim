@@ -18,6 +18,8 @@ import { PlaceCommentsComponent } from './place-comments/place-comments.componen
 import { PlaceProductsComponent } from './place-products/place-products.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PlaceDetailsComponent } from './place-details/place-details.component';
+import { TestComponent } from './test/test.component';
+import { UserCommentsComponent } from './user-comments/user-comments.component';
 
 
 const routes: Routes =[
@@ -34,6 +36,8 @@ const routes: Routes =[
     { path: 'default',          component: DefaultComponent },
     { path: 'place-comments',          component: PlaceCommentsComponent },
     { path: 'place-products',          component: PlaceProductsComponent },
+    { path: 'user-comments',          component: UserCommentsComponent },
+    { path: 'test',          component: TestComponent },
     { path: '', redirectTo: 'default', pathMatch: 'full' }
 ];
 
