@@ -64,4 +64,7 @@ export class UsersService {
       'placeId': placeId
     })
   }
+  getFavoritePlaces(id) :Observable<any> {
+    return this.http.get(environment.apiUrl + 'Users/GetFavoritePlaces/' + id);
+  }
 }
