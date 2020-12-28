@@ -1,13 +1,61 @@
 <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
   <div class="container">
-    <!-- <a class="navbar-brand mr-lg-5" [routerLink]="['/home']">
-      <img src="./assets/img/brand/argon-white.png">
-    </a> -->
-    <a href="#/" >
-      <i class="fa fa-bars navTopItem" aria-hidden="true"></i>
+    <a href="#" >
+      <i class="fa fa-home navTopItem" aria-hidden="true"></i>
     </a>
-    <a href="#/" >
-      <i class="fa fa-user navTopItem" aria-hidden="true"></i>
-    </a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+          <i class="fa fa-bars navTopItem" aria-hidden="true"></i>
+    </button>
+    <div class="navbar-collapse collapse" id="navbar_global" [ngbCollapse]="isCollapsed">
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a [routerLink]="['/home']">
+              <img src="./assets/img/brand/blue.png">
+            </a>
+          </div>
+          <div class="col-6 collapse-close">
+            <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
+                  [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+        <li class="nav-item dropdown">
+          <a href="#/login" class="nav-link no-caret" [ngClass]="{'d-none' : userLogin}" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text">Giriş Yap</span>
+          </a>
+          <a href="#/register" class="nav-link no-caret" [ngClass]="{'d-none' : userLogin}" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text">Üye Ol</span>
+          </a>
+          <a href="#/profile" class="nav-link no-caret" [ngClass]="{'d-none' : !userLogin}" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text">Profilim</span>
+          </a>
+          <a href="#" class="nav-link no-caret" [ngClass]="{'d-none' : !userLogin}" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text">Favori Mekanlarım</span>
+          </a>
+          <a href="#/user-comments" class="nav-link no-caret" [ngClass]="{'d-none' : !userLogin}" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text">Yorumlarım</span>
+          </a>
+          <a (click)="clearCache()" class="nav-link no-caret" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text"> Bilgileri Temizle</span>
+          </a>
+          <a class="nav-link no-caret" [ngClass]="{'d-none' : !userLogin}" role="button">
+            X
+            <span class="nav-link-inner--text">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>

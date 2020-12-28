@@ -14,9 +14,9 @@ export class UserCommentsComponent implements OnInit {
   userId;
 
   constructor(private route: ActivatedRoute, private userService:UsersService) {
-    this.route.queryParams.subscribe(params => {
-      this.userId = params['userId'];
-    });
+    
+    userService.userLoginControl();
+    this.userId = userService.getActiveUser().Id;
 
     userService.getComments(this.userId).subscribe(
       res => {

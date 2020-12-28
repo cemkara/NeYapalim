@@ -44,7 +44,7 @@ namespace StartApp.Controllers
             }
 
             db.SaveChanges();
-            return Ok();
+            return Ok(userFavoritePlace);
         }
 
         /// <summary>
@@ -55,17 +55,13 @@ namespace StartApp.Controllers
         [ResponseType(typeof(UserFavoritePlaces))]
         public IHttpActionResult RemoveFavoritePlace(UserFavoritePlaces userFavoritePlace)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            if (UserFavoritePlaceExists(userFavoritePlace.Id))
+            userFavoritePlace = db.UserFavoritePlaces.Where(x => x.PlaceId == userFavoritePlace.PlaceId && x.UserId == userFavoritePlace.UserId && x.IsActive).OrderByDescending(x => x.RecordDate).FirstOrDefault();
+            if (userFavoritePlace != null)
             {
                 userFavoritePlace.IsActive = false;
                 db.Entry(userFavoritePlace).State = EntityState.Modified;
                 db.SaveChanges();
-                return Ok();
+                return Ok(userFavoritePlace);
             }
             else
             {
@@ -73,10 +69,30 @@ namespace StartApp.Controllers
             }
         }
 
+        [ResponseType(typeof(UserFavoritePlaces))]
+        public bool UserFavoritePlaceControl(UserFavoritePlaces userFavoritePlace)
+        {
+            if (!ModelState.IsValid)
+            {
+                return false;
+            }
+
+            if (db.UserFavoritePlaces.Where(x => x.PlaceId == userFavoritePlace.PlaceId && x.UserId == userFavoritePlace.UserId && x.IsActive).Count() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
         //private
         private bool UserFavoritePlaceExists(int id)
         {
             return db.UserFavoritePlaces.Count(e => e.Id == id) > 0;
         }
+
     }
 }

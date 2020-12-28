@@ -26,7 +26,9 @@
               </div>
               <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
                 <div class="card-profile-actions py-4 mt-lg-0">
-                  <a href="" class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-left"><i class="fa fa-star"></i></a>
+                  <a (click)="addToFavorite()" [ngClass]="{'d-none' : userFavorite}" class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-left text-white"><i class="fa fa-star"></i></a>
+                  <a (click)="removeToFavorite()" [ngClass]="{'d-block' : userFavorite}" class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-left d-none user-favorite"><i class="fa fa-star"></i></a>
+                  
                   <a href="" class="btn btn-sm btn-info mr-4 btn-icon-only rounded-circle float-right"><i class="fa fa-thumbs-up"></i></a>
                 
                 </div>

@@ -1,0 +1,10 @@
+.d-none{
+    display: none;
+}
+.d-block{
+    display: block;
+}
+
+.user-favorite{
+    color:#ffad1f !important;
+}

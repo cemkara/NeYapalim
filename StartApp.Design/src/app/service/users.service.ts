@@ -37,4 +37,31 @@ export class UsersService {
   getComments(id) :Observable<any> {
     return this.http.get(environment.apiUrl + 'Users/GetComments/' + id);
   }
+
+  addToFavorite(userId, placeId)
+  {
+    return this.http.post( environment.apiUrl + 'UserFavoritePlaces/AddFavoritePlace',
+    {
+      'userId':userId,
+      'placeId': placeId
+    })
+  }
+
+  removeToFavorite(userId, placeId)
+  {
+    return this.http.post( environment.apiUrl + 'UserFavoritePlaces/RemoveFavoritePlace',
+    {
+      'userId':userId,
+      'placeId': placeId
+    })
+  }
+
+  userFavoritePlaceControl(userId,placeId)
+  {
+    return this.http.post( environment.apiUrl + 'UserFavoritePlaces/userFavoritePlaceControl',
+    {
+      'userId':userId,
+      'placeId': placeId
+    })
+  }
 }

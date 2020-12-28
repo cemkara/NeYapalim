@@ -3,6 +3,7 @@ import { async } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DetailsService } from '../service/details.service';
+import { UsersService } from '../service/users.service';
 
 @Component({
   selector: 'app-place-details',
@@ -11,11 +12,13 @@ import { DetailsService } from '../service/details.service';
 })
 export class PlaceDetailsComponent implements OnInit {
 
-   place: Observable<any>;
+  place: Observable<any>;
   placeProducts: Observable<any>;
   placeId;
+  user=null;
+  userFavorite = false;
 
-  constructor(private detailService:DetailsService, private route: ActivatedRoute) { 
+  constructor(private detailService:DetailsService, private route: ActivatedRoute, private userService:UsersService) { 
     this.route.queryParams.subscribe(params => {
       if(params['placeId']=="" || params['placeId']==undefined)
       {
@@ -25,6 +28,22 @@ export class PlaceDetailsComponent implements OnInit {
         this.placeId = params['placeId'];
       }
     });
+
+    if(userService.getActiveUser() != null)
+    {
+      this.user = userService.getActiveUser();
+      userService.userFavoritePlaceControl(this.user.Id,this.placeId).subscribe(
+        res=>{
+          if(res)
+            this.userFavorite =true;
+
+            console.log(this.userFavorite);
+        },
+        err=>{
+          console.log(err);
+        }
+      );
+    }
 
     detailService.getPlace(this.placeId).subscribe(
       res => {
@@ -52,4 +71,36 @@ export class PlaceDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addToFavorite()
+  {
+      if(this.user!=null){
+      this.userService.addToFavorite(this.user.Id,this.placeId).subscribe(
+        res=>{
+          this.userFavorite = true;
+        },
+        err=>{
+          console.error(err);
+        }
+      );
+    }
+    else{
+      console.log("giriş yap");
+    }
+  }
+  removeToFavorite()
+  {
+    if(this.user!=null){
+      this.userService.removeToFavorite(this.user.Id,this.placeId).subscribe(
+        res=>{
+          this.userFavorite = false;
+        },
+        err=>{
+          console.error(err);
+        }
+      );
+    }
+    else{
+      console.log("giriş yap");
+    }
+  }
 }
