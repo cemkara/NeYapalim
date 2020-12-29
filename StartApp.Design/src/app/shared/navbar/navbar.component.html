@@ -1,8 +1,9 @@
-<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
+<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--top">
   <div class="container">
-    <a href="#" >
-      <i class="fa fa-home navTopItem" aria-hidden="true"></i>
+    <a class="navbar-brand mr-lg-5" [ngClass]="{'d-none': isHome()}"  [routerLink]="['/default']">
+      <img src="./assets/img/brand/logo-white.png">
     </a>
+    <a></a>
     <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
           [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
           <i class="fa fa-bars navTopItem" aria-hidden="true"></i>
@@ -11,8 +12,8 @@
       <div class="navbar-collapse-header">
         <div class="row">
           <div class="col-6 collapse-brand">
-            <a [routerLink]="['/home']">
-              <img src="./assets/img/brand/blue.png">
+            <a [routerLink]="['/default']">
+              <img src="./assets/img/brand/logo-red.png">
             </a>
           </div>
           <div class="col-6 collapse-close">

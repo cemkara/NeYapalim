@@ -1,5 +1,5 @@
 .logo img{
-    height: 70px;
+    height: 150px;
 }
 
 .mt-50{
@@ -26,4 +26,16 @@
     margin: 0 auto;
     z-index: 999999;
   }
+  .categories{
+      margin-top: 50px;
+      margin-bottom: 50px;
+  }
+  .categories img{
+    margin-bottom: 20px;
+  }
   
+  .how-it-work{
+    margin-left: -3px;
+    margin-bottom: 20px;
+    height: 70px;
+  }

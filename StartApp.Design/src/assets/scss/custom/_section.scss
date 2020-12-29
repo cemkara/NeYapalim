@@ -287,7 +287,7 @@
 
         // shape color variations
         &.shape-primary {
-            background: linear-gradient(150deg, shapes-primary-color("step-1-gradient-bg") 15%, shapes-primary-color("step-2-gradient-bg") 70%, shapes-primary-color("step-3-gradient-bg") 94%);
+            background: linear-gradient(150deg, #8d99ae 15%, #8d99ae63 70%, #8d99ae 94%);
         }
 
         &.shape-default {
