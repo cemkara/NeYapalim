@@ -64,7 +64,30 @@ export class UsersService {
       'placeId': placeId
     })
   }
+
   getFavoritePlaces(id) :Observable<any> {
     return this.http.get(environment.apiUrl + 'Users/GetFavoritePlaces/' + id);
+  }
+
+  getVisitedPlaces(id) :Observable<any> {
+    return this.http.get(environment.apiUrl + 'Users/GetVisitedPlaces/' + id);
+  }
+
+  addUserVisitedPlace(userId, placeId)
+  {
+    return this.http.post( environment.apiUrl + 'UserVisitedPlaces/AddUserVisitedPlace',
+    {
+      'userId':userId,
+      'placeId': placeId
+    })
+  }
+
+  userVisitedPlaceControl(userId,placeId)
+  {
+    return this.http.post( environment.apiUrl + 'UserVisitedPlaces/UserVisitedPlaceControl',
+    {
+      'userId':userId,
+      'placeId': placeId
+    })
   }
 }

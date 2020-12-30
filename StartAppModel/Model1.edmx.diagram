@@ -51,7 +51,6 @@
         <AssociationConnector Association="StartAppModel.FK_Districts_Cities" ManuallyRouted="false" />
         <AssociationConnector Association="StartAppModel.FK_Comments_Places" ManuallyRouted="false" />
         <AssociationConnector Association="StartAppModel.FK_Comments_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="StartAppModel.FK_Comments_UserVisitedPlaces" ManuallyRouted="false" />
         <AssociationConnector Association="StartAppModel.FK_Places_Districts" ManuallyRouted="false" />
         <AssociationConnector Association="StartAppModel.FK_UserDistricts_Districts" ManuallyRouted="false" />
         <AssociationConnector Association="StartAppModel.FK_LanguageTexts_Languages" ManuallyRouted="false" />

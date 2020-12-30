@@ -38,6 +38,7 @@ import { CommentListComponent } from './comment-list/comment-list.component';
 import { TestComponent } from './test/test.component';
 import { UserCommentsComponent } from './user-comments/user-comments.component';
 import { UserFavoritePlacesComponent } from './user-favorite-places/user-favorite-places.component';
+import { UserVisitedComponent } from './user-visited/user-visited.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { UserFavoritePlacesComponent } from './user-favorite-places/user-favorit
     TestComponent,
     UserCommentsComponent,
     UserFavoritePlacesComponent,
+    UserVisitedComponent,
   ],
   imports: [
     BrowserModule,

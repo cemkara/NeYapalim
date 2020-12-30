@@ -14,9 +14,12 @@ export class PlaceDetailsComponent implements OnInit {
 
   place: Observable<any>;
   placeProducts: Observable<any>;
+  placeCommentsTopTen: Observable<any>;
   placeId;
   user=null;
   userFavorite = false;
+  userVisited = false;
+  
 
   constructor(private detailService:DetailsService, private route: ActivatedRoute, private userService:UsersService) { 
     this.route.queryParams.subscribe(params => {
@@ -36,13 +39,21 @@ export class PlaceDetailsComponent implements OnInit {
         res=>{
           if(res)
             this.userFavorite =true;
-
-            console.log(this.userFavorite);
         },
         err=>{
-          console.log(err);
+          console.error(err);
         }
       );
+
+      userService.userVisitedPlaceControl(this.user.Id,this.placeId).subscribe(
+        res=>{
+          if(res)
+            this.userVisited = true;
+        },
+        err=>{
+          console.error(err);
+        }
+      )
     }
 
     detailService.getPlace(this.placeId).subscribe(
@@ -53,21 +64,27 @@ export class PlaceDetailsComponent implements OnInit {
           console.error(err);
       });
 
-      detailService.getPlaceProductMain(this.placeId).subscribe(
+    detailService.getPlaceProductMain(this.placeId).subscribe(
         res => {
           this.placeProducts = res;
         },
         err =>{
           console.error(err);
-        }
-      )
+      });
+
+    detailService.getPlaceCommentsTopTen(this.placeId).subscribe(
+      res => {
+        this.placeCommentsTopTen = res;
+      },
+      err =>{
+        console.error(err);
+    });
   }
 
   openMaps()
   {
     window.open("https://maps.google.com/maps?daddr={{place.Latitude}},{{place.Longitude}}&amp;ll=");
   }
-
   ngOnInit(): void {
   }
 
@@ -93,6 +110,22 @@ export class PlaceDetailsComponent implements OnInit {
       this.userService.removeToFavorite(this.user.Id,this.placeId).subscribe(
         res=>{
           this.userFavorite = false;
+        },
+        err=>{
+          console.error(err);
+        }
+      );
+    }
+    else{
+      console.log("giriş yap");
+    }
+  }
+  addToVisited()
+  {
+      if(this.user!=null){
+      this.userService.addUserVisitedPlace(this.user.Id,this.placeId).subscribe(
+        res=>{
+          this.userVisited = true;
         },
         err=>{
           console.error(err);

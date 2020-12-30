@@ -21,6 +21,7 @@ import { PlaceDetailsComponent } from './place-details/place-details.component';
 import { TestComponent } from './test/test.component';
 import { UserCommentsComponent } from './user-comments/user-comments.component';
 import { UserFavoritePlacesComponent } from './user-favorite-places/user-favorite-places.component';
+import { UserVisitedComponent } from './user-visited/user-visited.component';
 
 
 const routes: Routes =[
@@ -39,6 +40,7 @@ const routes: Routes =[
     { path: 'place-products',          component: PlaceProductsComponent },
     { path: 'user-comments',          component: UserCommentsComponent },
     { path: 'user-favorite-places',          component: UserFavoritePlacesComponent },
+    { path: 'user-visited-places',          component: UserVisitedComponent },
     { path: 'test',          component: TestComponent },
     { path: '', redirectTo: 'default', pathMatch: 'full' }
 ];

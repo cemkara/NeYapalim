@@ -226,6 +226,7 @@
     <Compile Include="Controllers\PropertiesController.cs" />
     <Compile Include="Controllers\UserFavoritePlacesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\UserVisitedPlacesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

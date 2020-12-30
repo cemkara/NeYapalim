@@ -27,4 +27,8 @@ export class DetailsService {
     return this.http.get(environment.apiUrl + "Places/GetComments/" + placeId);
   }
 
+  getPlaceCommentsTopTen(placeId): Observable<any>{
+    return this.http.get(environment.apiUrl + "Places/GetCommentsTopTen/" + placeId);
+  }
+
 }

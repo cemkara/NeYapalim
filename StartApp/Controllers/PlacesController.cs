@@ -171,8 +171,13 @@ namespace StartApp.Controllers
         /// </summary>
         public IQueryable<Comments> GetComments(int id)
         {
-            return db.Comments.Where(x => x.PlaceId == id && x.IsActive);
+            return db.Comments.Where(x => x.PlaceId == id && x.IsActive).OrderByDescending(x=>x.RecordDate);
         }
+        public IQueryable<Comments> GetCommentsTopTen(int id)
+        {
+            return db.Comments.Where(x => x.PlaceId == id && x.IsActive).Take(10).OrderByDescending(x => x.RecordDate);
+        }
+
 
         /// <summary>
         /// List the products of place

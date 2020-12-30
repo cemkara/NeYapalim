@@ -14,19 +14,11 @@ namespace StartAppModel
     
     public partial class UserVisitedPlaces
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserVisitedPlaces()
-        {
-            this.Comments = new HashSet<Comments>();
-        }
-    
         public int Id { get; set; }
         public int UserId { get; set; }
         public int PlaceId { get; set; }
         public System.DateTime RecordDate { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comments> Comments { get; set; }
         public virtual Places Places { get; set; }
         public virtual Users Users { get; set; }
     }

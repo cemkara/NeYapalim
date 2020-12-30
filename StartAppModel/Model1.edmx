@@ -65,7 +65,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserVisitedPlaceId" Type="int" Nullable="false" />
           <Property Name="PlaceId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
@@ -451,18 +450,6 @@
             </Principal>
             <Dependent Role="Comments">
               <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Comments_UserVisitedPlaces">
-          <End Role="UserVisitedPlaces" Type="Self.UserVisitedPlaces" Multiplicity="1" />
-          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserVisitedPlaces">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Comments">
-              <PropertyRef Name="UserVisitedPlaceId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -931,10 +918,6 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
-          <AssociationSet Name="FK_Comments_UserVisitedPlaces" Association="Self.FK_Comments_UserVisitedPlaces">
-            <End Role="UserVisitedPlaces" EntitySet="UserVisitedPlaces" />
-            <End Role="Comments" EntitySet="Comments" />
-          </AssociationSet>
           <AssociationSet Name="FK_Districts_Cities" Association="Self.FK_Districts_Cities">
             <End Role="Cities" EntitySet="Cities" />
             <End Role="Districts" EntitySet="Districts" />
@@ -1133,7 +1116,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserVisitedPlaceId" Type="Int32" Nullable="false" />
           <Property Name="PlaceId" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
@@ -1142,7 +1124,6 @@
           <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Places" Relationship="Self.FK_Comments_Places" FromRole="Comments" ToRole="Places" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Comments_Users" FromRole="Comments" ToRole="Users" />
-          <NavigationProperty Name="UserVisitedPlaces" Relationship="Self.FK_Comments_UserVisitedPlaces" FromRole="Comments" ToRole="UserVisitedPlaces" />
         </EntityType>
         <EntityType Name="ContactForms">
           <Key>
@@ -1494,7 +1475,6 @@
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="PlaceId" Type="Int32" Nullable="false" />
           <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_UserVisitedPlaces" FromRole="UserVisitedPlaces" ToRole="Comments" />
           <NavigationProperty Name="Places" Relationship="Self.FK_UserVisitedPlaces_Places" FromRole="UserVisitedPlaces" ToRole="Places" />
           <NavigationProperty Name="Users" Relationship="Self.FK_UserVisitedPlaces_Users" FromRole="UserVisitedPlaces" ToRole="Users" />
         </EntityType>
@@ -1627,18 +1607,6 @@
             </Principal>
             <Dependent Role="Comments">
               <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Comments_UserVisitedPlaces">
-          <End Role="UserVisitedPlaces" Type="Self.UserVisitedPlaces" Multiplicity="1" />
-          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserVisitedPlaces">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Comments">
-              <PropertyRef Name="UserVisitedPlaceId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2058,10 +2026,6 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
-          <AssociationSet Name="FK_Comments_UserVisitedPlaces" Association="Self.FK_Comments_UserVisitedPlaces">
-            <End Role="UserVisitedPlaces" EntitySet="UserVisitedPlaces" />
-            <End Role="Comments" EntitySet="Comments" />
-          </AssociationSet>
           <AssociationSet Name="FK_Places_Districts" Association="Self.FK_Places_Districts">
             <End Role="Districts" EntitySet="Districts" />
             <End Role="Places" EntitySet="Places" />
@@ -2280,7 +2244,6 @@
             <EntityTypeMapping TypeName="StartAppModel.Comments">
               <MappingFragment StoreEntitySet="Comments">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserVisitedPlaceId" ColumnName="UserVisitedPlaceId" />
                 <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Text" ColumnName="Text" />

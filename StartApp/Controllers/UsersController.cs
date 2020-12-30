@@ -103,6 +103,14 @@ namespace StartApp.Controllers
         }
 
         /// <summary>
+        /// List of user visited places
+        /// </summary>
+        public IQueryable<Places> GetVisitedPlaces(int id)
+        {
+            return db.UserVisitedPlaces.Where(x => x.UserId == id).Select(x => x.Places);
+        }
+
+        /// <summary>
         /// List of user favorite properties
         /// </summary>
         public IQueryable<Properties> GetFavoriteProperties(int id)

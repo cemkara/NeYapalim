@@ -15,7 +15,6 @@ namespace StartAppModel
     public partial class Comments
     {
         public int Id { get; set; }
-        public int UserVisitedPlaceId { get; set; }
         public int PlaceId { get; set; }
         public int UserId { get; set; }
         public string Text { get; set; }
@@ -25,6 +24,5 @@ namespace StartAppModel
     
         public virtual Places Places { get; set; }
         public virtual Users Users { get; set; }
-        public virtual UserVisitedPlaces UserVisitedPlaces { get; set; }
     }
 }
