@@ -1,10 +1,14 @@
-.d-none{
-    display: none;
+.d-none {
+  display: none;
 }
-.d-block{
-    display: block;
+.d-block {
+  display: block;
 }
 
-.user-favorite{
-    color:#ffad1f !important;
+.user-favorite {
+  color: #ffad1f !important;
+}
+
+.message-text {
+  height: 150px;
 }

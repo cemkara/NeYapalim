@@ -1,106 +1,197 @@
 <main class="profile-page">
-    <section class="section-profile-cover section-shaped my-0">
-      <!-- Circles background -->
-      <div class="shape shape-style-1 shape-primary alpha-4">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      
-    </section>
-    <section class="section">
-      <div class="container">
-        <div class="card card-profile shadow mt--300">
-          <div>
-            <div class="row justify-content-center">
-              <div class="col-lg-3 order-lg-2">
-                <div class="card-profile-image">
-                  <a href="javascript:void(0)">
-                    <img src="https://dummyimage.com/250x250/f0f0f0/000000&text=s" class="rounded-circle">
-                  </a>
-                </div>
-              </div>
-              <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
-                <div class="card-profile-actions py-4 mt-lg-0">
-                  <a (click)="addToFavorite()" [ngClass]="{'d-none' : userFavorite}" class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-left text-white"><i class="fa fa-star"></i></a>
-                  <a (click)="removeToFavorite()" [ngClass]="{'d-block' : userFavorite}" class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-left d-none user-favorite"><i class="fa fa-star"></i></a>
-                  
-                  <a (click)="addToVisited()" [ngClass]="{'d-none' : userVisited}" class="btn btn-sm btn-info mr-4 btn-icon-only rounded-circle float-right text-white"><i class="fa fa-thumbs-up"></i></a>
-                  <a [ngClass]="{'d-block' : userVisited}" class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-right d-none user-favorite"><i class="fa fa-thumbs-up"></i></a>
-                
-                </div>
+  <section class="section-profile-cover section-shaped my-0">
+    <!-- Circles background -->
+    <div class="shape shape-style-1 shape-primary alpha-4">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="card card-profile shadow mt--300">
+        <div>
+          <div class="row justify-content-center">
+            <div class="col-lg-3 order-lg-2">
+              <div class="card-profile-image">
+                <a href="javascript:void(0)">
+                  <img src="https://dummyimage.com/250x250/f0f0f0/000000&text=s" class="rounded-circle">
+                </a>
               </div>
             </div>
-            <div class="text-center mt-5">
-              <h1>{{place.Name}}
-                <span class="font-weight-light"></span>
-              </h1>
-              <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>{{place.Districts.Name}}, {{place.Districts.Cities.Name}}</div>
-              <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>{{place.ShortDescription}}</div>
-              <div> 
-                <span class="badge badge-pill badge-primary" *ngFor="let prop of place.PlaceProperties;index as i">
-                  {{prop.Properties.Name}}
-                </span>
+            <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+              <div class="card-profile-actions py-4 mt-lg-0">
+                <a (click)="addToFavorite()" [ngClass]="{'d-none' : userFavorite}"
+                  class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-left text-white"><i
+                    class="fa fa-star"></i></a>
+                <a (click)="removeToFavorite()" [ngClass]="{'d-block' : userFavorite}"
+                  class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-left d-none user-favorite"><i
+                    class="fa fa-star"></i></a>
+                <a (click)="addToVisited()" [ngClass]="{'d-none' : userVisited}"
+                  class="btn btn-sm btn-info mr-4 btn-icon-only rounded-circle float-right text-white"><i
+                    class="fa fa-thumbs-up"></i></a>
+                <a [ngClass]="{'d-block' : userVisited}"
+                  class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-right d-none user-favorite"><i
+                    class="fa fa-thumbs-up"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-5">
+            <h1>{{place.Name}}
+              <span class="font-weight-light"></span>
+            </h1>
+            <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>{{place.Districts.Name}},
+              {{place.Districts.Cities.Name}}</div>
+            <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>{{place.ShortDescription}}</div>
+            <div>
+              <span class="badge badge-pill badge-primary" *ngFor="let prop of place.PlaceProperties;index as i">
+                {{prop.Properties.Name}}
+              </span>
+            </div>
+            <div class="col-lg-4 order-lg-1">
+              <div class="card-profile-stats d-flex justify-content-center">
+                <div>
+                  <span class="heading">{{place.AveragePrice}} ₺</span>
+                  <span class="description">Ortalama Fiyat</span>
+                </div>
+                <div>
+                  <span class="heading">5/10</span>
+                  <span class="description">Ortalama Puan</span>
+                </div>
+                <div>
+                  <span class="heading">{{place.Comments.length}}</span>
+                  <span class="description"><a href="#/place-comments?placeId={{place.Id}}">Ziyaretçi
+                      Yorumları</a></span>
+                </div>
               </div>
               <div class="col-lg-4 order-lg-1">
-                <div class="card-profile-stats d-flex justify-content-center">
-                  <div>
-                    <span class="heading">{{place.AveragePrice}} ₺</span>
-                    <span class="description">Ortalama Fiyat</span>
-                  </div>
-                  <div>
-                    <span class="heading">5/10</span>
-                    <span class="description">Ortalama Puan</span>
-                  </div>
-                  <div>
-                    <span class="heading">{{place.Comments.length}}</span>
-                    <span class="description"><a href="#/place-comments?placeId={{place.Id}}">Ziyaretçi Yorumları</a></span>
-                  </div>
-                </div>
-                <div class="col-lg-4 order-lg-1">
-                  <a href="tel:{{place.Phone}}" target="_blank" class="btn btn-outline-primary btn-sm" role="button" aria-pressed="true">Rezervasyon</a>
-                  <a href="https://maps.google.com/maps?daddr={{place.Latitude}},{{place.Longitude}}&amp;ll=" target="_blank" class="btn btn-outline-primary btn-sm" role="button" aria-pressed="true">Harita</a>
-                  <a href="" target="_blank" class="btn btn-outline-primary btn-sm" role="button" aria-pressed="true">Yorum Yap</a>
-                </div>
+                <a href="tel:{{place.Phone}}" target="_blank" class="btn btn-outline-primary btn-sm" role="button"
+                  aria-pressed="true">Rezervasyon</a>
+                <a href="https://maps.google.com/maps?daddr={{place.Latitude}},{{place.Longitude}}&amp;ll="
+                  target="_blank" class="btn btn-outline-primary btn-sm" role="button" aria-pressed="true">Harita</a>
+                <a class="btn btn-outline-primary btn-sm" (click)="open(classic1, 'modal_mini', 'sm')" role="button"
+                  aria-pressed="true">Yorum Yap</a>
               </div>
             </div>
-            <div class="mt-5 py-5 border-top">
-              <div class="row justify-content-center">
-                <div class="col-lg-9">
-                  <ngb-carousel #carousel [interval]="5000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
-                    <ng-template ngbSlide *ngFor="let comment of placeCommentsTopTen; index as i">
-                      <div class="col-lg-12 order-lg-1">
-                        <h5 class="title text-success">{{comment.Users.Name}} ({{comment.Users.Title}})</h5>
-                        <p>{{comment.Text}}</p>
-                        <hr />
-                      </div>
-                    </ng-template>
-                  </ngb-carousel>
-                  <!-- <p>{{place.Description}}</p> -->
-                </div>
-              </div>
-            </div>
-            <div class="text-center mt-5">
-                <h3>En çok tercih edilenler ürünleri
-                  <span class="font-weight-light"></span>
-                </h3>
-                <div class="col-lg-4 order-lg-1">
-                  <div class="card-profile-stats d-flex justify-content-center">
-                    <div *ngFor="let product of placeProducts;index as i">
-                      <span class="heading"><a href=""><img src="https://dummyimage.com/70x70/f0f0f0/000000&text=C" class="rounded" alt="..."></a></span>
-                      <span class="description">{{product.Name}}</span>
+          </div>
+          <div class="mt-5 py-5 border-top">
+            <div class="row justify-content-center">
+              <div class="col-lg-9">
+                <ngb-carousel #carousel [interval]="5000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
+                  (slide)="onSlide($event)">
+                  <ng-template ngbSlide *ngFor="let comment of placeCommentsTopTen; index as i">
+                    <div class="col-lg-12 order-lg-1">
+                      <h5 class="title text-success">{{comment.Users.Name}} ({{comment.Users.Title}})</h5>
+                      <p>{{comment.Text}}</p>
+                      <hr />
                     </div>
-                  </div>
-                  <a href="#/place-products?placeId={{placeId}}" class="btn btn-outline-primary btn-sm" role="button" aria-pressed="true">Tüm Ürünleri Göster</a>
+                  </ng-template>
+                </ngb-carousel>
+                <!-- <p>{{place.Description}}</p> -->
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-5">
+            <h3>En çok tercih edilenler ürünleri
+              <span class="font-weight-light"></span>
+            </h3>
+            <div class="col-lg-4 order-lg-1">
+              <div class="card-profile-stats d-flex justify-content-center">
+                <div *ngFor="let product of placeProducts;index as i">
+                  <span class="heading"><a href=""><img src="https://dummyimage.com/70x70/f0f0f0/000000&text=C"
+                        class="rounded" alt="..."></a></span>
+                  <span class="description">{{product.Name}}</span>
                 </div>
+              </div>
+              <a href="#/place-products?placeId={{placeId}}" class="btn btn-outline-primary btn-sm" role="button"
+                aria-pressed="true">Tüm Ürünleri Göster</a>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
-  
+    </div>
+  </section>
+</main>
+
+<div class="row comment-modal">
+  <div class="col-md-4">
+    <ng-template #classic1 let-c="close" let-d="dismiss">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-body px-lg-5 py-lg-5">
+              <form role="form" [formGroup]="commentForm" (submit)="submitComment()">
+                <div class="form-group mb-3">
+                  <div class="text-muted text-center mb-3">
+                    <h1>Yorum Yaz</h1>
+                  </div>
+                </div>
+                <div class="text-muted font-italic text-center">
+                  <small>
+                    <span class="text-danger font-weight-700" [ngClass]="{'d-none' : notValid}">Girilen bilgilerde bir
+                      yanlışlık var.<br /> Lütfen geçerli bir email ve şifre giriniz.</span>
+                  </small>
+                </div>
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-alternative">
+                    <textarea class="form-control message-text" formControlName="messages"
+                      placeholder="Yorumunuzu buraya yazabilirsiniz..." type="text"></textarea>
+                  </div>
+                </div>
+                <div class="form-group mb-3 text-center">
+                  <div class="btn-group" id="groupNote" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check d-none" formControlName="point" name="point" value="1"
+                      id="btnradio1" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="btnradio1">1</label>
+
+                    <input type="radio" class="btn-check  d-none" formControlName="point" name="point" value="2"
+                      id="btnradio2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio2">2</label>
+
+                    <input type="radio" class="btn-check  d-none" formControlName="point" name="point" value="3"
+                      id="btnradio3" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio3">3</label>
+
+                    <input type="radio" class="btn-check  d-none" formControlName="point" name="point" value="4"
+                      id="btnradio4" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio4">4</label>
+
+                    <input type="radio" class="btn-check  d-none" formControlName="point" name="point" value="5"
+                      id="btnradio5" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio5">5</label>
+                  </div>
+                  <!-- <div class="btn-group" id="groupNote" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check d-none" formControlName="point" name="point" value="6" id="btnradio6" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio6">6</label>
+                  
+                    <input type="radio" class="btn-check  d-none" formControlName="point" name="point" value="7" id="btnradio7" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio7">7</label>
+                  
+                    <input type="radio" class="btn-check  d-none" formControlName="point" name="point" value="8" id="btnradio8" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio8">8</label>
+
+                    <input type="radio" class="btn-check  d-none" formControlName="point" name="point" value="9" id="btnradio9" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio9">9</label>
+
+                    <input type="radio" class="btn-check  d-none" formControlName="point" name="point" value="10" id="btnradio10" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio10">10</label>
+                  </div> -->
+                </div>
+                <div class="modal-footer">
+                  <button type="button" id="btnCancel" class="btn btn-secondary" data-dismiss="modal"
+                    (click)="c('Close click')">Vazgeç</button>
+                  <button type="submit" class="btn btn-primary">Gönder</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        </div>
+    </ng-template>
+  </div>
+</div>
