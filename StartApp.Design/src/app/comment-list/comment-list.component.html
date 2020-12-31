@@ -4,7 +4,10 @@
     </h3>
     <div class="col-lg-12 order-lg-1" *ngFor="let comment of comments;index as i">
         <h5 class="title text-success">{{comment.Users.Name}} ({{comment.Users.Title}})</h5>
-        <p>{{comment.Text}}</p>
+        <div class="float-right star-color" *ngFor='let in of counter(comment.Point)'>
+          <i class="fa fa-star"></i>
+        </div>
+          <p>{{comment.Text}}</p>
         <hr />
       </div>
 </div>

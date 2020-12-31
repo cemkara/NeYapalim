@@ -173,6 +173,7 @@ namespace StartApp.Controllers
         {
             return db.Comments.Where(x => x.PlaceId == id && x.IsActive).OrderByDescending(x=>x.RecordDate);
         }
+      
         public IQueryable<Comments> GetCommentsTopTen(int id)
         {
             return db.Comments.Where(x => x.PlaceId == id && x.IsActive).Take(10).OrderByDescending(x => x.RecordDate);
@@ -192,6 +193,14 @@ namespace StartApp.Controllers
             return db.PlaceProducts.Where(x => x.PlaceId == id && x.IsActive);
         }
 
+        public int GetAveragePoint(int id)
+        {
+            IQueryable<Comments> commentList = db.Comments.Where(x => x.PlaceId == id && x.IsActive);
+            int totalPoint = commentList.Select(x => x.Point).Count();
+            int totalPointNumber = commentList.Count();
+
+            return totalPoint / totalPointNumber;
+        }
         //private
         private IEnumerable<Places> GetPlaceByCategoryId(int categoryId)
         {

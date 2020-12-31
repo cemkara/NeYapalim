@@ -12,7 +12,9 @@ namespace StartAppModel
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+    using System.Linq;
+    using System.Reflection.Emit;
+
     public partial class Places
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -41,8 +43,26 @@ namespace StartAppModel
         public System.DateTime RecordDate { get; set; }
         public string ShortDescription { get; set; }
         public string Description { get; set; }
-    
+
+       
+        public int TotalComment
+        {
+            get { return Comments.Count; }
+            set { }
+        }
+
+        public int AveragePoint
+        {
+            get {
+                if(Comments.Count>0)
+                    return Comments.Where(x => x.IsActive).Select(x=>x.Point).Sum() / Comments.Count;
+                return 0;
+            }
+            set { }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Comments> Comments { get; set; }
         public virtual Districts Districts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

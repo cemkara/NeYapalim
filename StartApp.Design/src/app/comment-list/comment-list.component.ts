@@ -10,6 +10,10 @@ export class CommentListComponent implements OnInit {
 
   @Input()
   comments: Observable<any>;
+
+  counter(i: number) {
+    return new Array(i);
+  }
   
   constructor() {
     console.log('myCustomComponent');
