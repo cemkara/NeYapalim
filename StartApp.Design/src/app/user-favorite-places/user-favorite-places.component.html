@@ -41,7 +41,10 @@
               favorilerinde.</p>
           </div>
         </a>
-      </div>
+      </div> 
+      <div class="alert alert-secondary btn-red" [ngClass]="{'d-none' : favoritePlaces.length > 0}" role="alert">
+        Henüz hiç bir mekanı favorileri eklemedin.
+       </div>
     </div>
   </div>
 </main>

@@ -27,16 +27,16 @@
             <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
               <div class="card-profile-actions py-4 mt-lg-0">
                 <a (click)="addToFavorite()" [ngClass]="{'d-none' : userFavorite}"
-                  class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-left text-white"><i
+                  class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-left text-white favorite-button top-button-size"><i
                     class="fa fa-star"></i></a>
                 <a (click)="removeToFavorite()" [ngClass]="{'d-block' : userFavorite}"
-                  class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-left d-none user-favorite"><i
+                  class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-left d-none user-favorite favorite-button top-button-size"><i
                     class="fa fa-star"></i></a>
                 <a (click)="addToVisited()" [ngClass]="{'d-none' : userVisited}"
-                  class="btn btn-sm btn-info mr-4 btn-icon-only rounded-circle float-right text-white"><i
+                  class="btn btn-sm btn-info mr-4 btn-icon-only rounded-circle float-right text-white top-button-size"><i
                     class="fa fa-thumbs-up"></i></a>
                 <a [ngClass]="{'d-block' : userVisited}"
-                  class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-right d-none user-favorite"><i
+                  class="btn btn-sm btn-warning mr-4 btn-icon-only rounded-circle float-right d-none user-favorite top-button-size"><i
                     class="fa fa-thumbs-up"></i></a>
               </div>
             </div>
@@ -49,7 +49,7 @@
               {{place.Districts.Cities.Name}}</div>
             <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>{{place.ShortDescription}}</div>
             <div>
-              <span class="badge badge-pill badge-primary" *ngFor="let prop of place.PlaceProperties;index as i">
+              <span class="badge btn-red badge-pill badge-primary" *ngFor="let prop of place.PlaceProperties;index as i">
                 {{prop.Properties.Name}}
               </span>
             </div>
