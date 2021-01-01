@@ -24,6 +24,9 @@ export class UserFavoritePlacesComponent implements OnInit {
           console.error(err);
      });
   }
+  counter(i: number) {
+    return new Array(i);
+  }
 
   ngOnInit(): void {
   }

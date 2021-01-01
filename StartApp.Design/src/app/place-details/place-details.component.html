@@ -70,11 +70,11 @@
                 </div>
               </div>
               <div class="col-lg-4 order-lg-1">
-                <a href="tel:{{place.Phone}}" target="_blank" class="btn btn-outline-primary btn-sm" role="button"
+                <a href="tel:{{place.Phone}}" target="_blank" class="btn btn-red btn-sm" role="button"
                   aria-pressed="true">Rezervasyon</a>
                 <a href="https://maps.google.com/maps?daddr={{place.Latitude}},{{place.Longitude}}&amp;ll="
-                  target="_blank" class="btn btn-outline-primary btn-sm" role="button" aria-pressed="true">Harita</a>
-                <a class="btn btn-outline-primary btn-sm" (click)="open(classic1, 'modal_mini', 'sm')" role="button"
+                  target="_blank" class="btn btn-red btn-sm" role="button" aria-pressed="true">Harita</a>
+                <a class="btn btn-red btn-sm" (click)="open(classic1, 'modal_mini', 'sm')" role="button"
                   aria-pressed="true">Yorum Yap</a>
               </div>
             </div>
@@ -103,12 +103,12 @@
             <div class="col-lg-4 order-lg-1">
               <div class="card-profile-stats d-flex justify-content-center">
                 <div *ngFor="let product of placeProducts;index as i">
-                  <span class="heading"><a href=""><img src="https://dummyimage.com/70x70/f0f0f0/000000&text=C"
-                        class="rounded" alt="..."></a></span>
+                  <span class="heading"><img src="https://dummyimage.com/70x70/f0f0f0/000000&text=C"
+                        class="rounded" alt="..."></span>
                   <span class="description">{{product.Name}}</span>
                 </div>
               </div>
-              <a href="#/place-products?placeId={{placeId}}" class="btn btn-outline-primary btn-sm" role="button"
+              <a href="#/place-products?placeId={{placeId}}" class="btn btn-red mb-2 btn-sm" role="button"
                 aria-pressed="true">Tüm Ürünleri Göster</a>
             </div>
           </div>

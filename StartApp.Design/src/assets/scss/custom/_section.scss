@@ -36,7 +36,7 @@
     }
     
     .shape {
-        position: absolute;
+        position: fixed;
         top: 0;
         z-index: -1;
         width: 100%;
@@ -490,7 +490,7 @@
 
 @include media-breakpoint-down(md) {
     .section-profile-cover {
-        height: 400px;
+        height: 300px;
     }
 }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CategoryService } from '../service/category.service';
+import { LocaldataService } from '../service/localdata.service';
 
 @Component({
   selector: 'app-categories',
@@ -12,13 +13,12 @@ export class CategoriesComponent implements OnInit {
 
   categories: Observable<any>;
   mainCategoryId;
-
-  constructor(private categoryService:CategoryService, private route: ActivatedRoute) {
+  
+  constructor(private categoryService:CategoryService, private route: ActivatedRoute, private localData: LocaldataService) {
     
     this.route.queryParams.subscribe(params => {
       this.mainCategoryId = params['mainCategoryId'];
     });
-
     categoryService.getCategories(this.mainCategoryId).subscribe(
       res => {
           this.categories = res;

@@ -1,34 +1,47 @@
 <main>
-    <div class="position-relative">
-      <!-- Hero for FREE version -->
-      <section class="section section-lg section-hero section-shaped">
-        <!-- Background circles -->
-        <div class="shape shape-style-1 shape-primary">
-          <!-- <span class="span-50"></span>
-          <span class="span-50"></span> -->
-        </div>
-      </section>
+  <div class="position-relative">
+    <!-- Hero for FREE version -->
+    <section class="section section-lg section-hero section-shaped">
+      <!-- Background circles -->
+      <div class="shape shape-style-1 shape-primary">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </section>
+  </div>
+  <div>
+    <div class="container shape-container d-flex">
+      <div class="col px-0">
+        <h1 class="lead text-center text-red font-weight-500">Favori mekanlarım</h1>
+      </div>
     </div>
-<div class="mt-5">
-    <h3 class="text-center">Favori Mekanlarım
-      <span class="font-weight-light"></span>
-    </h3>
-    <div class="container">
-        <div *ngFor="let place of favoritePlaces;index as i">
-            <a href="#/details?placeId={{place.Id}}">
-                <div class="row">
-                    <div class="col-4"> 
-                        <img src="https://dummyimage.com/100x130/f0f0f0/000000&text=y" class="rounded" alt="...">
-                    </div>
-                    <div class="col-8">
-                        <h5 class="title text-success">{{place.Name}}</h5>
-                        <p>Puan:<strong>5/10</strong></p>
-                        <p>Yorum Sayısı:<strong>{{place.Comments.length}}</strong></p>
-                    </div> 
-                </div>
-                <hr />
-            </a>
-         </div>
+    <div class="container mb-3">
+      <div class="card mt-3" *ngFor="let place of favoritePlaces;index as i">
+        <a href="#/details?placeId={{place.Id}}">
+          <div class="card-body">
+            <h5 class="card-title">{{place.Name}}
+              <div class="float-right star-color" *ngFor='let in of counter(place.AveragePoint)'>
+                <i class="fa fa-star"></i>
+              </div>
+            </h5>
+            <h6 class="card-subtitle text-muted">
+              {{place.PlaceShortLocation}}
+            </h6>
+            <hr class="mb-1" />
+            <p class="card-text text-muted" [ngClass]="{'d-none' : place.TotalComment==0}">Hakkında toplam
+              {{place.TotalComment}} yorum yapılmış.</p>
+            <p class="card-text text-muted" [ngClass]="{'d-none' : place.TotalVisited==0}">Toplam {{place.TotalVisited}}
+              kişi tarafından ziyaret edilmiş.</p>
+            <p class="card-text text-muted">Bu mekan {{place.RecordDate | date:'dd/MM/yyyy'}} tarihinden beri
+              favorilerinde.</p>
+          </div>
+        </a>
+      </div>
     </div>
-</div>
+  </div>
 </main>

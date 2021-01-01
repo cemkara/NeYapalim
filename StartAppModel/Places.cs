@@ -61,6 +61,24 @@ namespace StartAppModel
             set { }
         }
 
+        public string PlaceShortLocation
+        {
+            get
+            {
+                return Districts.Name + " ," + Districts.Cities.Name;
+            }
+            set { }
+        }
+
+        public int TotalVisited
+        {
+            get
+            {
+                return UserVisitedPlaces.Count;
+            }
+            set { }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
         public virtual ICollection<Comments> Comments { get; set; }

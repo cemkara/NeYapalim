@@ -1,21 +1,40 @@
-<div class="text-center mt-5">
-    <h1>En çok tercih edilenler ürünler
-      <span class="font-weight-light"></span>
-    </h1>
-    <div class="row">
-        <div class="col-md-3 col-lg-3 mb-3 mb-lg-0" *ngFor="let product of placeProducts;index as i">
-          <div class="px-4">
-            <img src="https://dummyimage.com/200x200/f0f0f0/000000&text=C" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px;">
-            <div class="pt-4 text-center">
-              <h5 class="title">
-                <small class="h6 text-muted">{{product.Name}}</small>
-                <span class="d-block mb-1">{{product.Text}}</span>
-              </h5>
-              <div class="mt-3">
-                <span class="badge badge-pill badge-success">{{product.Price}}₺</span>
-              </div>
-            </div>
-          </div>
-        </div>
+<main>
+  <div class="position-relative">
+    <!-- Hero for FREE version -->
+    <section class="section section-lg section-hero section-shaped">
+      <!-- Background circles -->
+      <div class="shape shape-style-1 shape-primary">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
+    </section>
+  </div>
+  <div>
+    <div class="container shape-container d-flex">
+      <div class="col px-0">
+        <h1 class="lead text-center text-red font-weight-500">Mekanın en çok tercih edilenleri</h1>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card mt-3" *ngFor="let product of placeProducts;index as i">
+        <a href="#/details?placeId={{placeId}}">
+          <div class="card-body">
+            <h5 class="card-title">{{product.Name}}
+              <p class="float-right">
+                {{product.Price}}₺
+              </p>
+            </h5>
+            <hr class="mb-1" />
+            <p class="card-text text-muted">{{product.Text}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
 </div>
+</main>
+

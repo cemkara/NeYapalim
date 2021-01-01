@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { LocaldataService } from '../service/localdata.service';
 import { PropertiesService } from '../service/properties.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class PropertiesComponent implements OnInit {
   properties: Observable<any>;
   selectedCategories;
 
-  constructor(private propertiesService:PropertiesService, private route: ActivatedRoute) { 
+  constructor(private propertiesService:PropertiesService, private route: ActivatedRoute,private localData: LocaldataService) { 
     this.route.queryParams.subscribe(params => {
       if(params['selectedCategories']=="")
         this.selectedCategories = "0";

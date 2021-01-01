@@ -26,6 +26,10 @@ export class UserVisitedComponent implements OnInit {
      });
   }
 
+  counter(i: number) {
+    return new Array(i);
+  }
+  
   ngOnInit(): void {
   }
 
