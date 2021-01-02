@@ -23,33 +23,28 @@
       </div>
     </div>
     <div class="text-center mt-5">
-      <div class="row">
-        <div class="col-md-3 col-lg-3 mb-3 mb-lg-0" *ngFor="let place of suggestionPlaces;index as i">
-          <a href="#/details?placeId={{place.Id}}">
-            <div class="px-4">
-              <img src="https://dummyimage.com/200x200/f0f0f0/000000&text={{place.Name[0]}}"
-                class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px;">
-              <div class="pt-4 text-center">
-                <h5 class="title">
-                  <small class="h6 text-muted placeName">{{place.Name}}</small>
-                  <span class="d-block mb-1 placeShortDesc">{{place.ShortDescription}}</span>
-                </h5>
-                <div class="mt-3 mt-3">
-                  <span class="badge badge-pill badge-secondary placeProp">Sakin</span>
-                  <span class="badge badge-pill badge-secondary placeProp">Çalışma ortamı</span>
-                  <span class="badge badge-pill badge-secondary placeProp">Deniz Manzarası</span>
-                </div>
-              </div>
-            </div>
-          </a>
-          <hr />
-        </div> 
-        <div class="alert alert-secondary btn-red not-suggestion" [ngClass]="{'d-none' : suggestionPlaces.length > 0}" role="alert">
-          Üzgünüz..<br/> Sana göre bir mekan bulamadık.. Kategori ve özellikleri daha geniş tutarak tekrar aramayı deneyebilirisin. 
-         </div>
+      <div class="row text-center">
+        <div class="card my-card" *ngFor="let place of suggestionPlaces;index as i">
+          <a href="#/details?placeId=?{{place.Id}}">
+          <img class="card-img-top" src="https://dummyimage.com/250x250/f0f0f0/000000&text=a" alt="Card image cap">
+          <div class="card-body">
+            <h1 class="card-title">{{place.Name}}</h1>
+            <p class="card-text">{{place.ShortDescription}}</p>
+          </div>
+          <div class="card-body">
+            <span class="badge btn-red badge-pill badge-secondary placeProp">Sakin</span>
+            <span class="badge btn-red badge-pill badge-secondary placeProp">Çalışma ortamı</span>
+            <span class="badge btn-red badge-pill badge-secondary placeProp">Deniz Manzarası</span>
+          </div>
+        </a>
+        </div>
+        <div class="alert alert-secondary btn-red not-suggestion" [ngClass]="{'d-none' : suggestionPlaces.length > 0}"
+          role="alert">
+          Üzgünüz..<br /> Sana göre bir mekan bulamadık.. Kategori ve özellikleri daha geniş tutarak tekrar aramayı
+          deneyebilirisin.
+        </div>
       </div>
 
     </div>
   </div>
-  <!-- <app-sections></app-sections> -->
 </main>
