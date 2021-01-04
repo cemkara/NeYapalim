@@ -10,8 +10,13 @@ import { MainCategoryService } from '../service/main-category.service';
 })
 export class TestComponent implements OnInit {
 
+  showNavigationArrows = false;
+  showNavigationIndicators = false;
+  
   constructor(private http: HttpClient, private mainCategoryService:MainCategoryService) { 
+    
   } 
+  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
   ngOnInit(): void { 
     

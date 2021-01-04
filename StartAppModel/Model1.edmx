@@ -32,6 +32,25 @@
           <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="BlogKeys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="BlogId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Blogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="Id" />
@@ -82,6 +101,29 @@
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
           <Property Name="MessageTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RecordDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContentPlaces">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContentId" Type="int" Nullable="false" />
+          <Property Name="PlacesId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="MainPage" Type="bit" />
+          <Property Name="OrderBy" Type="int" />
           <Property Name="RecordDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Countries">
@@ -381,6 +423,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_BlogKeys_Blogs">
+          <End Role="Blogs" Type="Self.Blogs" Multiplicity="1" />
+          <End Role="BlogKeys" Type="Self.BlogKeys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogKeys">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Categories_MainCategories">
           <End Role="MainCategories" Type="Self.MainCategories" Multiplicity="1" />
           <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
@@ -450,6 +504,30 @@
             </Principal>
             <Dependent Role="Comments">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentPlaces_Contents">
+          <End Role="Contents" Type="Self.Contents" Multiplicity="1" />
+          <End Role="ContentPlaces" Type="Self.ContentPlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContentPlaces">
+              <PropertyRef Name="ContentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentPlaces_Places">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="ContentPlaces" Type="Self.ContentPlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContentPlaces">
+              <PropertyRef Name="PlacesId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -853,11 +931,15 @@
           <EntitySet Name="AddedByUserProducts" EntityType="Self.AddedByUserProducts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AllProducts" EntityType="Self.AllProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogKeys" EntityType="Self.BlogKeys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CategoryProperties" EntityType="Self.CategoryProperties" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContactForms" EntityType="Self.ContactForms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContentPlaces" EntityType="Self.ContentPlaces" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contents" EntityType="Self.Contents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DistinctTest" EntityType="Self.DistinctTest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Districts" EntityType="Self.Districts" Schema="dbo" store:Type="Tables" />
@@ -894,6 +976,10 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="AddedByUserProducts" EntitySet="AddedByUserProducts" />
           </AssociationSet>
+          <AssociationSet Name="FK_BlogKeys_Blogs" Association="Self.FK_BlogKeys_Blogs">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="BlogKeys" EntitySet="BlogKeys" />
+          </AssociationSet>
           <AssociationSet Name="FK_Categories_MainCategories" Association="Self.FK_Categories_MainCategories">
             <End Role="MainCategories" EntitySet="MainCategories" />
             <End Role="Categories" EntitySet="Categories" />
@@ -917,6 +1003,14 @@
           <AssociationSet Name="FK_Comments_Users" Association="Self.FK_Comments_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentPlaces_Contents" Association="Self.FK_ContentPlaces_Contents">
+            <End Role="Contents" EntitySet="Contents" />
+            <End Role="ContentPlaces" EntitySet="ContentPlaces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentPlaces_Places" Association="Self.FK_ContentPlaces_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="ContentPlaces" EntitySet="ContentPlaces" />
           </AssociationSet>
           <AssociationSet Name="FK_Districts_Cities" Association="Self.FK_Districts_Cities">
             <End Role="Cities" EntitySet="Cities" />
@@ -1275,6 +1369,7 @@
           <NavigationProperty Name="UserVisitedPlaces" Relationship="Self.FK_UserVisitedPlaces_Places" FromRole="Places" ToRole="UserVisitedPlaces" />
           <Property Name="ShortDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ContentPlaces" Relationship="StartAppModel.FK_ContentPlaces_Places" FromRole="Places" ToRole="ContentPlaces" />
         </EntityType>
         <EntityType Name="PlaceTypes">
           <Key>
@@ -2147,6 +2242,22 @@
             <End Role="Properties" EntitySet="Properties" />
             <End Role="CategoryProperties" EntitySet="CategoryProperties" />
           </AssociationSet>
+          <EntitySet Name="BlogKeys" EntityType="StartAppModel.BlogKeys" />
+          <EntitySet Name="Blogs" EntityType="StartAppModel.Blogs" />
+          <EntitySet Name="ContentPlaces" EntityType="StartAppModel.ContentPlaces" />
+          <AssociationSet Name="FK_BlogKeys_Blogs" Association="StartAppModel.FK_BlogKeys_Blogs">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="BlogKeys" EntitySet="BlogKeys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentPlaces_Places" Association="StartAppModel.FK_ContentPlaces_Places">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="ContentPlaces" EntitySet="ContentPlaces" />
+          </AssociationSet>
+          <EntitySet Name="Contents" EntityType="StartAppModel.Contents" />
+          <AssociationSet Name="FK_ContentPlaces_Contents" Association="StartAppModel.FK_ContentPlaces_Contents">
+            <End Role="Contents" EntitySet="Contents" />
+            <End Role="ContentPlaces" EntitySet="ContentPlaces" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CategoryProperties">
           <Key>
@@ -2180,6 +2291,89 @@
             </Principal>
             <Dependent Role="CategoryProperties">
               <PropertyRef Name="PropertiesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BlogKeys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BlogId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Blogs" Relationship="StartAppModel.FK_BlogKeys_Blogs" FromRole="BlogKeys" ToRole="Blogs" />
+        </EntityType>
+        <EntityType Name="Blogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="BlogKeys" Relationship="StartAppModel.FK_BlogKeys_Blogs" FromRole="Blogs" ToRole="BlogKeys" />
+        </EntityType>
+        <EntityType Name="ContentPlaces">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContentId" Type="Int32" Nullable="false" />
+          <Property Name="PlacesId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Places" Relationship="StartAppModel.FK_ContentPlaces_Places" FromRole="ContentPlaces" ToRole="Places" />
+          <NavigationProperty Name="Contents" Relationship="StartAppModel.FK_ContentPlaces_Contents" FromRole="ContentPlaces" ToRole="Contents" />
+        </EntityType>
+        <Association Name="FK_BlogKeys_Blogs">
+          <End Type="StartAppModel.Blogs" Role="Blogs" Multiplicity="1" />
+          <End Type="StartAppModel.BlogKeys" Role="BlogKeys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BlogKeys">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentPlaces_Places">
+          <End Type="StartAppModel.Places" Role="Places" Multiplicity="1" />
+          <End Type="StartAppModel.ContentPlaces" Role="ContentPlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContentPlaces">
+              <PropertyRef Name="PlacesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Contents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="MainPage" Type="Boolean" />
+          <Property Name="OrderBy" Type="Int32" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ContentPlaces" Relationship="StartAppModel.FK_ContentPlaces_Contents" FromRole="Contents" ToRole="ContentPlaces" />
+        </EntityType>
+        <Association Name="FK_ContentPlaces_Contents">
+          <End Type="StartAppModel.Contents" Role="Contents" Multiplicity="1" />
+          <End Type="StartAppModel.ContentPlaces" Role="ContentPlaces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContentPlaces">
+              <PropertyRef Name="ContentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2573,6 +2767,52 @@
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="PropertiesId" ColumnName="PropertiesId" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogKeys">
+            <EntityTypeMapping TypeName="StartAppModel.BlogKeys">
+              <MappingFragment StoreEntitySet="BlogKeys">
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="StartAppModel.Blogs">
+              <MappingFragment StoreEntitySet="Blogs">
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentPlaces">
+            <EntityTypeMapping TypeName="StartAppModel.ContentPlaces">
+              <MappingFragment StoreEntitySet="ContentPlaces">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="PlacesId" ColumnName="PlacesId" />
+                <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contents">
+            <EntityTypeMapping TypeName="StartAppModel.Contents">
+              <MappingFragment StoreEntitySet="Contents">
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+                <ScalarProperty Name="MainPage" ColumnName="MainPage" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

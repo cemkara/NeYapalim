@@ -1,41 +1,46 @@
-.logo img{
-    height: 150px;
+.logo img {
+  height: 150px;
 }
 
-.mt-50{
-    margin-top: 50px;
+.mt-50 {
+  margin-top: 50px;
 }
 
-.mb-50{
-    margin-bottom: 50px;
+.mb-50 {
+  margin-bottom: 50px;
 }
 
-.mt-100{
-    margin-top: 100px;
+.mt-100 {
+  margin-top: 100px;
 }
 
-.home-container{
-    margin-top: 50px;
-    margin-bottom: 200px;
+.home-container {
+  margin-top: 50px;
+  margin-bottom: 200px;
 }
 
 .ng-autocomplete {
-    width:100%;
-    max-width: 600px;
-    display: table;
-    margin: 0 auto;
-    z-index: 999999;
-  }
-  .categories{
-      margin-top: 50px;
-      margin-bottom: 50px;
-  }
-  .categories img{
-    margin-bottom: 20px;
-  }
-  
-  .how-it-work{
-    margin-left: -3px;
-    margin-bottom: 20px;
-    height: 70px;
-  }
+  width: 100%;
+  max-width: 600px;
+  display: table;
+  margin: 0 auto;
+  z-index: 999999;
+}
+.categories {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.categories img {
+  margin-bottom: 20px;
+}
+
+.how-it-work {
+  margin-left: -3px;
+  margin-bottom: 20px;
+  height: 70px;
+}
+
+.default-bg {
+  background-image: url(/assets/img/bg/default.jpg);
+
+}

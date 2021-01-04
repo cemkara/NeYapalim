@@ -82,6 +82,13 @@
         <EntityTypeShape EntityType="StartAppModel.CategoryProperties" Width="1.5" PointX="11.25" PointY="32.25" />
         <AssociationConnector Association="StartAppModel.FK_CategoryProperties_Categories" />
         <AssociationConnector Association="StartAppModel.FK_CategoryProperties_Properties" />
+        <EntityTypeShape EntityType="StartAppModel.BlogKeys" Width="1.5" PointX="12.625" PointY="1.25" />
+        <EntityTypeShape EntityType="StartAppModel.Blogs" Width="1.5" PointX="10.375" PointY="1" />
+        <EntityTypeShape EntityType="StartAppModel.ContentPlaces" Width="1.5" PointX="11.25" PointY="10.375" />
+        <AssociationConnector Association="StartAppModel.FK_BlogKeys_Blogs" />
+        <AssociationConnector Association="StartAppModel.FK_ContentPlaces_Places" />
+        <EntityTypeShape EntityType="StartAppModel.Contents" Width="1.5" PointX="9.125" PointY="5.125" />
+        <AssociationConnector Association="StartAppModel.FK_ContentPlaces_Contents" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

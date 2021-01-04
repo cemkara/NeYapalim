@@ -1,0 +1,10 @@
+img{
+    opacity: 0.4;
+    height: 150px;
+}
+
+.card-img-overlay h3
+{
+    color: #ffffff;
+    margin-top: 30%;
+}

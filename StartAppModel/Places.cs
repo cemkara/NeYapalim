@@ -13,7 +13,6 @@ namespace StartAppModel
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Reflection.Emit;
 
     public partial class Places
     {
@@ -27,6 +26,7 @@ namespace StartAppModel
             this.UserFavoritePlaces = new HashSet<UserFavoritePlaces>();
             this.UserRecommendedPlaces = new HashSet<UserRecommendedPlaces>();
             this.UserVisitedPlaces = new HashSet<UserVisitedPlaces>();
+            this.ContentPlaces = new HashSet<ContentPlaces>();
         }
     
         public int Id { get; set; }
@@ -43,8 +43,8 @@ namespace StartAppModel
         public System.DateTime RecordDate { get; set; }
         public string ShortDescription { get; set; }
         public string Description { get; set; }
+    
 
-       
         public int TotalComment
         {
             get { return Comments.Count; }
@@ -78,7 +78,6 @@ namespace StartAppModel
             }
             set { }
         }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
         public virtual ICollection<Comments> Comments { get; set; }
@@ -96,5 +95,7 @@ namespace StartAppModel
         public virtual ICollection<UserRecommendedPlaces> UserRecommendedPlaces { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserVisitedPlaces> UserVisitedPlaces { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContentPlaces> ContentPlaces { get; set; }
     }
 }

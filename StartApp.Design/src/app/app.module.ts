@@ -40,6 +40,9 @@ import { UserCommentsComponent } from './user-comments/user-comments.component';
 import { UserFavoritePlacesComponent } from './user-favorite-places/user-favorite-places.component';
 import { UserVisitedComponent } from './user-visited/user-visited.component';
 import { HowItWorkComponent } from './how-it-work/how-it-work.component';
+import { MainContentComponent } from './content/main-content/main-content.component';
+import { ContentListComponent } from './content/content-list/content-list.component';
+import { ContentDetailsComponent } from './content/content-details/content-details.component';
 
 
 @NgModule({
@@ -68,6 +71,9 @@ import { HowItWorkComponent } from './how-it-work/how-it-work.component';
     UserFavoritePlacesComponent,
     UserVisitedComponent,
     HowItWorkComponent,
+    MainContentComponent,
+    ContentListComponent,
+    ContentDetailsComponent,
   ],
   imports: [
     BrowserModule,

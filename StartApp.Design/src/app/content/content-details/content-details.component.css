@@ -1,0 +1,18 @@
+.content-background {
+  background-image: url(/assets/img/content/galata.jpg);
+}
+
+.profile-page .card-profile {
+  margin-top: -50px;
+}
+
+img{
+  opacity: 0.4;
+  height: 150px;
+}
+
+.card-img-overlay h3
+{
+  color: #ffffff;
+  margin-top: 20%;
+}

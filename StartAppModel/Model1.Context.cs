@@ -61,5 +61,9 @@ namespace StartAppModel
         public virtual DbSet<UserTypes> UserTypes { get; set; }
         public virtual DbSet<UserVisitedPlaces> UserVisitedPlaces { get; set; }
         public virtual DbSet<CategoryProperties> CategoryProperties { get; set; }
+        public virtual DbSet<BlogKeys> BlogKeys { get; set; }
+        public virtual DbSet<Blogs> Blogs { get; set; }
+        public virtual DbSet<ContentPlaces> ContentPlaces { get; set; }
+        public virtual DbSet<Contents> Contents { get; set; }
     }
 }
