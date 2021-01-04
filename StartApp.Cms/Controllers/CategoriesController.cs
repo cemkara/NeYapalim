@@ -6,10 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using StartApp.Cms.App_Start;
 using StartAppModel;
 
 namespace StartApp.Cms.Controllers
 {
+
+    [_SessionControl]
     public class CategoriesController : Controller
     {
         private StartAppEntities db = new StartAppEntities();

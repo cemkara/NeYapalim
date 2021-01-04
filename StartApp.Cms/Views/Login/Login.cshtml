@@ -1,0 +1,46 @@
+﻿@model StartApp.Cms.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/Admin/css/Login/base.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+
+    <div class="login" style="width:350px !important;margin:0 auto; margin-top:200px;">
+
+        <div class="box-header">
+
+            <h2>Yönetim Paneli</h2>
+
+        </div>
+
+
+        <div class="box">
+
+            <div class="notification tip">@Html.ValidationSummary(false, "")</div>
+
+            @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+            {
+        <div class="form col">
+
+            @Html.LabelFor(f => f.EMail)
+            @Html.TextBoxFor(f => f.EMail, new { title = "Kullanıcı adınızı giriniz.", @Value = @ViewBag.user })
+            <br />
+            @Html.LabelFor(f => f.Password)
+            @Html.PasswordFor(f => f.Password, new { title = "Kullanıcı şifrenizi giriniz.", @Value = @ViewBag.password })
+        <br />
+            <button type="submit" class="btn btn-default">Giriş</button><br class="cl" />
+        </div>
+            }
+        </div>
+    </div>
+</body>
+</html>
