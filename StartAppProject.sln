@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartApp.Model", "StartAppM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartApp.Design", "StartApp.Design\StartApp.Design.csproj", "{B9119997-F40A-495A-8F42-E9964366B4F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartApp.Cms", "StartApp.Cms\StartApp.Cms.csproj", "{4E52DF10-4694-491A-8DC6-F963303FC56A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B9119997-F40A-495A-8F42-E9964366B4F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9119997-F40A-495A-8F42-E9964366B4F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9119997-F40A-495A-8F42-E9964366B4F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E52DF10-4694-491A-8DC6-F963303FC56A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E52DF10-4694-491A-8DC6-F963303FC56A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E52DF10-4694-491A-8DC6-F963303FC56A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E52DF10-4694-491A-8DC6-F963303FC56A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

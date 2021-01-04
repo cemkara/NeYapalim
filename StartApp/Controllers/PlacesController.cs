@@ -218,5 +218,6 @@ namespace StartApp.Controllers
             public int? districtId { get; set; }
             public int? cityId { get; set; }
         }
+
     }
 }

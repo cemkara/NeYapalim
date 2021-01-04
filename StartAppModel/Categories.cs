@@ -36,6 +36,8 @@ namespace StartAppModel
             set { }
         }
 
+        public bool adminTempSelect { get; set; }
+
 
         public virtual MainCategories MainCategories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

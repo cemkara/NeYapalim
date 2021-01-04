@@ -30,7 +30,13 @@ namespace StartAppModel
         public bool IsActive { get; set; }
         public int OrderNo { get; set; }
         public Nullable<bool> UserFavorite { get; set; }
-    
+        public bool tempSelect
+        {
+            get { return false; }
+            set { }
+        }
+        public bool adminTempSelect { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
         public virtual ICollection<PlaceProperties> PlaceProperties { get; set; }
