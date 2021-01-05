@@ -16,8 +16,16 @@ namespace StartApp.Controllers
     {
         private StartAppEntities db = new StartAppEntities();
 
-        // GET: api/Blogs
-        public IQueryable<Blogs> GetBlogs()
+        public Blogs GetBlog(int id)
+        {
+            return db.Blogs.Find(id);
+        }
+
+        public IQueryable<Blogs> GetMainBlogs()
+        {
+            return db.Blogs.Where(x => x.IsActive).OrderByDescending(x => x.RecordDate).Take(6);
+        }
+        public IQueryable<Blogs> GetAllBlogs()
         {
             return db.Blogs.Where(x=>x.IsActive).OrderByDescending(x=>x.RecordDate);
         }

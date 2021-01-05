@@ -43,6 +43,9 @@ import { HowItWorkComponent } from './how-it-work/how-it-work.component';
 import { MainContentComponent } from './content/main-content/main-content.component';
 import { ContentListComponent } from './content/content-list/content-list.component';
 import { ContentDetailsComponent } from './content/content-details/content-details.component';
+import { MainBlogComponent } from './blog/main-blog/main-blog.component';
+import { BlogListComponent } from './blog/blog-list/blog-list.component';
+import { BlogDetailsComponent } from './blog/blog-details/blog-details.component';
 
 
 @NgModule({
@@ -74,6 +77,9 @@ import { ContentDetailsComponent } from './content/content-details/content-detai
     MainContentComponent,
     ContentListComponent,
     ContentDetailsComponent,
+    MainBlogComponent,
+    BlogListComponent,
+    BlogDetailsComponent,
   ],
   imports: [
     BrowserModule,

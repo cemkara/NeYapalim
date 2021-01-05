@@ -25,6 +25,8 @@ import { UserVisitedComponent } from './user-visited/user-visited.component';
 import { HowItWorkComponent } from './how-it-work/how-it-work.component';
 import { ContentDetailsComponent } from './content/content-details/content-details.component';
 import { ContentListComponent } from './content/content-list/content-list.component';
+import { BlogDetailsComponent } from './blog/blog-details/blog-details.component';
+import { BlogListComponent } from './blog/blog-list/blog-list.component';
 
 
 const routes: Routes =[
@@ -47,6 +49,8 @@ const routes: Routes =[
     { path: 'how-it-work',          component: HowItWorkComponent },
     { path: 'content-details',          component: ContentDetailsComponent },
     { path: 'content-list',          component: ContentListComponent },
+    { path: 'blog-details',          component: BlogDetailsComponent },
+    { path: 'blog-list',          component: BlogListComponent },
     { path: 'test',          component: TestComponent },
     { path: '', redirectTo: 'default', pathMatch: 'full' }
 ];
