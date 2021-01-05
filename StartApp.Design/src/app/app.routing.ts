@@ -24,6 +24,7 @@ import { UserFavoritePlacesComponent } from './user-favorite-places/user-favorit
 import { UserVisitedComponent } from './user-visited/user-visited.component';
 import { HowItWorkComponent } from './how-it-work/how-it-work.component';
 import { ContentDetailsComponent } from './content/content-details/content-details.component';
+import { ContentListComponent } from './content/content-list/content-list.component';
 
 
 const routes: Routes =[
@@ -45,6 +46,7 @@ const routes: Routes =[
     { path: 'user-visited-places',          component: UserVisitedComponent },
     { path: 'how-it-work',          component: HowItWorkComponent },
     { path: 'content-details',          component: ContentDetailsComponent },
+    { path: 'content-list',          component: ContentListComponent },
     { path: 'test',          component: TestComponent },
     { path: '', redirectTo: 'default', pathMatch: 'full' }
 ];

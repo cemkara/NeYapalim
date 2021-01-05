@@ -17,6 +17,10 @@ namespace StartApp.Controllers
     {
         private StartAppEntities db = new StartAppEntities();
 
+        public Contents GetContent(int id)
+        {
+            return db.Contents.Find(id);
+        }
         // GET: api/Contents
         public IQueryable<Contents> GetMainContents()
         {

@@ -42,5 +42,6 @@
 
 .default-bg {
   background-image: url(/assets/img/bg/default.jpg);
-
+  background-repeat: no-repeat;
+  background-size: contain;
 }

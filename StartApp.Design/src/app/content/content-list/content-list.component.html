@@ -1,26 +1,33 @@
-<div class="row ">
-    <div class="col-12 mb-3">
-        <div class="card bg-dark text-white">
-            <img class="card-img" src="./assets/img/content/ayasofya.jpg" alt="Card image">
-            <div class="card-img-overlay">
-              <h3 class="card-title">Tarihi yarımada mekanları</h3>
-            </div>
-          </div>
+<main class="profile-page">
+  <section class="section-profile-cover section-shaped my-0 content-background">
+
+    <!-- Circles background -->
+    <div class="shape shape-style-1 shape-primary alpha-4">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-    <div class="col-12 mb-3">
-        <div class="card bg-dark text-white">
-            <img class="card-img" src="./assets/img/content/galata.jpg" alt="Card image">
-            <div class="card-img-overlay">
-              <h3 class="card-title">Galata geceleri</h3>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <p class="lead text-red font-weight-500 text-center mb-50">Sizin özel hazırladığımız listeler</p>
+        </div>
+        <div class="col-6 mb-3" *ngFor="let content of contents;index as i">
+          <a href="#/content-details?contentId={{content.Id}}">
+            <div class="card bg-dark text-white">
+              <img class="card-img" src="./assets/img/content/{{content.ImageUrl}}" alt="Card image">
+              <div class="card-img-overlay">
+                <h3 class="card-title text-center">{{content.Name}}</h3>
+              </div>
             </div>
-          </div>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="col-12 mb-3">
-        <div class="card bg-dark text-white">
-            <img class="card-img" src="./assets/img/content/balat.jpg" alt="Card image">
-            <div class="card-img-overlay">
-              <h3 class="card-title">Balatın yeni mekanları</h3>
-            </div>
-          </div>
-    </div>
-</div>
+  </section>

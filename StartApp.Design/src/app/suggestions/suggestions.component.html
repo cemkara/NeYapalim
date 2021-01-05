@@ -25,7 +25,7 @@
     <div class="text-center mt-5">
       <div class="row text-center">
         <div class="card my-card" *ngFor="let place of suggestionPlaces;index as i">
-          <a href="#/details?placeId=?{{place.Id}}">
+          <a href="#/details?placeId={{place.Id}}">
           <img class="card-img-top" src="https://dummyimage.com/250x250/f0f0f0/000000&text=a" alt="Card image cap">
           <div class="card-body">
             <h1 class="card-title">{{place.Name}}</h1>

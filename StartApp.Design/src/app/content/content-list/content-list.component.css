@@ -8,3 +8,8 @@ img{
     color: #ffffff;
     margin-top: 30%;
 }
+
+.content-background {
+    background-image: url(/assets/img/content/galata.jpg);
+  }
+  
