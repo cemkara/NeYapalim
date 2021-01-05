@@ -10,112 +10,116 @@ using StartAppModel;
 
 namespace StartApp.Cms.Controllers
 {
-    public class CategoriesController : Controller
+    public class PlacePropertiesController : Controller
     {
         private StartAppEntities db = new StartAppEntities();
 
-        // GET: Categories
+        // GET: PlaceProperties
         public ActionResult Index()
         {
-            var categories = db.Categories.Include(c => c.MainCategories);
-            return View(categories.ToList());
+            var placeProperties = db.PlaceProperties.Include(p => p.Places).Include(p => p.Properties);
+            return View(placeProperties.ToList());
         }
 
-        // GET: Categories/Details/5
+        // GET: PlaceProperties/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categories categories = db.Categories.Find(id);
-            if (categories == null)
+            PlaceProperties placeProperties = db.PlaceProperties.Find(id);
+            if (placeProperties == null)
             {
                 return HttpNotFound();
             }
-            return View(categories);
+            return View(placeProperties);
         }
 
-        // GET: Categories/Create
+        // GET: PlaceProperties/Create
         public ActionResult Create()
         {
-            ViewBag.MainCategoryId = new SelectList(db.MainCategories, "Id", "Name");
+            ViewBag.PlaceId = new SelectList(db.Places, "Id", "Name");
+            ViewBag.PropertyId = new SelectList(db.Properties, "Id", "Name");
             return View();
         }
 
-        // POST: Categories/Create
+        // POST: PlaceProperties/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,MainCategoryId,Name,IconUrl,OrderNo,IsActive")] Categories categories)
+        public ActionResult Create([Bind(Include = "Id,PropertyId,PlaceId,IsActive")] PlaceProperties placeProperties)
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Add(categories);
+                db.PlaceProperties.Add(placeProperties);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MainCategoryId = new SelectList(db.MainCategories, "Id", "Name", categories.MainCategoryId);
-            return View(categories);
+            ViewBag.PlaceId = new SelectList(db.Places, "Id", "Name", placeProperties.PlaceId);
+            ViewBag.PropertyId = new SelectList(db.Properties, "Id", "Name", placeProperties.PropertyId);
+            return View(placeProperties);
         }
 
-        // GET: Categories/Edit/5
+        // GET: PlaceProperties/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categories categories = db.Categories.Find(id);
-            if (categories == null)
+            PlaceProperties placeProperties = db.PlaceProperties.Find(id);
+            if (placeProperties == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MainCategoryId = new SelectList(db.MainCategories, "Id", "Name", categories.MainCategoryId);
-            return View(categories);
+            ViewBag.PlaceId = new SelectList(db.Places, "Id", "Name", placeProperties.PlaceId);
+            ViewBag.PropertyId = new SelectList(db.Properties, "Id", "Name", placeProperties.PropertyId);
+            return View(placeProperties);
         }
 
-        // POST: Categories/Edit/5
+        // POST: PlaceProperties/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,MainCategoryId,Name,IconUrl,OrderNo,IsActive")] Categories categories)
+        public ActionResult Edit([Bind(Include = "Id,PropertyId,PlaceId,IsActive")] PlaceProperties placeProperties)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(categories).State = EntityState.Modified;
+                db.Entry(placeProperties).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MainCategoryId = new SelectList(db.MainCategories, "Id", "Name", categories.MainCategoryId);
-            return View(categories);
+            ViewBag.PlaceId = new SelectList(db.Places, "Id", "Name", placeProperties.PlaceId);
+            ViewBag.PropertyId = new SelectList(db.Properties, "Id", "Name", placeProperties.PropertyId);
+            return View(placeProperties);
         }
 
-        // GET: Categories/Delete/5
+        // GET: PlaceProperties/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categories categories = db.Categories.Find(id);
-            if (categories == null)
+            PlaceProperties placeProperties = db.PlaceProperties.Find(id);
+            if (placeProperties == null)
             {
                 return HttpNotFound();
             }
-            return View(categories);
+            return View(placeProperties);
         }
 
-        // POST: Categories/Delete/5
+        // POST: PlaceProperties/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Categories categories = db.Categories.Find(id);
-            db.Categories.Remove(categories);
+            PlaceProperties placeProperties = db.PlaceProperties.Find(id);
+            db.PlaceProperties.Remove(placeProperties);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

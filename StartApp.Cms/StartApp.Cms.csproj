@@ -129,12 +129,15 @@
     <Compile Include="App_Start\_SessionController.cs" />
     <Compile Include="Controllers\BlogsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CategoryPropertiesController.cs" />
     <Compile Include="Controllers\ContentPlacesController.cs" />
     <Compile Include="Controllers\ContentsController.cs" />
     <Compile Include="Controllers\DistrictsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainCategoriesController.cs" />
+    <Compile Include="Controllers\PlaceCategoriesController.cs" />
+    <Compile Include="Controllers\PlacePropertiesController.cs" />
     <Compile Include="Controllers\PlacesController.cs" />
     <Compile Include="Controllers\PlaceTypesController.cs" />
     <Compile Include="Controllers\PropertiesController.cs" />
@@ -180,11 +183,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Categories\Create.cshtml" />
-    <Content Include="Views\Categories\Delete.cshtml" />
-    <Content Include="Views\Categories\Details.cshtml" />
-    <Content Include="Views\Categories\Edit.cshtml" />
-    <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Districts\Create.cshtml" />
     <Content Include="Views\Districts\Delete.cshtml" />
     <Content Include="Views\Districts\Details.cshtml" />
@@ -213,11 +211,6 @@
     <Content Include="Views\PlaceTypes\Details.cshtml" />
     <Content Include="Views\PlaceTypes\Edit.cshtml" />
     <Content Include="Views\PlaceTypes\Index.cshtml" />
-    <Content Include="Views\Properties\Create.cshtml" />
-    <Content Include="Views\Properties\Delete.cshtml" />
-    <Content Include="Views\Properties\Details.cshtml" />
-    <Content Include="Views\Properties\Edit.cshtml" />
-    <Content Include="Views\Properties\Index.cshtml" />
     <Content Include="Views\Places\PlacesCategories.cshtml" />
     <Content Include="Views\Places\PlacesProperties.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
@@ -237,6 +230,26 @@
     <Content Include="Views\Blogs\Details.cshtml" />
     <Content Include="Views\Blogs\Edit.cshtml" />
     <Content Include="Views\Blogs\Index.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Properties\Create.cshtml" />
+    <Content Include="Views\Properties\Delete.cshtml" />
+    <Content Include="Views\Properties\Details.cshtml" />
+    <Content Include="Views\Properties\Edit.cshtml" />
+    <Content Include="Views\Properties\Index.cshtml" />
+    <Content Include="Views\PlaceProperties\Create.cshtml" />
+    <Content Include="Views\PlaceProperties\Delete.cshtml" />
+    <Content Include="Views\PlaceProperties\Details.cshtml" />
+    <Content Include="Views\PlaceProperties\Edit.cshtml" />
+    <Content Include="Views\PlaceProperties\Index.cshtml" />
+    <Content Include="Views\CategoryProperties\Create.cshtml" />
+    <Content Include="Views\CategoryProperties\Delete.cshtml" />
+    <Content Include="Views\CategoryProperties\Details.cshtml" />
+    <Content Include="Views\CategoryProperties\Edit.cshtml" />
+    <Content Include="Views\CategoryProperties\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

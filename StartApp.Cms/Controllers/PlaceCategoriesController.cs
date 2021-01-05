@@ -10,112 +10,116 @@ using StartAppModel;
 
 namespace StartApp.Cms.Controllers
 {
-    public class CategoriesController : Controller
+    public class PlaceCategoriesController : Controller
     {
         private StartAppEntities db = new StartAppEntities();
 
-        // GET: Categories
+        // GET: PlaceCategories
         public ActionResult Index()
         {
-            var categories = db.Categories.Include(c => c.MainCategories);
-            return View(categories.ToList());
+            var placeCategories = db.PlaceCategories.Include(p => p.Categories).Include(p => p.Places);
+            return View(placeCategories.ToList());
         }
 
-        // GET: Categories/Details/5
+        // GET: PlaceCategories/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categories categories = db.Categories.Find(id);
-            if (categories == null)
+            PlaceCategories placeCategories = db.PlaceCategories.Find(id);
+            if (placeCategories == null)
             {
                 return HttpNotFound();
             }
-            return View(categories);
+            return View(placeCategories);
         }
 
-        // GET: Categories/Create
+        // GET: PlaceCategories/Create
         public ActionResult Create()
         {
-            ViewBag.MainCategoryId = new SelectList(db.MainCategories, "Id", "Name");
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name");
+            ViewBag.PlaceId = new SelectList(db.Places, "Id", "Name");
             return View();
         }
 
-        // POST: Categories/Create
+        // POST: PlaceCategories/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,MainCategoryId,Name,IconUrl,OrderNo,IsActive")] Categories categories)
+        public ActionResult Create([Bind(Include = "Id,CategoryId,PlaceId,Note,IsActive")] PlaceCategories placeCategories)
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Add(categories);
+                db.PlaceCategories.Add(placeCategories);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MainCategoryId = new SelectList(db.MainCategories, "Id", "Name", categories.MainCategoryId);
-            return View(categories);
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", placeCategories.CategoryId);
+            ViewBag.PlaceId = new SelectList(db.Places, "Id", "Name", placeCategories.PlaceId);
+            return View(placeCategories);
         }
 
-        // GET: Categories/Edit/5
+        // GET: PlaceCategories/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categories categories = db.Categories.Find(id);
-            if (categories == null)
+            PlaceCategories placeCategories = db.PlaceCategories.Find(id);
+            if (placeCategories == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MainCategoryId = new SelectList(db.MainCategories, "Id", "Name", categories.MainCategoryId);
-            return View(categories);
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", placeCategories.CategoryId);
+            ViewBag.PlaceId = new SelectList(db.Places, "Id", "Name", placeCategories.PlaceId);
+            return View(placeCategories);
         }
 
-        // POST: Categories/Edit/5
+        // POST: PlaceCategories/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,MainCategoryId,Name,IconUrl,OrderNo,IsActive")] Categories categories)
+        public ActionResult Edit([Bind(Include = "Id,CategoryId,PlaceId,Note,IsActive")] PlaceCategories placeCategories)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(categories).State = EntityState.Modified;
+                db.Entry(placeCategories).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MainCategoryId = new SelectList(db.MainCategories, "Id", "Name", categories.MainCategoryId);
-            return View(categories);
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", placeCategories.CategoryId);
+            ViewBag.PlaceId = new SelectList(db.Places, "Id", "Name", placeCategories.PlaceId);
+            return View(placeCategories);
         }
 
-        // GET: Categories/Delete/5
+        // GET: PlaceCategories/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categories categories = db.Categories.Find(id);
-            if (categories == null)
+            PlaceCategories placeCategories = db.PlaceCategories.Find(id);
+            if (placeCategories == null)
             {
                 return HttpNotFound();
             }
-            return View(categories);
+            return View(placeCategories);
         }
 
-        // POST: Categories/Delete/5
+        // POST: PlaceCategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Categories categories = db.Categories.Find(id);
-            db.Categories.Remove(categories);
+            PlaceCategories placeCategories = db.PlaceCategories.Find(id);
+            db.PlaceCategories.Remove(placeCategories);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

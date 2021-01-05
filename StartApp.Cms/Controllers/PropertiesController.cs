@@ -1,6 +1,4 @@
-﻿using StartApp.Cms.App_Start;
-using StartAppModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -8,10 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using StartAppModel;
 
 namespace StartApp.Cms.Controllers
 {
-    [_SessionControl]
     public class PropertiesController : Controller
     {
         private StartAppEntities db = new StartAppEntities();
