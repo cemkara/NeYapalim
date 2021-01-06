@@ -47,7 +47,10 @@ import { MainBlogComponent } from './blog/main-blog/main-blog.component';
 import { BlogListComponent } from './blog/blog-list/blog-list.component';
 import { BlogDetailsComponent } from './blog/blog-details/blog-details.component';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { ProgressSpinnerComponent } from './progress/progress-spinner/progress-spinner.component';  
+import { ProgressSpinnerComponent } from './progress/progress-spinner/progress-spinner.component';
+import { MainCategoriesComponent } from './category/main-categories/main-categories.component';
+import { CategoriesListComponent } from './category/categories-list/categories-list.component';
+import { CategoryDetailsComponent } from './category/category-details/category-details.component';  
 
 @NgModule({
   declarations: [
@@ -82,6 +85,9 @@ import { ProgressSpinnerComponent } from './progress/progress-spinner/progress-s
     BlogListComponent,
     BlogDetailsComponent,
     ProgressSpinnerComponent,
+    MainCategoriesComponent,
+    CategoriesListComponent,
+    CategoryDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,4 +13,25 @@ export class CategoryService {
       environment.apiUrl + "Categories/GetCategories/" + mainCategoryId
     );
   }
+
+  getMainCategories(): Observable<any> {
+    return this.http.get(environment.apiUrl + "Categories/GetMainCategories");
+  }
+
+  getAllCategories(): Observable<any> {
+    return this.http.get(environment.apiUrl + "Categories/GetAllCategories");
+  }
+
+  getCategory(categoryId): Observable<any> {
+    return this.http.get(
+      environment.apiUrl + "Categories/GetCategory/" + categoryId
+    );
+  }
+
+  getPlacesByCategoryId(categoryId): Observable<any> {
+    return this.http.get(
+      environment.apiUrl + "Categories/GetPlacesByCategoryId/" + categoryId
+    );
+  }
+  
 }

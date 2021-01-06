@@ -1,0 +1,48 @@
+<main class="profile-page">
+    <section class="section-profile-cover section-shaped my-0 content-background">
+
+        <!-- Circles background -->
+        <div class="shape shape-style-1 shape-primary alpha-4">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="card card-profile shadow mt--300">
+                <div class="px-4">
+                    <div class="text-center mt-5">
+                        <h1>{{category.Name}}</h1>
+                        <!-- <div class="h6 font-weight-300">{{content.RecordDate | date:'dd/MM/yyyy'}}</div> -->
+                    </div>
+                    <div class="mt-5 py-5 border-top text-center">
+                        <div class="row justify-content-center">
+                            <div class="col-12 mb-3" *ngFor="let place of categoryPlace;index as i">
+                                <a href="#/details?placeId={{place.Id}}">
+                                    <div class="card bg-dark text-white">
+                                        <img class="card-img" src="./assets/img/content/galata.jpg"
+                                            alt="Card image">
+                                        <div class="card-img-overlay">
+                                            <h3 class="card-title">{{place.Name}}</h3>
+                                            <p class="card-text">{{place.Districts.Name}},
+                                                {{place.Districts.Cities.Name}}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="alert alert-secondary btn-red"
+                                [ngClass]="{'d-none' : categoryPlace.length > 0}" role="alert">
+                                Mekan bulunamadı..
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
