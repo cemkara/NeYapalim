@@ -1,0 +1,52 @@
+﻿@model IEnumerable<StartAppModel.Properties>
+@{
+    ViewBag.Title = "PlacesProperties";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.SelectedCategory.Name Properties</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <input name="status" onclick="changeStatus(this.value,this.checked)" type="checkbox" checked="@item.adminTempSelect" value="@item.Id" />
+            </td>
+        </tr>
+    }
+
+</table>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    function changeStatus(m, c) {
+        $.ajax({
+            url: '@Url.Action("ChangePropertyStatus")',
+            type: "POST",
+            dataType: "json",
+            data: { id: @ViewBag.SelectedCategory.Id, propId:m, status:c },
+            success: function (data) {
+                console.log(data);
+                //if (data.result == 1)
+                //    alert(data.message);
+                //else
+                //    alert("Onaylama Başarısız!");
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    }
+</script>

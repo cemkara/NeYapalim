@@ -113,6 +113,7 @@ namespace StartApp.Cms.Controllers
             return View(placeCategories);
         }
 
+
         // POST: PlaceCategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

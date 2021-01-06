@@ -250,6 +250,7 @@
     <Content Include="Views\CategoryProperties\Details.cshtml" />
     <Content Include="Views\CategoryProperties\Edit.cshtml" />
     <Content Include="Views\CategoryProperties\Index.cshtml" />
+    <Content Include="Views\Categories\CategoryProperties.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

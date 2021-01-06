@@ -46,7 +46,8 @@ import { ContentDetailsComponent } from './content/content-details/content-detai
 import { MainBlogComponent } from './blog/main-blog/main-blog.component';
 import { BlogListComponent } from './blog/blog-list/blog-list.component';
 import { BlogDetailsComponent } from './blog/blog-details/blog-details.component';
-
+import { NgxSpinnerModule } from "ngx-spinner";
+import { ProgressSpinnerComponent } from './progress/progress-spinner/progress-spinner.component';  
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { BlogDetailsComponent } from './blog/blog-details/blog-details.component
     MainBlogComponent,
     BlogListComponent,
     BlogDetailsComponent,
+    ProgressSpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +96,7 @@ import { BlogDetailsComponent } from './blog/blog-details/blog-details.component
     FormsModule, 
     ReactiveFormsModule,
     SocialLoginModule,
+    NgxSpinnerModule  
   ],
   providers: [
     {

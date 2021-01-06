@@ -109,6 +109,51 @@ namespace StartApp.Cms.Controllers
             return View(categories);
         }
 
+        [HttpGet]
+        public ActionResult CategoryProperties(int id)
+        {
+            var allProperties = db.Properties.Where(x => x.IsActive);
+            ViewBag.SelectedCategory = db.Categories.Find(id);
+            var categoryProperties = db.CategoryProperties.Where(x => x.IsActive && x.CategoryId== id);
+            foreach (Properties property in allProperties)
+            {
+                bool temp = false;
+                CategoryProperties pProp = categoryProperties.Where(x => x.PropertiesId == property.Id && x.IsActive).FirstOrDefault();
+                if (pProp != null)
+                {
+                    property.adminTempSelect = true;
+                }
+                else
+                {
+                    property.adminTempSelect = false;
+                }
+
+            }
+            return View(allProperties);
+        }
+
+        [HttpPost]
+        public ActionResult ChangePropertyStatus(int id, int propId, bool status)
+        {
+
+            CategoryProperties pCat = db.CategoryProperties.Where(x => x.CategoryId == id && x.PropertiesId == propId).FirstOrDefault();
+            if (pCat != null)
+            {
+                pCat.IsActive = status;
+            }
+            else
+            {
+                pCat = new CategoryProperties();
+                pCat.PropertiesId = propId;
+                pCat.CategoryId = id;
+                pCat.IsActive = status;
+                db.CategoryProperties.Add(pCat);
+            }
+            db.SaveChanges();
+            return Json(true);
+        }
+
+
         // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
