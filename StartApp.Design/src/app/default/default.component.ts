@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { LocationService } from "../service/location.service";
 import { LocaldataService } from "../service/localdata.service";
 import { environment } from "src/environments/environment";
+import { DeviceService } from "../service/device.service";
 
 @Component({
   selector: "app-default",
@@ -43,6 +44,7 @@ export class DefaultComponent implements OnInit {
     private mainCategoryService: MainCategoryService,
     private locationService: LocationService,
     private localdata: LocaldataService,
+    private deviceService: DeviceService
     ) {
     // localdata.allClear();
     this.locationService.findMe();

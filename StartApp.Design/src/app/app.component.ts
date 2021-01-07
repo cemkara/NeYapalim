@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import { DOCUMENT } from '@angular/common';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
+import { DeviceService } from './service/device.service';
 
 var didScroll;
 var lastScrollTop = 0;
@@ -18,7 +19,9 @@ var navbarHeight = 0;
 export class AppComponent implements OnInit {
     private _router: Subscription;
 
-    constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
+    constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location, private deviceService: DeviceService) {
+        deviceService.userDeviceControl();
+    }
     @HostListener('window:scroll', ['$event'])
     hasScrolled() {
 
