@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  apiUrl:'http://localhost/api/',
+  apiUrl:'http://api.neyapalim.online/api/',
   googleApiKey:'AIzaSyDeRIK9CHCECptURw8271-O6DJp60JoRQc',
 };
 
