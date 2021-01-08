@@ -34,3 +34,9 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+.page-bg-image{
+  width: 100% !important;
+  height: 125% !important;
+  opacity: 1 !important;
+}
