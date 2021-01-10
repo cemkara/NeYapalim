@@ -1,0 +1,23 @@
+﻿@model StartAppModel.Blogs
+@{
+    ViewBag.Title = "AddImage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title - Resim Ekle</h2>
+
+@using (Html.BeginForm("AddImage", "Blogs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="file" name="file" id="file" style="width: 100%;" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Yükle" class="submit" />
+            </div>
+        </div>
+    </div>
+}

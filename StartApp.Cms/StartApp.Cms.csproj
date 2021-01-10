@@ -126,6 +126,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UploadImage.cs" />
     <Compile Include="App_Start\_SessionController.cs" />
     <Compile Include="Controllers\BlogsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainCategoriesController.cs" />
     <Compile Include="Controllers\PlaceCategoriesController.cs" />
+    <Compile Include="Controllers\PlaceImagesController.cs" />
     <Compile Include="Controllers\PlacePropertiesController.cs" />
     <Compile Include="Controllers\PlacesController.cs" />
     <Compile Include="Controllers\PlaceTypesController.cs" />
@@ -251,6 +253,15 @@
     <Content Include="Views\CategoryProperties\Edit.cshtml" />
     <Content Include="Views\CategoryProperties\Index.cshtml" />
     <Content Include="Views\Categories\CategoryProperties.cshtml" />
+    <Content Include="Views\Places\AddImage.cshtml" />
+    <Content Include="Views\Contents\AddImage.cshtml" />
+    <Content Include="Views\Blogs\AddImage.cshtml" />
+    <Content Include="Views\Places\PlaceImages.cshtml" />
+    <Content Include="Views\PlaceImages\Create.cshtml" />
+    <Content Include="Views\PlaceImages\Delete.cshtml" />
+    <Content Include="Views\PlaceImages\Details.cshtml" />
+    <Content Include="Views\PlaceImages\Edit.cshtml" />
+    <Content Include="Views\PlaceImages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

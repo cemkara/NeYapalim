@@ -65,5 +65,6 @@ namespace StartAppModel
         public virtual DbSet<Blogs> Blogs { get; set; }
         public virtual DbSet<ContentPlaces> ContentPlaces { get; set; }
         public virtual DbSet<Contents> Contents { get; set; }
+        public virtual DbSet<PlaceImages> PlaceImages { get; set; }
     }
 }

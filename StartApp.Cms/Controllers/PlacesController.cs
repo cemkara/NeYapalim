@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Security.Policy;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace StartApp.Cms.Controllers
@@ -290,6 +291,40 @@ namespace StartApp.Cms.Controllers
             }
             db.SaveChanges();
             return Json(true);
+        }
+
+
+        [HttpGet]
+        public ActionResult AddImage(int id)
+        {
+            return View(db.Places.Find(id));
+        }
+
+        [HttpPost]
+        public ActionResult AddImage(int id, HttpPostedFileBase file)
+        {
+            UploadImage.UploadAndSave(file, UploadImageType.Place, id, 500, 500);
+            return RedirectToAction("PlaceImages/" + id, "Places");
+        }
+
+        [HttpGet]
+        public ActionResult PlaceImages(int id)
+        {
+            ViewBag.itemId = id;
+            return View(db.PlaceImages.Where(x => x.PlaceId == id));
+        }
+
+        public ActionResult SetMainImage(int id)
+        {
+            PlaceImages image = db.PlaceImages.Find(id);
+            IQueryable<PlaceImages> imageList = db.PlaceImages.Where(x => x.PlaceId == image.PlaceId);
+            foreach (PlaceImages img in imageList)
+            {
+                img.MainImage = false;
+            }
+            image.MainImage = true;
+            db.SaveChanges();
+            return RedirectToAction("PlaceImages/" + image.PlaceId);
         }
     }
 }

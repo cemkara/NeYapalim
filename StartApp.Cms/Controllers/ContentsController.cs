@@ -6,10 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using StartApp.Cms.App_Start;
 using StartAppModel;
 
 namespace StartApp.Cms.Controllers
 {
+    [_SessionControl]
     public class ContentsController : Controller
     {
         private StartAppEntities db = new StartAppEntities();
@@ -124,6 +126,19 @@ namespace StartApp.Cms.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [HttpGet]
+        public ActionResult AddImage(int id)
+        {
+            return View(db.Contents.Find(id));
+        }
+
+        [HttpPost]
+        public ActionResult AddImage(int id, HttpPostedFileBase file)
+        {
+            UploadImage.UploadAndSave(file, UploadImageType.Content, id, 500, 500);
+            return RedirectToAction("Index", "Contents");
         }
     }
 }

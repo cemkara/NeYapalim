@@ -16,9 +16,6 @@
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Text)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.IsActive)
         </th>
         <th>
@@ -36,21 +33,18 @@
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Text)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.IsActive)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ImageUrl)
+            <img src="https://neyapalim.online/@item.ImageUrl" width="100" alt="Alternate Text" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RecordDate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-default" }) 
+            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-sm btn-default" })
+            @Html.ActionLink("Add Image", "AddImage", new { id = item.Id }, new { @class = "btn btn-sm btn-default" })
         </td>
     </tr>
 }

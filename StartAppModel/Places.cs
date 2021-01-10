@@ -27,8 +27,9 @@ namespace StartAppModel
             this.UserRecommendedPlaces = new HashSet<UserRecommendedPlaces>();
             this.UserVisitedPlaces = new HashSet<UserVisitedPlaces>();
             this.ContentPlaces = new HashSet<ContentPlaces>();
+            this.PlaceImages = new HashSet<PlaceImages>();
         }
-    
+
         public int Id { get; set; }
         public string Name { get; set; }
         public int DistrictId { get; set; }
@@ -43,7 +44,7 @@ namespace StartAppModel
         public System.DateTime RecordDate { get; set; }
         public string ShortDescription { get; set; }
         public string Description { get; set; }
-    
+
 
         public int TotalComment
         {
@@ -53,9 +54,10 @@ namespace StartAppModel
 
         public int AveragePoint
         {
-            get {
-                if(Comments.Count>0)
-                    return Comments.Where(x => x.IsActive).Select(x=>x.Point).Sum() / Comments.Count;
+            get
+            {
+                if (Comments.Count > 0)
+                    return Comments.Where(x => x.IsActive).Select(x => x.Point).Sum() / Comments.Count;
                 return 0;
             }
             set { }
@@ -78,6 +80,22 @@ namespace StartAppModel
             }
             set { }
         }
+
+        public string MainImage
+        {
+            get
+            {
+                var image = PlaceImages.Where(x => x.MainImage).FirstOrDefault();
+                if (image != null)
+                    return image.ImageUrl;
+                
+                return "";
+            }
+            set
+            {
+
+            }
+        }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
         public virtual ICollection<Comments> Comments { get; set; }
@@ -97,5 +115,8 @@ namespace StartAppModel
         public virtual ICollection<UserVisitedPlaces> UserVisitedPlaces { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ContentPlaces> ContentPlaces { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<PlaceImages> PlaceImages { get; set; }
+
     }
 }

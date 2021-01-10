@@ -1,0 +1,40 @@
+﻿@model IQueryable<StartAppModel.PlaceImages>
+@{
+    ViewBag.Title = "PlaceImages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Images</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddImage", "Places",new { id = ViewBag.itemId }, new { @class = "btn btn-sm btn-default" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Image
+        </th>
+        <th>
+            Main Image
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="https://neyapalim.online/@Html.DisplayFor(modelItem => item.ImageUrl)" width="100" alt="Alternate Text" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MainImage)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", "PlaceImages", new { id = item.Id }, new { @class = "btn btn-sm btn-default" })
+                @Html.ActionLink("Set Main", "SetMainImage", new { id = item.Id }, new { @class = "btn btn-sm btn-default" })
+            </td>
+        </tr>
+    }
+
+</table>
+

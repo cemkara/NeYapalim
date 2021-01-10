@@ -89,6 +89,8 @@
         <AssociationConnector Association="StartAppModel.FK_ContentPlaces_Places" />
         <EntityTypeShape EntityType="StartAppModel.Contents" Width="1.5" PointX="9.125" PointY="5.125" />
         <AssociationConnector Association="StartAppModel.FK_ContentPlaces_Contents" />
+        <EntityTypeShape EntityType="StartAppModel.PlaceImages" Width="1.5" PointX="11.25" PointY="27.5" />
+        <AssociationConnector Association="StartAppModel.FK_PlaceImages_Places" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

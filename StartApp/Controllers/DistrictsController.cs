@@ -31,7 +31,7 @@ namespace StartApp.Controllers
         }
 
         [ResponseType(typeof(DistrictRequest))]
-        public DistrictResponse SearchDistricts(DistrictRequest districtRequest)
+        public DistrictResponse SearchDistricts([FromBody]DistrictRequest districtRequest)
         {
             Districts dist = new Districts();
             DistrictResponse response = new DistrictResponse();

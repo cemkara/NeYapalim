@@ -126,6 +126,9 @@
     <Compile Include="PlaceCategories.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="PlaceImages.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="PlaceMostPreferredProducts.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
