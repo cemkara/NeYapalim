@@ -1,25 +1,18 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { environment } from "src/environments/environment";
+import { BaseService } from "./base.service";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable()
 export class ContentsService {
-  constructor(private http: HttpClient) {}
+  constructor(private baseService: BaseService) {}
 
   getMainContents(): Observable<any> {
-    return this.http.get(environment.apiUrl + "Contents/GetMainContents");
+    return this.baseService.get("Contents/GetMainContents");
   }
   getContent(contentId): Observable<any> {
-    return this.http.get(
-      environment.apiUrl + "Contents/GetContent/" + contentId
-    );
+    return this.baseService.get("Contents/GetContent/" + contentId);
   }
   getAllContent(): Observable<any> {
-    return this.http.get(
-      environment.apiUrl + "Contents/GetAllContent"
-    );
+    return this.baseService.get("Contents/GetAllContent");
   }
 }

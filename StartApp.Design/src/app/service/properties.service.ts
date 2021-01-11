@@ -1,19 +1,14 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { BaseService } from "./base.service";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PropertiesService {
+  constructor(private baseService: BaseService) {}
 
-  constructor(private http: HttpClient) { }
   getPropertiesOfCategories(selectedCategories): Observable<any> {
-    const headers =  {
-      headers: new  HttpHeaders({ 
-        'Content-Type': 'application/x-www-form-urlencoded'})
-    };
-    return this.http.get( environment.apiUrl + 'CategoryProperties/GetPropertiesOfCategories/' + selectedCategories,headers)
+    return this.baseService.get(
+      "CategoryProperties/GetPropertiesOfCategories/" + selectedCategories
+    );
   }
 }

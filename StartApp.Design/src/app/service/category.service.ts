@@ -1,37 +1,30 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { environment } from "src/environments/environment";
+import { BaseService } from "./base.service";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable()
 export class CategoryService {
-  constructor(private http: HttpClient) {}
+  constructor(private baseService: BaseService) {}
+
   getCategories(mainCategoryId): Observable<any> {
-    return this.http.get(
-      environment.apiUrl + "Categories/GetCategories/" + mainCategoryId
-    );
+    return this.baseService.get("Categories/GetCategories/" + mainCategoryId);
   }
 
   getMainCategories(): Observable<any> {
-    return this.http.get(environment.apiUrl + "Categories/GetMainCategories");
+    return this.baseService.get("Categories/GetMainCategories");
   }
 
   getAllCategories(): Observable<any> {
-    return this.http.get(environment.apiUrl + "Categories/GetAllCategories");
+    return this.baseService.get("Categories/GetAllCategories");
   }
 
   getCategory(categoryId): Observable<any> {
-    return this.http.get(
-      environment.apiUrl + "Categories/GetCategory/" + categoryId
-    );
+    return this.baseService.get("Categories/GetCategory/" + categoryId);
   }
 
   getPlacesByCategoryId(categoryId): Observable<any> {
-    return this.http.get(
-      environment.apiUrl + "Categories/GetPlacesByCategoryId/" + categoryId
+    return this.baseService.get(
+      "Categories/GetPlacesByCategoryId/" + categoryId
     );
   }
-  
 }

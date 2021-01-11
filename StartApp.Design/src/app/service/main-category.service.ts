@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { BaseService } from './base.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MainCategoryService {
   
- constructor(private http: HttpClient) { }
+ constructor(private baseService: BaseService) { }
  getMainCategories() :Observable<any> {
-     return this.http.get(environment.apiUrl + 'MainCategories/GetMainCategories');
+     return this.baseService.get('MainCategories/GetMainCategories');
  }
 }

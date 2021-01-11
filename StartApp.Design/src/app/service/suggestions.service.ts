@@ -1,32 +1,25 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { BaseService } from "./base.service";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SuggestionsService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private baseService: BaseService) {}
   getSuggestions(categories, properties, districtId): Observable<any> {
-    return this.http.post( environment.apiUrl + 'Places/GetPlacesofRecommendations',
-    {
-      'categories' : categories,
-      'properties' : properties,
-      'districtId' : districtId,
-      'cityId' : '' 
-    })
+    return this.baseService.post("Places/GetPlacesofRecommendations", {
+      categories: categories,
+      properties: properties,
+      districtId: districtId,
+      cityId: "",
+    });
   }
 
   getSuggestionsCount(categories, properties, districtId): Observable<any> {
-    return this.http.post( environment.apiUrl + 'Places/GetPlacesofRecommendationsCount',
-    {
-      'categories' : categories,
-      'properties' : properties,
-      'districtId' : districtId,
-      'cityId' : '' 
-    })
+    return this.baseService.post("Places/GetPlacesofRecommendationsCount", {
+      categories: categories,
+      properties: properties,
+      districtId: districtId,
+      cityId: "",
+    });
   }
-
 }

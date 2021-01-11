@@ -1,16 +1,13 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { environment } from "src/environments/environment";
+import { BaseService } from "./base.service";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable()
 export class CommentsService {
-  constructor(private http: HttpClient) {}
+  constructor(private baseService: BaseService) {}
 
   addComment(PlaceId, UserId, Text, Point): Observable<any> {
-    return this.http.post(environment.apiUrl + "Comments/AddComment", {
+    return this.baseService.post("Comments/AddComment", {
       PlaceId: PlaceId,
       UserId: UserId,
       Text: Text,

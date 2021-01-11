@@ -51,6 +51,20 @@ import { ProgressSpinnerComponent } from './progress/progress-spinner/progress-s
 import { MainCategoriesComponent } from './category/main-categories/main-categories.component';
 import { CategoriesListComponent } from './category/categories-list/categories-list.component';
 import { CategoryDetailsComponent } from './category/category-details/category-details.component';  
+import { BaseService } from './service/base.service';
+import { DetailsService } from './service/details.service';
+import { BlogService } from './service/blog.service';
+import { CategoryService } from './service/category.service';
+import { CommentsService } from './service/comments.service';
+import { ContentsService } from './service/contents.service';
+import { DeviceService } from './service/device.service';
+import { LocationService } from './service/location.service';
+import { LocaldataService } from './service/localdata.service';
+import { LoginService } from './service/login.service';
+import { MainCategoryService } from './service/main-category.service';
+import { PropertiesService } from './service/properties.service';
+import { SuggestionsService } from './service/suggestions.service';
+import { UsersService } from './service/users.service';
 
 @NgModule({
   declarations: [
@@ -122,7 +136,21 @@ import { CategoryDetailsComponent } from './category/category-details/category-d
           }
         ]
       } as SocialAuthServiceConfig,
-    }
+    },
+    BaseService,
+    BlogService,
+    CategoryService,
+    CommentsService,
+    ContentsService,
+    DetailsService,
+    DeviceService,
+    LocationService,
+    LocaldataService,
+    LoginService,
+    MainCategoryService,
+    PropertiesService,
+    SuggestionsService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })

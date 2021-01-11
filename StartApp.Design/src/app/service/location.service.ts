@@ -3,13 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { LocaldataService } from './localdata.service';
 import { Observable } from 'rxjs';
+import { BaseService } from './base.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LocationService {
 
-  constructor(private http: HttpClient, private localdata: LocaldataService) { }
+  constructor(private http: HttpClient, private localdata: LocaldataService,private baseService: BaseService) { }
   
   findMe() {
     if(!this.localdata.control("districtName"))
@@ -42,7 +41,7 @@ export class LocationService {
 
   districtSearch(district,city)
   {
-    this.http.post( environment.apiUrl + 'Districts/SearchDistricts',
+    this.baseService.post('Districts/SearchDistricts',
         {
           'District' : district,
           'City' : city
@@ -66,7 +65,7 @@ export class LocationService {
   }
   
   getDistrict(): Observable<any> {
-    return this.http.get(environment.apiUrl + 'Districts/GetDistrict');
+    return this.baseService.get('Districts/GetDistrict');
   }
 
 }

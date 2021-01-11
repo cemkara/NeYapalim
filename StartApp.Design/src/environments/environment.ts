@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  //apiUrl: "http://localhost/api/",
+ // apiUrl: "http://localhost/api/",
   apiUrl:'https://api.neyapalim.online/api/',
   googleApiKey: "AIzaSyDeRIK9CHCECptURw8271-O6DJp60JoRQc",
   imgBgUrl: "/assets/img/img-bg/",

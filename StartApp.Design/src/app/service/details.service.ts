@@ -1,34 +1,28 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
-import { environment } from 'src/environments/environment';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { BaseService } from "./base.service";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DetailsService {
+  constructor(private baseService: BaseService) {}
 
-  constructor(private http: HttpClient) { }
-  
   getPlace(placeId): Observable<any> {
-    return this.http.get( environment.apiUrl + 'Places/GetPlace/' + placeId)
+    return this.baseService.get("Places/GetPlace/" + placeId);
   }
 
-  getPlaceProductMain(placeId): Observable<any>{
-    return this.http.get(environment.apiUrl + "Places/GetProductMain/" + placeId);
+  getPlaceProductMain(placeId): Observable<any> {
+    return this.baseService.get("Places/GetProductMain/" + placeId);
   }
 
-  getPlaceProducts(placeId): Observable<any>{
-    return this.http.get(environment.apiUrl + "Places/GetProducts/" + placeId);
+  getPlaceProducts(placeId): Observable<any> {
+    return this.baseService.get("Places/GetProducts/" + placeId);
   }
 
-  getPlaceComments(placeId): Observable<any>{
-    return this.http.get(environment.apiUrl + "Places/GetComments/" + placeId);
+  getPlaceComments(placeId): Observable<any> {
+    return this.baseService.get("Places/GetComments/" + placeId);
   }
 
-  getPlaceCommentsTopTen(placeId): Observable<any>{
-    return this.http.get(environment.apiUrl + "Places/GetCommentsTopTen/" + placeId);
+  getPlaceCommentsTopTen(placeId): Observable<any> {
+    return this.baseService.get("Places/GetCommentsTopTen/" + placeId);
   }
-
 }

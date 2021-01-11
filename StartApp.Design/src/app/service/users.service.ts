@@ -1,93 +1,83 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { LocaldataService } from './localdata.service';
+import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
+import { Observable } from "rxjs";
+import { BaseService } from "./base.service";
+import { LocaldataService } from "./localdata.service";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UsersService {
-
-  constructor(private localData: LocaldataService, private router: Router, private http: HttpClient) { }
+  constructor(
+    private localData: LocaldataService,
+    private router: Router,
+    private baseService: BaseService
+  ) {}
   activeUser;
 
-  getActiveUser()
-  {
-      return JSON.parse(this.localData.get("user"));
+  getActiveUser() {
+    return JSON.parse(this.localData.get("user"));
   }
 
-  activeUserControl()
-  {
-      if(this.localData.get("user") != null){
-        this.router.navigate(['/default']);
-      }
-      return false;
-  }
-
-  userLoginControl()
-  {
-    if(this.localData.get("user") == null){
-      this.router.navigate(['/login']);
+  activeUserControl() {
+    if (this.localData.get("user") != null) {
+      this.router.navigate(["/default"]);
     }
     return false;
   }
 
-  getComments(id) :Observable<any> {
-    return this.http.get(environment.apiUrl + 'Users/GetComments/' + id);
+  userLoginControl() {
+    if (this.localData.get("user") == null) {
+      this.router.navigate(["/login"]);
+    }
+    return false;
   }
 
-  addToFavorite(userId, placeId)
-  {
-    return this.http.post( environment.apiUrl + 'UserFavoritePlaces/AddFavoritePlace',
-    {
-      'userId':userId,
-      'placeId': placeId
-    })
+  getComments(id): Observable<any> {
+    return this.baseService.get("Users/GetComments/" + id);
   }
 
-  removeToFavorite(userId, placeId)
-  {
-    return this.http.post( environment.apiUrl + 'UserFavoritePlaces/RemoveFavoritePlace',
-    {
-      'userId':userId,
-      'placeId': placeId
-    })
+  addToFavorite(userId, placeId) {
+    return this.baseService.post("UserFavoritePlaces/AddFavoritePlace", {
+      userId: userId,
+      placeId: placeId,
+    });
   }
 
-  userFavoritePlaceControl(userId,placeId)
-  {
-    return this.http.post( environment.apiUrl + 'UserFavoritePlaces/userFavoritePlaceControl',
-    {
-      'userId':userId,
-      'placeId': placeId
-    })
+  removeToFavorite(userId, placeId) {
+    return this.baseService.post("UserFavoritePlaces/RemoveFavoritePlace", {
+      userId: userId,
+      placeId: placeId,
+    });
   }
 
-  getFavoritePlaces(id) :Observable<any> {
-    return this.http.get(environment.apiUrl + 'Users/GetFavoritePlaces/' + id);
+  userFavoritePlaceControl(userId, placeId) {
+    return this.baseService.post(
+      "UserFavoritePlaces/userFavoritePlaceControl",
+      {
+        userId: userId,
+        placeId: placeId,
+      }
+    );
   }
 
-  getVisitedPlaces(id) :Observable<any> {
-    return this.http.get(environment.apiUrl + 'Users/GetVisitedPlaces/' + id);
+  getFavoritePlaces(id): Observable<any> {
+    return this.baseService.get("Users/GetFavoritePlaces/" + id);
   }
 
-  addUserVisitedPlace(userId, placeId)
-  {
-    return this.http.post( environment.apiUrl + 'UserVisitedPlaces/AddUserVisitedPlace',
-    {
-      'userId':userId,
-      'placeId': placeId
-    })
+  getVisitedPlaces(id): Observable<any> {
+    return this.baseService.get("Users/GetVisitedPlaces/" + id);
   }
 
-  userVisitedPlaceControl(userId,placeId)
-  {
-    return this.http.post( environment.apiUrl + 'UserVisitedPlaces/UserVisitedPlaceControl',
-    {
-      'userId':userId,
-      'placeId': placeId
-    })
+  addUserVisitedPlace(userId, placeId) {
+    return this.baseService.post("UserVisitedPlaces/AddUserVisitedPlace", {
+      userId: userId,
+      placeId: placeId,
+    });
+  }
+
+  userVisitedPlaceControl(userId, placeId) {
+    return this.baseService.post("UserVisitedPlaces/UserVisitedPlaceControl", {
+      userId: userId,
+      placeId: placeId,
+    });
   }
 }

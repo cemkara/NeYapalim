@@ -27,7 +27,7 @@ export class DetailsComponent implements OnInit {
 
     detailService.getPlace(this.placeId).subscribe(
       res => {
-        this.place = res;
+        // this.place = res;
       },
       err => {
           console.error(err);

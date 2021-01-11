@@ -1,26 +1,18 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { BaseService } from "./base.service";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class BlogService {
-
-  constructor(private http:HttpClient) { }
+  constructor(private baseService: BaseService) {}
 
   getMainBlogs(): Observable<any> {
-    return this.http.get(environment.apiUrl + "Blogs/GetMainBlogs");
+    return this.baseService.get("Blogs/GetMainBlogs");
   }
   getBlog(blogId): Observable<any> {
-    return this.http.get(
-      environment.apiUrl + "Blogs/GetBlog/" + blogId
-    );
+    return this.baseService.get("Blogs/GetBlog/" + blogId);
   }
   getAllBlogs(): Observable<any> {
-    return this.http.get(
-      environment.apiUrl + "Blogs/GetAllBlogs"
-    );
+    return this.baseService.get("Blogs/GetAllBlogs");
   }
 }
