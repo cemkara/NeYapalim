@@ -1,6 +1,7 @@
 <main>
   <section class="section section-shaped section-lg">
     <div class="shape shape-style-1 bg-gradient-default">
+    <img src="assets/img/bg/default.jpg" class="page-bg-image">
       <!-- <span></span>
       <span></span>
       <span></span>
@@ -11,7 +12,7 @@
       <span></span> -->
     </div>
     <div class="logo text-center">
-      <img src="./assets/img/brand/logo-white.png">
+      <img (click)="goToHome()" src="./assets/img/brand/logo-default.png">
   </div>
     <div class="container pt-lg-md">
       <div class="row justify-content-center">
@@ -81,9 +82,16 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary mt-4 register-button">Hesap Oluştur</button>
+                  <button type="submit" class="btn btn-red mt-4 register-button">Hesap Oluştur</button>
                 </div>
               </form>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-12 text-center">
+              <a href="#/login" class="text-red">
+                <small>Zaten hesabın varsa giriş yap.</small>
+              </a>
             </div>
           </div>
         </div>

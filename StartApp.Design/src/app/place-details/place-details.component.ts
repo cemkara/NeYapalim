@@ -35,7 +35,7 @@ export class PlaceDetailsComponent implements OnInit {
     private modalService: NgbModal,
     private route: ActivatedRoute,
     private userService: UsersService,
-    private commentService: CommentsService,
+    private commentService: CommentsService
   ) {
     this.route.queryParams.subscribe((params) => {
       if (params["placeId"] == "" || params["placeId"] == undefined) {
@@ -45,50 +45,50 @@ export class PlaceDetailsComponent implements OnInit {
       }
     });
 
-    if (userService.getActiveUser() != null) {
-      this.user = userService.getActiveUser();
-      userService
-        .userFavoritePlaceControl(this.user.Id, this.placeId)
-        .subscribe(
+    detailService.getPlace(this.placeId).subscribe(
+      (res) => {
+        this.place = res;
+        if (userService.getActiveUser() != null) {
+          this.user = userService.getActiveUser();
+          userService
+            .userFavoritePlaceControl(this.user.Id, this.placeId)
+            .subscribe(
+              (res) => {
+                if (res) this.userFavorite = true;
+              },
+              (err) => {
+                console.error(err);
+              }
+            );
+    
+          userService.userVisitedPlaceControl(this.user.Id, this.placeId).subscribe(
+            (res) => {
+              if (res) this.userVisited = true;
+            },
+            (err) => {
+              console.error(err);
+            }
+          );
+        }
+    
+        detailService.getPlaceProductMain(this.placeId).subscribe(
           (res) => {
-            if (res) this.userFavorite = true;
+            this.placeProducts = res;
+          },
+          (err) => {
+            console.error(err);
+          }
+        );
+    
+        detailService.getPlaceCommentsTopTen(this.placeId).subscribe(
+          (res) => {
+            this.placeCommentsTopTen = res;
           },
           (err) => {
             console.error(err);
           }
         );
 
-      userService.userVisitedPlaceControl(this.user.Id, this.placeId).subscribe(
-        (res) => {
-          if (res) this.userVisited = true;
-        },
-        (err) => {
-          console.error(err);
-        }
-      );
-    }
-
-    detailService.getPlace(this.placeId).subscribe(
-      (res) => {
-        this.place = res;
-      },
-      (err) => {
-        console.error(err);
-      }
-    );
-
-    detailService.getPlaceProductMain(this.placeId).subscribe(
-      (res) => {
-        this.placeProducts = res;
-      },
-      (err) => {
-        console.error(err);
-      }
-    );
-
-    detailService.getPlaceCommentsTopTen(this.placeId).subscribe(
-      (res) => {
-        this.placeCommentsTopTen = res;
       },
       (err) => {
         console.error(err);
@@ -216,21 +216,26 @@ export class PlaceDetailsComponent implements OnInit {
     }
     this.notValid = true;
 
-    if (this.user != null)
-    {
-      this.commentService.addComment(this.placeId,this.user.Id,this.commentForm.value.messages,this.commentForm.value.point).subscribe(
-        res=>{
-          if(res!=null){
-            document.getElementById('btnCancel').click();
+    if (this.user != null) {
+      this.commentService
+        .addComment(
+          this.placeId,
+          this.user.Id,
+          this.commentForm.value.messages,
+          this.commentForm.value.point
+        )
+        .subscribe(
+          (res) => {
+            if (res != null) {
+              document.getElementById("btnCancel").click();
+            }
+          },
+          (err) => {
+            console.error(err);
           }
-        },
-        err=>{
-          console.error(err);
-        }
-      )
-    }
-    else{
-      console.error("giriş yapmalısınız")
+        );
+    } else {
+      console.error("giriş yapmalısınız");
     }
   }
 }

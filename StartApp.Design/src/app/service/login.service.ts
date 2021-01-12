@@ -5,6 +5,7 @@ import { BaseService } from "./base.service";
 @Injectable()
 export class LoginService {
   constructor(private baseService: BaseService) {}
+  isLogin;
 
   loginUser(email, password): Observable<any> {
     return this.baseService.post("Users/Login", {

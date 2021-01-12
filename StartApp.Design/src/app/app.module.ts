@@ -20,7 +20,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { SuggestionsComponent } from './suggestions/suggestions.component';
 import { DocsComponent } from './docs/docs.component';
 import { DetailsComponent } from './details/details.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { AutocomplateComponent } from './autocomplate/autocomplate.component';
@@ -119,6 +119,11 @@ import { UsersService } from './service/users.service';
     NgxSpinnerModule  
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BaseService,
+      multi: true,
+    },
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

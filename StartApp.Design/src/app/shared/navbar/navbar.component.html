@@ -31,27 +31,27 @@
       </div>
       <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
         <li class="nav-item dropdown">
-          <a href="#/login" class="nav-link no-caret" [ngClass]="{'d-none' : userLogin}" role="button">
+          <a href="#/login" class="nav-link no-caret" [ngClass]="{'d-none' : loginService.isLogin}" role="button">
             <i class="fa fa-user"></i>
             <span class="nav-link-inner--text">Giriş Yap</span>
           </a>
-          <a href="#/register" class="nav-link no-caret" [ngClass]="{'d-none' : userLogin}" role="button">
+          <a href="#/register" class="nav-link no-caret" [ngClass]="{'d-none' : loginService.isLogin}" role="button">
             <i class="fa fa-user"></i>
             <span class="nav-link-inner--text">Üye Ol</span>
           </a>
-          <a href="#/profile" class="nav-link no-caret" [ngClass]="{'d-none' : !userLogin}" role="button">
+          <a href="#/profile" class="nav-link no-caret" [ngClass]="{'d-none' : !loginService.isLogin}" role="button">
             <i class="fa fa-user"></i>
             <span class="nav-link-inner--text">Profilim</span>
           </a>
-          <a href="#/user-favorite-places" class="nav-link no-caret" [ngClass]="{'d-none' : !userLogin}" role="button">
+          <a href="#/user-favorite-places" class="nav-link no-caret" [ngClass]="{'d-none' : !loginService.isLogin}" role="button">
             <i class="fa fa-star"></i>
             <span class="nav-link-inner--text">Favori Mekanlarım</span>
           </a>
-          <a href="#/user-visited-places" class="nav-link no-caret" [ngClass]="{'d-none' : !userLogin}" role="button">
+          <a href="#/user-visited-places" class="nav-link no-caret" [ngClass]="{'d-none' : !loginService.isLogin}" role="button">
             <i class="fa fa-thumbs-up"></i>
             <span class="nav-link-inner--text">Gittiğim Mekanlarım</span>
           </a>
-          <a href="#/user-comments" class="nav-link no-caret" [ngClass]="{'d-none' : !userLogin}" role="button">
+          <a href="#/user-comments" class="nav-link no-caret" [ngClass]="{'d-none' : !loginService.isLogin}" role="button">
             <i class="fa fa-comments"></i>
             <span class="nav-link-inner--text">Yorumlarım</span>
           </a>
@@ -59,7 +59,7 @@
             <i class="ni ni-ui-04 d-lg-none"></i>
             <span class="nav-link-inner--text"> Bilgileri Temizle</span>
           </a>
-          <a class="nav-link no-caret" [ngClass]="{'d-none' : !userLogin}" role="button">
+          <a (click)="logout()" class="nav-link no-caret" [ngClass]="{'d-none' : !loginService.isLogin}" role="button">
             X
             <span class="nav-link-inner--text">Logout</span>
           </a>

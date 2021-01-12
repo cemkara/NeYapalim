@@ -17,6 +17,11 @@ export class UsersService {
     return JSON.parse(this.localData.get("user"));
   }
 
+  isActive() {
+    if (JSON.parse(this.localData.get("user")) != null) return true;
+    return false;
+  }
+
   activeUserControl() {
     if (this.localData.get("user") != null) {
       this.router.navigate(["/default"]);

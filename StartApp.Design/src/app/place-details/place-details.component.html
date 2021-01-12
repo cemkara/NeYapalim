@@ -1,6 +1,6 @@
-<main class="profile-page">
+<main class="profile-page" *ngIf="place">
   <section class="section-profile-cover section-shaped my-0">
-    <img src="{{place.MainImage}}" class="page-bg-image" alt="blog-image">
+    <img [src]="place!= null ? place.MainImage : '/assets/img/img-place/default.jpg'" class="page-bg-image" alt="blog-image">
     <!-- Circles background -->
     <div class="shape shape-style-1 shape-primary alpha-4">
       <span></span>
@@ -118,12 +118,12 @@
                   <span class="description">{{product.Name}}</span>
                 </div>
                 
-                <div class="alert alert-secondary btn-red" [ngClass]="{'d-none' : placeProducts.length > 0}"
+                <!-- <div class="alert alert-secondary btn-red" [ngClass]="{'d-none' : placeProducts > 0}"
                   role="alert">
                   Bu mekana henüz bir ürün girişi yapılmadı..
-                </div>
+                </div> -->
               </div>
-              <a href="#/place-products?placeId={{placeId}}" [ngClass]="{'d-none' : placeProducts.length == 0}"
+              <a href="#/place-products?placeId={{placeId}}" [ngClass]="{'d-none' : placeProducts == 0}"
                 class="btn btn-red mb-2 btn-sm" role="button" aria-pressed="true">Tüm Ürünleri Göster</a>
             </div>
           </div>

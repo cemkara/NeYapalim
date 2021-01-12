@@ -16,7 +16,6 @@ export class CommentListComponent implements OnInit {
   }
   
   constructor() {
-    console.log('myCustomComponent');
    }
 
   ngOnInit(): void {
