@@ -39,9 +39,9 @@ export class PropertiesComponent implements OnInit {
   {
     var item = this.properties[index];
     if(item.tempSelect)
-      item.color = "f0f0f0";
+      item.color = "";
     else
-      item.color = "2df309";
+      item.color = "active-";
     
       item.tempSelect = !item.tempSelect;
       this.setSelectedProperties(item);
