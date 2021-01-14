@@ -44,12 +44,12 @@ namespace StartApp.Controllers
             }
 
             string SqlQuery = "SELECT  DISTINCT(P.Id),P.* FROM Places AS P inner join PlaceCategories AS PC ON P.Id = PC.PlaceId inner join PlaceProperties AS PP ON P.Id = PP.PlaceId WHERE ";
-            if (postData.districtId == null)
+            if (postData.districtId != null)
             {
-                return null;
+                SqlQuery += string.Format("DistrictId = {0} AND ", postData.districtId);
             }
 
-            SqlQuery += string.Format("DistrictId = {0} AND P.IsActive=1 ", postData.districtId);
+            SqlQuery += string.Format(" P.IsActive=1 ");
             int catId, propId;
 
             if (arrayCategories.Count() > 0)
