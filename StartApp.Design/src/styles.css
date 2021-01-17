@@ -40,3 +40,7 @@ body {
   height: 125% !important;
   opacity: 1 !important;
 }
+
+.d-active{
+  display: block;
+}

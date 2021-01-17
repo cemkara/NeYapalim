@@ -171,6 +171,19 @@
           <Property Name="TextCode" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="MailConfigs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SmtpHost" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SmtpPort" Type="nvarchar" MaxLength="10" />
+          <Property Name="SmtpEmail" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SmtpPassword" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="BccMail" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FromMail" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="MainCategories">
           <Key>
             <PropertyRef Name="Id" />
@@ -967,6 +980,7 @@
           <EntitySet Name="Districts" EntityType="Self.Districts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LanguageTexts" EntityType="Self.LanguageTexts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailConfigs" EntityType="Self.MailConfigs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MainCategories" EntityType="Self.MainCategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PlaceCategories" EntityType="Self.PlaceCategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PlaceImages" EntityType="Self.PlaceImages" Schema="dbo" store:Type="Tables" />
@@ -2291,6 +2305,7 @@
             <End Role="Places" EntitySet="Places" />
             <End Role="PlaceImages" EntitySet="PlaceImages" />
           </AssociationSet>
+          <EntitySet Name="MailConfigs" EntityType="StartAppModel.MailConfigs" />
         </EntityContainer>
         <EntityType Name="CategoryProperties">
           <Key>
@@ -2433,6 +2448,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="MailConfigs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SmtpHost" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SmtpPort" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SmtpEmail" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SmtpPassword" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BccMail" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FromMail" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2880,6 +2908,20 @@
                 <ScalarProperty Name="MainImage" ColumnName="MainImage" />
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailConfigs">
+            <EntityTypeMapping TypeName="StartAppModel.MailConfigs">
+              <MappingFragment StoreEntitySet="MailConfigs">
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="FromMail" ColumnName="FromMail" />
+                <ScalarProperty Name="BccMail" ColumnName="BccMail" />
+                <ScalarProperty Name="SmtpPassword" ColumnName="SmtpPassword" />
+                <ScalarProperty Name="SmtpEmail" ColumnName="SmtpEmail" />
+                <ScalarProperty Name="SmtpPort" ColumnName="SmtpPort" />
+                <ScalarProperty Name="SmtpHost" ColumnName="SmtpHost" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

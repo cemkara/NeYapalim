@@ -22,11 +22,14 @@
             <p class="lead text-red font-weight-500 text-center">Senin için bir mekanda olmazsa olmaz özellikler nelerdir?</p>
             <div class="row text-center"> 
               <div class="col-3" style="margin-bottom: 20px;" *ngFor="let prop of properties;index as i">
-                <img (click)="changeSelected(i)" src="/assets/img/img-category/icons/{{prop.color}}{{prop.Properties.IconUrl}}" class="rounded" alt="...">
+                <img (click)="changeSelected(i)" src="/assets/img/img-properties/icons/{{prop.color}}{{prop.Properties.IconUrl}}" class="property-icon" alt="...">
                 <span class="text-red">{{prop.Properties.Name}}</span>  
             </div>
+            <div class="alert alert-secondary btn-red" *ngIf="!properties" role="alert">
+              Lütfen önceki adıma gidin ve bir kategori seçin..
+             </div>
             </div>
-            <a href="#/suggestions?categories={{this.selectedCategories.toString()}}&properties={{this.selectedProperties.toString()}}" class="btn btn-red float-right" type="button">Mekanları Gör</a>
+            <a *ngIf="properties" href="#/suggestions?categories={{this.selectedCategories.toString()}}&properties={{this.selectedProperties.toString()}}" class="btn btn-red float-right" type="button">Mekanları Gör</a>
           </div>
         </div>
       </section>

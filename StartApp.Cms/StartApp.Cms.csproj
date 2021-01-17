@@ -136,6 +136,7 @@
     <Compile Include="Controllers\DistrictsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MailConfigsController.cs" />
     <Compile Include="Controllers\MainCategoriesController.cs" />
     <Compile Include="Controllers\PlaceCategoriesController.cs" />
     <Compile Include="Controllers\PlaceImagesController.cs" />
@@ -262,6 +263,11 @@
     <Content Include="Views\PlaceImages\Details.cshtml" />
     <Content Include="Views\PlaceImages\Edit.cshtml" />
     <Content Include="Views\PlaceImages\Index.cshtml" />
+    <Content Include="Views\MailConfigs\Create.cshtml" />
+    <Content Include="Views\MailConfigs\Delete.cshtml" />
+    <Content Include="Views\MailConfigs\Details.cshtml" />
+    <Content Include="Views\MailConfigs\Edit.cshtml" />
+    <Content Include="Views\MailConfigs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

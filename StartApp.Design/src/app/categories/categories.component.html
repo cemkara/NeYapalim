@@ -21,7 +21,7 @@
             <p class="lead text-red font-weight-500 text-center">Size en uygun kategoriler hangisi?</p>
             <div class="row text-center"> 
                 <div class="col-3" style="margin-bottom: 20px;" *ngFor="let cat of categories;index as i">
-                    <img (click)="changeSelected(i)" src="/assets/img/img-category/icons/{{cat.color}}{{cat.IconUrl}}" class="rounded" alt="...">
+                    <img (click)="changeSelected(i)" src="/assets/img/img-category/icons/{{cat.color}}{{cat.IconUrl}}" class="category-icon" alt="...">
                     <span class="text-red">{{cat.Name}}</span>  
                 </div>
             </div>

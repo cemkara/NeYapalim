@@ -66,5 +66,6 @@ namespace StartAppModel
         public virtual DbSet<ContentPlaces> ContentPlaces { get; set; }
         public virtual DbSet<Contents> Contents { get; set; }
         public virtual DbSet<PlaceImages> PlaceImages { get; set; }
+        public virtual DbSet<MailConfigs> MailConfigs { get; set; }
     }
 }

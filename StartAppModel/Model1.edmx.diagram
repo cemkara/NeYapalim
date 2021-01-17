@@ -91,6 +91,7 @@
         <AssociationConnector Association="StartAppModel.FK_ContentPlaces_Contents" />
         <EntityTypeShape EntityType="StartAppModel.PlaceImages" Width="1.5" PointX="11.25" PointY="27.5" />
         <AssociationConnector Association="StartAppModel.FK_PlaceImages_Places" />
+        <EntityTypeShape EntityType="StartAppModel.MailConfigs" Width="1.5" PointX="0.75" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

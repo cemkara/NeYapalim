@@ -1,0 +1,81 @@
+﻿@model StartAppModel.MailConfigs
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MailConfigs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SmtpHost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SmtpHost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SmtpPort)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SmtpPort)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SmtpEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SmtpEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SmtpPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SmtpPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BccMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BccMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisplayName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

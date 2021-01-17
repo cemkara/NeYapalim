@@ -29,14 +29,14 @@ namespace StartApp.Controllers
                 }
             }
 
-            IQueryable<CategoryProperties> props = properties.Distinct().AsQueryable();
+            IQueryable<CategoryProperties> props = properties.GroupBy(x => x.CategoryId).Select(x => x.First()).AsQueryable();
             if (props.Count() > 0)
             {
                 return props;
             }
             else
             {
-                return db.CategoryProperties.Where(x => x.IsActive);
+                return null;
             }
         }
     }
