@@ -38,6 +38,7 @@ export class SuggestionsComponent implements OnInit {
     suggestionService.getSuggestions(this.categories,this.properties,localData.get("districtId")).subscribe(
       res => {
           this.suggestionPlaces = res;
+          console.log(res);
       },
       err => {
           console.error(err);

@@ -29,6 +29,7 @@
               Lütfen önceki adıma gidin ve bir kategori seçin..
              </div>
             </div>
+            <a (click)="backPage()" class="btn btn-red" type="button">Geri</a>
             <a *ngIf="properties" href="#/suggestions?categories={{this.selectedCategories.toString()}}&properties={{this.selectedProperties.toString()}}" class="btn btn-red float-right" type="button">Mekanları Gör</a>
           </div>
         </div>

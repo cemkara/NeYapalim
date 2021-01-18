@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs";
 import { LocaldataService } from "../service/localdata.service";
 import { PropertiesService } from "../service/properties.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: "app-properties",
@@ -16,7 +17,8 @@ export class PropertiesComponent implements OnInit {
   constructor(
     private propertiesService: PropertiesService,
     private route: ActivatedRoute,
-    private localData: LocaldataService
+    private localData: LocaldataService,
+    private location: Location
   ) {
     this.route.queryParams.subscribe((params) => {
       if (params["selectedCategories"] == "") this.selectedCategories = "0";
@@ -55,5 +57,9 @@ export class PropertiesComponent implements OnInit {
     } else {
       this.selectedProperties.splice(indexItem, 1);
     }
+  }
+
+  backPage(){
+    this.location.back();
   }
 }
