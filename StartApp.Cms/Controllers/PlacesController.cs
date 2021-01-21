@@ -1,4 +1,5 @@
-﻿using StartApp.Cms.App_Start;
+﻿using PagedList;
+using StartApp.Cms.App_Start;
 using StartAppModel;
 using System;
 using System.Collections.Generic;
@@ -20,10 +21,11 @@ namespace StartApp.Cms.Controllers
         private StartAppEntities db = new StartAppEntities();
 
         // GET: Places
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var places = db.Places.Include(p => p.Districts).Include(p => p.PlaceTypes);
-            return View(places.ToList());
+            //var places = db.Places.Include(p => p.Districts).Include(p => p.PlaceTypes);
+            var places = db.Places.ToList().ToPagedList(page ?? 1, 20);
+            return View(places);
         }
 
         // GET: Places/Details/5
