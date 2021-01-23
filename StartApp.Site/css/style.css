@@ -2613,10 +2613,20 @@ body.center {
   .booking-form .btn-holder {
     margin-top: 31px; }
 
+.bg-yemek .image-holder {
+    background: url("../images/bg/yemek.png") center center;
+}
+.bg-icmek .image-holder {
+    background: url("../images/bg/icmek.png") center center;
+}
+.bg-gezmek .image-holder {
+    background: url("../images/bg/gezmek.png") center center;
+}
 .trait .image-holder {
-  height: 100%;
-  background: url("../images/trait.jpg") center center;
-  background-size: cover; }
+    height: 100%;
+    /*background: url("../images/bg/trait.jpg") center center;*/
+    background-size: cover;
+}
   .trait .image-holder img {
     display: none; }
 
@@ -2664,7 +2674,7 @@ body.center {
 
 .our-story .image-holder {
   height: 100%;
-  background: url("../images/our-story.jpg") center center;
+  /*background: url("../images/our-story.jpg") center center;*/
   background-size: cover; }
   .our-story .image-holder img {
     display: none; }
