@@ -66,4 +66,9 @@ export class NavbarComponent implements OnInit {
     this.loginService.isLogin = false;
     window.location.href = "#/default";
   }
+  
+  goBack(){
+    this.location.back();
+  }
+
 }

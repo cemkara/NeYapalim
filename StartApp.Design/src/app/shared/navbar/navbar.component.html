@@ -1,9 +1,9 @@
 <nav id="navbar-main"
   class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--top">
   <div class="container">
-    <!-- <a class="navTopItem">
-      <i class="fa fa-arrow-left"></i>
-    </a> -->
+    <a class="navTopItem" [ngClass]="{'d-none': isHome()}" (click)="goBack()">
+      <i class="fa fa-chevron-left text-red"></i>
+    </a> 
     <a class="navbar-brand mr-lg-5" [ngClass]="{'d-none': isHome()}" [routerLink]="['/default']">
       <img src="./assets/img/brand/logo-red.png">
     </a>
