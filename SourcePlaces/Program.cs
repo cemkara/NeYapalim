@@ -35,7 +35,21 @@ namespace SourcePlaces
             //strList.Add("kebap");
             //strList.Add("starbucks");//zincir
             //strList.Add("kahve dünyası");//zincir
-            strList.Add("künefe");
+            //strList.Add("künefe");
+            //strList.Add("beyaz");
+            //strList.Add("siyah");
+            //strList.Add("muhallebi");
+            //strList.Add("dondurma");
+            //strList.Add("pilav");
+            //strList.Add("muhallebi");
+            //strList.Add("taksim");
+            //strList.Add("nevizade");
+            //strList.Add("meyhane");
+            //strList.Add("pastane");
+            //strList.Add("bar");
+            //strList.Add("pizza");
+            
+            //eklenecekler
 
 
             foreach (string s in strList)
@@ -99,9 +113,13 @@ namespace SourcePlaces
                 place = new Places();
 
                 //if(true)
-                if (!db.Places.Any(x => x.Name.ToLower() == restaurant.Name.ToLower()))
+                if (!db.Places.Any(x => x.Name.ToLower() == restaurant.Name.ToLower()) && restaurant.Name != null && restaurant.Name != "")
                 {
-                    place.Name = restaurant.Name;
+                    if (restaurant.Name.Length > 50)
+                        place.Name = restaurant.Name.Substring(0, 50);
+                    else
+                        place.Name = restaurant.Name;
+
 
                     var districtList = db.Districts.Where(x => x.IsActive && restaurant.Location.Locality.ToLower().Contains(x.Name.ToLower()));
                     if (districtList.Count() > 0)

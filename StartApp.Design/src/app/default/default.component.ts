@@ -25,6 +25,7 @@ export class DefaultComponent implements OnInit {
   mainCategories: Observable<any>;
   keyword = "name";
   data;
+  randNumber = 1;
 
   selectEvent(item) {
     localStorage.setItem("districtId", item["id"]);
@@ -45,7 +46,8 @@ export class DefaultComponent implements OnInit {
     private locationService: LocationService,
     private localdata: LocaldataService,
     private deviceService: DeviceService
-    ) {
+  ) {
+    this.getRandomInt();
     // localdata.allClear();
     this.locationService.findMe();
     mainCategoryService.getMainCategories().subscribe(
@@ -65,6 +67,10 @@ export class DefaultComponent implements OnInit {
         console.error(err);
       }
     );
+  }
+  getRandomInt() {
+    this.randNumber = Math.floor(Math.random() * (5 - 1) + 1); //The maximum is exclusive and the minimum is inclusive
+    console.log(this.randNumber);
   }
 
   ngOnInit() {}

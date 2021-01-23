@@ -40,8 +40,29 @@
   height: 70px;
 }
 
-.default-bg {
-  background-image: url(/assets/img/bg/default.jpg);
+.default-bg-1 {
+  background-image: url(/assets/img/img-bg/1.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
+.default-bg-2 {
+  background-image: url(/assets/img/img-bg/2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.default-bg-3 {
+  background-image: url(/assets/img/img-bg/3.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.default-bg-4{
+  background-image: url(/assets/img/img-bg/4.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.default-bg-5{
+  background-image: url(/assets/img/img-bg/5.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+

@@ -9,6 +9,7 @@
 
 namespace StartAppModel
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -19,8 +20,10 @@ namespace StartAppModel
         public int PlaceId { get; set; }
         public string Note { get; set; }
         public bool IsActive { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Categories Categories { get; set; }
+        [JsonIgnore]
         public virtual Places Places { get; set; }
     }
 }
