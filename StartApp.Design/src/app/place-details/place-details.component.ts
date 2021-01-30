@@ -11,6 +11,7 @@ import { ModalDismissReasons, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Observable } from "rxjs";
 import { CommentsService } from "../service/comments.service";
 import { DetailsService } from "../service/details.service";
+import { PropertiesService } from "../service/properties.service";
 import { UsersService } from "../service/users.service";
 
 @Component({
@@ -28,6 +29,8 @@ export class PlaceDetailsComponent implements OnInit {
   userVisited = false;
   commentForm: FormGroup;
   closeResult: string;
+  placeProperties: Observable<any>;
+  placeCategories: Observable<any>;
 
   constructor(
     private detailService: DetailsService,
@@ -44,7 +47,6 @@ export class PlaceDetailsComponent implements OnInit {
         this.placeId = params["placeId"];
       }
     });
-
     detailService.getPlace(this.placeId).subscribe(
       (res) => {
         this.place = res;
@@ -60,17 +62,19 @@ export class PlaceDetailsComponent implements OnInit {
                 console.error(err);
               }
             );
-    
-          userService.userVisitedPlaceControl(this.user.Id, this.placeId).subscribe(
-            (res) => {
-              if (res) this.userVisited = true;
-            },
-            (err) => {
-              console.error(err);
-            }
-          );
+
+          userService
+            .userVisitedPlaceControl(this.user.Id, this.placeId)
+            .subscribe(
+              (res) => {
+                if (res) this.userVisited = true;
+              },
+              (err) => {
+                console.error(err);
+              }
+            );
         }
-    
+
         detailService.getPlaceProductMain(this.placeId).subscribe(
           (res) => {
             this.placeProducts = res;
@@ -79,7 +83,7 @@ export class PlaceDetailsComponent implements OnInit {
             console.error(err);
           }
         );
-    
+
         detailService.getPlaceCommentsTopTen(this.placeId).subscribe(
           (res) => {
             this.placeCommentsTopTen = res;
@@ -89,6 +93,23 @@ export class PlaceDetailsComponent implements OnInit {
           }
         );
 
+        detailService.getProperties(this.placeId).subscribe(
+          (res) => {
+            if (res) this.placeProperties = res;
+          },
+          (err) => {
+            console.error(err);
+          }
+        );
+
+        detailService.getCategories(this.placeId).subscribe(
+          (res) => {
+            if (res) this.placeCategories = res;
+          },
+          (err) => {
+            console.error(err);
+          }
+        );
       },
       (err) => {
         console.error(err);
@@ -124,7 +145,7 @@ export class PlaceDetailsComponent implements OnInit {
         }
       );
     } else {
-      console.log("giriş yap");
+      window.location.href = "#/login";
     }
   }
   removeToFavorite() {
@@ -138,7 +159,7 @@ export class PlaceDetailsComponent implements OnInit {
         }
       );
     } else {
-      console.log("giriş yap");
+      window.location.href = "#/login";
     }
   }
   addToVisited() {
@@ -154,7 +175,7 @@ export class PlaceDetailsComponent implements OnInit {
           }
         );
     } else {
-      console.log("giriş yap");
+      window.location.href = "#/login";
     }
   }
 
@@ -235,7 +256,7 @@ export class PlaceDetailsComponent implements OnInit {
           }
         );
     } else {
-      console.error("giriş yapmalısınız");
+      window.location.href = "#/login";
     }
   }
 }

@@ -1,6 +1,7 @@
 <main class="profile-page" *ngIf="place">
   <section class="section-profile-cover section-shaped my-0">
-    <img [src]="place!= null ? place.MainImage : '/assets/img/img-place/default.jpg'" class="page-bg-image" alt="blog-image">
+    <img [src]="place!= null ? place.MainImage : '/assets/img/img-place/default.jpg'"
+      onerror="this.src='./assets/img/img-place/default.jpg';" class="page-bg-image" alt="blog-image">
     <!-- Circles background -->
     <div class="shape shape-style-1 shape-primary alpha-4">
       <span></span>
@@ -21,7 +22,8 @@
             <div class="col-lg-3 order-lg-2">
               <div class="card-profile-image">
                 <a href="javascript:void(0)">
-                  <img src="{{place.MainImage}}" width="200" height="200" class="rounded-circle">
+                  <img src="{{place.MainImage}}" onerror="this.src='./assets/img/img-place/default.jpg';" width="200"
+                    height="200" class="rounded-circle">
                 </a>
               </div>
             </div>
@@ -43,17 +45,9 @@
             </div>
           </div>
           <div class="text-center mt-5">
-            <h1>{{place.Name}}
-              <span class="font-weight-light"></span>
-            </h1>
+            <h1>{{place.Name}}</h1>
             <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>{{place.PlaceShortLocation}}</div>
-            <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>{{place.ShortDescription}}</div>
-            <div>
-              <span class="badge btn-red badge-pill badge-primary"
-                *ngFor="let prop of place.PlaceProperties;index as i">
-                {{prop.Properties.Name}}
-              </span>
-            </div>
+            <!-- <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>{{place.ShortDescription}}</div> -->
             <div class="col-lg-4 order-lg-1">
               <div class="card-profile-stats d-flex justify-content-center">
                 <div>
@@ -79,11 +73,25 @@
                   aria-pressed="true">Yorum Yap</a>
               </div>
             </div>
+            <hr />
+            <div class="categories" *ngIf="placeCategories">
+              <h5>Kategoriler</h5>
+              <span class="badge btn-red badge-pill propItems" *ngFor="let cat of placeCategories;index as i">
+                {{cat.Name}}
+              </span>
+            </div>
+            <div class="categories" *ngIf="placeProperties">
+              <h5>Özellikler</h5>
+              <span class="badge btn-red badge-pill propItems" *ngFor="let prop of placeProperties;index as i">
+                {{prop.Name}}
+              </span>
+            </div>
           </div>
           <div class="mt-5 py-5 border-top">
             <div class="row justify-content-center">
               <h3>Başlıca yorumlar
-                <span class="font-weight-light"></span></h3>
+                <span class="font-weight-light"></span>
+              </h3>
               <div class="col-lg-9">
                 <ngb-carousel #carousel [interval]="5000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
                   (slide)="onSlide($event)">
@@ -116,7 +124,7 @@
                       alt="..."></span>
                   <span class="description">{{product.Name}}</span>
                 </div>
-                
+
                 <!-- <div class="alert alert-secondary btn-red" [ngClass]="{'d-none' : placeProducts > 0}"
                   role="alert">
                   Bu mekana henüz bir ürün girişi yapılmadı..
@@ -179,22 +187,6 @@
                       id="btnradio5" autocomplete="off">
                     <label class="btn btn-outline-primary" for="btnradio5">5</label>
                   </div>
-                  <!-- <div class="btn-group" id="groupNote" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check d-none" formControlName="point" name="point" value="6" id="btnradio6" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio6">6</label>
-                  
-                    <input type="radio" class="btn-check  d-none" formControlName="point" name="point" value="7" id="btnradio7" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio7">7</label>
-                  
-                    <input type="radio" class="btn-check  d-none" formControlName="point" name="point" value="8" id="btnradio8" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio8">8</label>
-
-                    <input type="radio" class="btn-check  d-none" formControlName="point" name="point" value="9" id="btnradio9" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio9">9</label>
-
-                    <input type="radio" class="btn-check  d-none" formControlName="point" name="point" value="10" id="btnradio10" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio10">10</label>
-                  </div> -->
                 </div>
                 <div class="modal-footer">
                   <button type="button" id="btnCancel" class="btn btn-secondary" data-dismiss="modal"

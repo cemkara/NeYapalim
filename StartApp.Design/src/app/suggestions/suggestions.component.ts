@@ -47,5 +47,4 @@ export class SuggestionsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

@@ -33,7 +33,7 @@ namespace StartApp.Controllers
         /// </summary>
         [ResponseType(typeof(RecommendationsForPost))]
         [HttpPost]
-        public List<Places> GetPlacesofRecommendations(RecommendationsForPost postData)
+        public DbSqlQuery<Places> GetPlacesofRecommendations(RecommendationsForPost postData)
         {
             string[] arrayCategories = postData.categories.Split(',');
             string[] arrayProperties = postData.properties.Split(',');
@@ -43,8 +43,8 @@ namespace StartApp.Controllers
                 return null;
             }
 
-            string SqlQuery = "SELECT  DISTINCT(P.Id),P.* FROM Places AS P inner join PlaceCategories AS PC ON P.Id = PC.PlaceId inner join PlaceProperties AS PP ON P.Id = PP.PlaceId WHERE ";
-            if (postData.districtId != null)
+            string SqlQuery = "SELECT  DISTINCT TOP 5 (P.Id),P.*,NEWID() FROM Places AS P inner join PlaceCategories AS PC ON P.Id = PC.PlaceId inner join PlaceProperties AS PP ON P.Id = PP.PlaceId WHERE ";
+            if (postData.districtId != null && postData.districtId != 0)
             {
                 SqlQuery += string.Format("DistrictId = {0} AND ", postData.districtId);
             }
@@ -86,7 +86,9 @@ namespace StartApp.Controllers
                 }
             }
 
-            return db.Places.SqlQuery(SqlQuery).ToList();
+            SqlQuery += " ORDER BY NEWID()";
+
+            return db.Places.SqlQuery(SqlQuery);
         }
 
         /// <summary>

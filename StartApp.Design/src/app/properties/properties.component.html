@@ -22,8 +22,8 @@
             <p class="lead text-red font-weight-500 text-center">Senin için bir mekanda olmazsa olmaz özellikler nelerdir?</p>
             <div class="row text-center"> 
               <div class="col-3" style="margin-bottom: 20px;" *ngFor="let prop of properties;index as i">
-                <img (click)="changeSelected(i)" src="/assets/img/img-properties/icons/{{prop.color}}{{prop.Properties.IconUrl}}" class="property-icon" alt="...">
-                <span class="text-red">{{prop.Properties.Name}}</span>  
+                <img (click)="changeSelected(i)" src="/assets/img/img-properties/icons/{{prop.color}}{{prop.IconUrl}}" class="property-icon" alt="...">
+                <span class="text-red">{{prop.Name}}</span>  
             </div>
             <div class="alert alert-secondary btn-red" *ngIf="!properties" role="alert">
               Lütfen önceki adıma gidin ve bir kategori seçin..

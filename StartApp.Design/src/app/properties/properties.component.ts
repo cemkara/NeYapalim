@@ -26,7 +26,7 @@ export class PropertiesComponent implements OnInit {
     });
 
     propertiesService
-      .getPropertiesOfCategories(this.selectedCategories)
+      .getProperties()
       .subscribe(
         (res) => {
           if (res != null) this.properties = res;

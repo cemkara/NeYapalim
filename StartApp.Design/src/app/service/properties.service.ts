@@ -11,4 +11,10 @@ export class PropertiesService {
       "CategoryProperties/GetPropertiesOfCategories/" + selectedCategories
     );
   }
+
+  getProperties(): Observable<any> {
+    return this.baseService.get(
+      "Properties/GetProperties/"
+    );
+  }
 }

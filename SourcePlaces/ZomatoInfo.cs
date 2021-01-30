@@ -9,7 +9,7 @@ namespace SourcePlaces
     public static class ZomatoInfo
     {
         const string url = "https://developers.zomato.com/api/v2.1/";
-        const string apiKey = "0d8572d04e3df8c1fa6f1ac1da796ef3";
+        const string apiKey = "fa62971a847062800d94b92a6c6914ed";
 
         public static RestaurantList GetRestaurants(string cityId, string start, string count)
         {

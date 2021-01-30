@@ -25,4 +25,12 @@ export class DetailsService {
   getPlaceCommentsTopTen(placeId): Observable<any> {
     return this.baseService.get("Places/GetCommentsTopTen/" + placeId);
   }
+
+  getProperties(placeId): Observable<any> {
+    return this.baseService.get("Places/GetProperties/" + placeId);
+  }
+
+  getCategories(placeId): Observable<any> {
+    return this.baseService.get("Places/GetCategories/" + placeId);
+  }
 }

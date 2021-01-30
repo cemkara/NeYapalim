@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Microsoft.Ajax.Utilities;
@@ -20,14 +21,15 @@ namespace StartApp.Controllers
         [HttpGet]
         public List<DistrictSearch> GetDistrict()
         {
-            return db.Districts.AsEnumerable()
+            var list = db.Districts.AsEnumerable()
                           .Where(x => x.IsActive)
                           .Select(o => new DistrictSearch
                           {
                               id = o.Id,
                               name = o.Name + ", " + o.Cities.Name
                           }).ToList();
-
+            list.Insert(0, new DistrictSearch { id = 0, name = "Bana hiç farketmez.." });
+            return list;
         }
 
         [ResponseType(typeof(DistrictRequest))]
