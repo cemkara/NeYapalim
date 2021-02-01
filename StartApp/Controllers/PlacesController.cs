@@ -43,7 +43,7 @@ namespace StartApp.Controllers
                 return null;
             }
 
-            string SqlQuery = "SELECT  DISTINCT TOP 5 (P.Id),P.*,NEWID() FROM Places AS P inner join PlaceCategories AS PC ON P.Id = PC.PlaceId inner join PlaceProperties AS PP ON P.Id = PP.PlaceId WHERE ";
+            string SqlQuery = "SELECT TOP 5 P.Id, P.Name,P.DistrictId,P.AveragePrice,P.Address,P.Phone, P.PlaceTypeID, P.IsActive,P.Latitude,P.Longitude,P.Distance,P.ShortDescription,P.Description,P.RecordDate, NEWID() FROM Places AS P inner join PlaceCategories AS PC ON P.Id = PC.PlaceId inner join PlaceProperties AS PP ON P.Id = PP.PlaceId WHERE ";
             if (postData.districtId != null && postData.districtId != 0)
             {
                 SqlQuery += string.Format("DistrictId = {0} AND ", postData.districtId);
@@ -86,7 +86,7 @@ namespace StartApp.Controllers
                 }
             }
 
-            SqlQuery += " ORDER BY NEWID()";
+            SqlQuery += " GROUP BY P.Id, P.Name,P.DistrictId,P.AveragePrice,P.Address,P.Phone,P.PlaceTypeID, P.IsActive,P.Latitude,P.Longitude,P.Distance,P.ShortDescription,P.Description,P.RecordDate ORDER BY NEWID()";
 
             return db.Places.SqlQuery(SqlQuery);
         }
